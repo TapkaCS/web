@@ -13,17 +13,6 @@
     document.head.appendChild(script);
   }
 
-  function createAdminButton() {
-    const btn = document.createElement('button');
-    btn.id = 'adminLoginBtn';
-    btn.textContent = 'Admin';
-    btn.style.cssText = 'position:fixed;bottom:16px;right:16px;z-index:9999;padding:10px 16px;'
-        + 'border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.6);'
-        + 'color:#fff;font-family:sans-serif;font-size:.8rem;cursor:pointer;backdrop-filter:blur(8px);';
-    document.body.appendChild(btn);
-    return btn;
-  }
-
   function createSaveBar() {
     const bar = document.createElement('div');
     bar.id = 'adminSaveBar';
@@ -47,20 +36,14 @@
       el.style.outline = '1px dashed rgba(87,253,243,.5)';
     });
     document.getElementById('adminSaveBar').style.display = 'flex';
-    document.getElementById('adminLoginBtn').style.display = 'none';
   }
 
-  function exitEditMode(revert) {
+  function exitEditMode() {
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       el.removeAttribute('contenteditable');
       el.style.outline = '';
-      if (revert && el.dataset.originalHtml !== undefined) {
-        el.innerHTML = el.dataset.originalHtml;
-      }
     });
     document.getElementById('adminSaveBar').style.display = 'none';
-    document.getElementById('adminLoginBtn').style.display = 'block';
-    document.getElementById('adminSaveStatus').textContent = '';
   }
 
   function collectChanges() {
@@ -133,7 +116,6 @@
     const statusEl = document.getElementById('adminSaveStatus');
     if (Object.keys(changes).length === 0) {
       statusEl.textContent = 'No changes.';
-      exitEditMode(false);
       return;
     }
     const lang = document.documentElement.lang === 'en' ? 'en' : 'cs';
@@ -157,7 +139,6 @@
       });
 
       statusEl.textContent = 'Saved! Live site updates in about a minute.';
-      exitEditMode(false);
     } catch (err) {
       statusEl.textContent = 'Error: ' + err.message;
     }
@@ -165,26 +146,20 @@
 
   ensureWidgetLoaded(() => {
     const identity = window.netlifyIdentity;
-    const adminBtn = createAdminButton();
     createSaveBar();
 
-    adminBtn.addEventListener('click', () => {
-      if (identity.currentUser()) {
-        enterEditMode();
-      } else {
-        identity.open();
-      }
-    });
-
     document.getElementById('adminSaveBtn').addEventListener('click', () => saveChanges(identity));
-    document.getElementById('adminCancelBtn').addEventListener('click', () => exitEditMode(true));
+    document.getElementById('adminCancelBtn').addEventListener('click', () => exitEditMode());
     document.getElementById('adminLogoutBtn').addEventListener('click', () => identity.logout());
 
     identity.on('login', () => {
       identity.close();
       enterEditMode();
     });
-    identity.on('logout', () => exitEditMode(true));
+    identity.on('logout', () => exitEditMode());
+    identity.on('init', (user) => {
+      if (user) enterEditMode();
+    });
 
     identity.init();
   });

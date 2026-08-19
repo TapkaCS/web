@@ -1,0 +1,30 @@
+<title>TapkaCraft Admin</title>
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:#07070b;color:#f3f4f9;font-family:sans-serif;}
+  .box{text-align:center;}
+  .box h1{font-size:1.4rem;margin-bottom:8px;}
+  .box p{color:rgba(243,244,249,.64);font-size:.9rem;}
+</style>
+<div class="box">
+  <h1>TapkaCraft Admin</h1>
+  <p id="status">Opening login...</p>
+</div>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  const identity = window.netlifyIdentity;
+  const statusEl = document.getElementById('status');
+
+  identity.on('login', () => {
+    statusEl.textContent = 'Logged in, redirecting...';
+    setTimeout(() => { window.location.href = '/'; }, 300);
+  });
+  identity.on('init', (user) => {
+    if (user) {
+      window.location.href = '/';
+    } else {
+      identity.open('login');
+    }
+  });
+  identity.init();
+</script>
