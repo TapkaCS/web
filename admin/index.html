@@ -23,7 +23,11 @@
     if (user) {
       window.location.href = '/';
     } else {
-      identity.open('login');
+      // Calling open() synchronously inside the init callback races the
+      // widget's own iframe setup and can leave the visible iframe empty
+      // while the real login form renders into a hidden one. Deferring by
+      // a tick avoids that.
+      setTimeout(() => { identity.open('login'); }, 300);
     }
   });
   identity.init();
