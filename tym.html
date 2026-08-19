@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Náš tým · TapkaCraft</title>
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#07070b">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<meta name="description" content="Poznej tým, který stojí za TapkaCraft.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Náš tým · TapkaCraft">
+<meta property="og:description" content="Poznej tým, který stojí za TapkaCraft.">
+<meta property="og:url" content="https://tapkacraft.cz/tym.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-i18n-title="meta.title.tym">
+
+<div class="grain" aria-hidden="true"></div>
+<div class="ambient-glow" aria-hidden="true"><span></span><span></span></div>
+
+<header id="siteHeader">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-text gradient-text">TapkaCraft</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html#nabizime" data-i18n="nav.nabizime">Co nabízíme</a></li>
+      <li><a href="index.html#novinky" data-i18n="nav.novinky">Novinky</a></li>
+      <li><a href="index.html#komunita" data-i18n="nav.komunita">Komunita</a></li>
+      <li><a href="tym.html" data-i18n="nav.tym">Tým</a></li>
+      <li><a href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="index.html#pravidla" data-i18n="nav.pravidla">Pravidla</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Jazyk / Language">
+        <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština" aria-pressed="true">CZ</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
+      </div>
+
+      <div class="nav-ctas" id="navCtas">
+        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord btn-sm">
+          <span class="btn-ico">💬</span><span data-i18n="nav.discord">Discord</span>
+        </a>
+        <a href="podpora.html" class="btn btn-support btn-sm">
+          <span class="btn-ico">❤️</span><span data-i18n="nav.podpora">Podpora</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="page-hero">
+    <a href="index.html" class="back" data-i18n="page.back">← Zpět na hlavní stránku</a>
+    <h1 class="gradient-text" data-i18n="tym.title">Náš tým</h1>
+    <p data-i18n="tym.lead">Lidé, kteří drží TapkaCraft nad vodou.</p>
+  </div>
+
+  <section class="team">
+    <div class="team-grid">
+      <div class="glass-card team-card reveal">
+        <div class="avatar"><img src="assets/img/avatar-tapkacs.png" alt="TapkaCS"></div>
+        <div class="name">TapkaCS</div>
+        <div class="role" data-i18n="team.owner.role">Majitel</div>
+        <div class="desc" data-i18n="team.owner.desc">Zakladatel a hlavní správce serveru.</div>
+      </div>
+      <div class="glass-card team-card reveal">
+        <div class="avatar"><img src="assets/img/avatar-kajka000.png" alt="kajka000"></div>
+        <div class="name">kajka000</div>
+        <div class="role" data-i18n="team.admin.role">Admin</div>
+        <div class="desc" data-i18n="team.admin.desc">Stará se o chod a pořádek na serveru.</div>
+      </div>
+      <div class="glass-card team-card team-card--empty reveal">
+        <div class="avatar"><img src="assets/img/avatar-empty.png" alt="Volná pozice"></div>
+        <div class="name" data-i18n="team.empty.name">Volná pozice</div>
+        <div class="role" data-i18n="team.empty.mod">Moderátor</div>
+        <div class="desc" data-i18n="team.empty.desc">Tahle pozice zatím čeká na tebe.</div>
+      </div>
+      <div class="glass-card team-card team-card--empty reveal">
+        <div class="avatar"><img src="assets/img/avatar-empty.png" alt="Volná pozice"></div>
+        <div class="name" data-i18n="team.empty.name">Volná pozice</div>
+        <div class="role" data-i18n="team.empty.helper">Helper</div>
+        <div class="desc" data-i18n="team.empty.desc">Tahle pozice zatím čeká na tebe.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-box">
+    <div class="glass-card inner reveal">
+      <h2 class="section-title" data-i18n="tym.contact.title">Chceš se přidat k týmu?</h2>
+      <p data-i18n="tym.contact.desc">Hledáme <b>moderátora</b> a <b>helpera</b>. Napiš nám na Discord, rádi si o tom promluvíme.</p>
+      <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord">
+        <span class="btn-ico">💬</span><span data-i18n="contact.discord">Napsat na Discord</span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand gradient-text">TapkaCraft</span>
+    <span class="footer-copy">© 2026 · mc.tapkacraft.cz</span>
+    <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="footer-discord">💬 Discord</a>
+    <span class="footer-note" data-i18n="footer.note">Není spojeno s Mojang.</span>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
