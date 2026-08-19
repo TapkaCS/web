@@ -13,6 +13,30 @@
     document.head.appendChild(script);
   }
 
+  // The widget renders its modal into one of two internal iframes but
+  // sometimes shows the OTHER (empty) one instead, so the form is present
+  // in the DOM but invisible. This happens for the login modal AND for the
+  // modal it auto-opens when the page loads with an invite/recovery/
+  // confirmation token in the URL hash. Poll briefly after anything that
+  // could open the widget and force whichever iframe actually has content
+  // to be the visible one.
+  function reconcileIdentityModal() {
+    let ticks = 0;
+    const interval = setInterval(() => {
+      ticks += 1;
+      document.querySelectorAll('iframe[title="Netlify identity widget"]').forEach((f) => {
+        let hasContent = false;
+        try {
+          hasContent = !!(f.contentDocument && f.contentDocument.body && f.contentDocument.body.innerHTML.length > 0);
+        } catch (e) { /* ignore */ }
+        const isShown = getComputedStyle(f).display !== 'none';
+        if (hasContent && !isShown) f.style.setProperty('display', 'block', 'important');
+        if (!hasContent && isShown) f.style.setProperty('display', 'none', 'important');
+      });
+      if (ticks > 40) clearInterval(interval);
+    }, 150);
+  }
+
   function createSaveBar() {
     const bar = document.createElement('div');
     bar.id = 'adminSaveBar';
@@ -162,5 +186,6 @@
     });
 
     identity.init();
+    reconcileIdentityModal();
   });
 })();
