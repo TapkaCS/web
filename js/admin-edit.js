@@ -13,39 +13,36 @@
     document.head.appendChild(script);
   }
 
-  // The widget renders its modal into one of two internal iframes but
-  // sometimes shows the OTHER (empty) one instead, so the form is present
-  // in the DOM but invisible. This happens for the login modal AND for the
-  // modal it auto-opens when the page loads with an invite/recovery/
-  // confirmation token in the URL hash. Poll briefly after anything that
-  // could open the widget and force whichever iframe actually has content
-  // to be the visible one.
-  function reconcileIdentityModal() {
-    let ticks = 0;
-    const interval = setInterval(() => {
-      ticks += 1;
-      document.querySelectorAll('iframe[title="Netlify identity widget"]').forEach((f) => {
-        let hasContent = false;
-        try {
-          hasContent = !!(f.contentDocument && f.contentDocument.body && f.contentDocument.body.innerHTML.length > 0);
-        } catch (e) { /* ignore */ }
-        const isShown = getComputedStyle(f).display !== 'none';
-        if (hasContent && !isShown) f.style.setProperty('display', 'block', 'important');
-        if (!hasContent && isShown) f.style.setProperty('display', 'none', 'important');
-      });
-      if (ticks > 40) clearInterval(interval);
-    }, 150);
-  }
+  /*
+   * On the main site, login itself always happens on the separate /admin
+   * page - here we only ever need the widget's JS API (currentUser, the
+   * login/logout events), never its own rendered UI. But its internal
+   * "hide this part" logic isn't trustworthy: confirmed live, a
+   * visuallyHidden "Coded by Netlify" badge inside its modal rendered as a
+   * full-viewport blue tint instead of being invisible, for every visitor,
+   * not just after an explicit action - and re-asserting display:none once
+   * (or even for a few seconds after logout) still lost the race against
+   * whatever re-shows it. So don't try to react to specific events at all -
+   * permanently force both iframes hidden for as long as the page is open,
+   * via a MutationObserver scoped to just those two elements' style
+   * attribute (cheap - doesn't watch the rest of the page).
+   */
+  function forceHideIdentityWidgetForever() {
+    const watched = new Set();
+    const hide = (f) => f.style.setProperty('display', 'none', 'important');
+    const watch = (f) => {
+      if (watched.has(f)) return;
+      watched.add(f);
+      hide(f);
+      new MutationObserver(() => hide(f)).observe(f, { attributes: true, attributeFilter: ['style'] });
+    };
 
-  // After logout there's nothing left for the widget to show, but its own
-  // internal "hide this part" logic (aria-hidden + a CSS class) isn't
-  // reliable - confirmed live: a visuallyHidden "Coded by Netlify" badge
-  // inside the modal rendered as a full-viewport blue tint instead of being
-  // invisible. Don't trust it - force both iframes fully hidden instead.
-  function hideIdentityWidget() {
-    document.querySelectorAll('iframe[title="Netlify identity widget"]').forEach((f) => {
-      f.style.setProperty('display', 'none', 'important');
-    });
+    let ticks = 0;
+    const poll = setInterval(() => {
+      ticks += 1;
+      document.querySelectorAll('iframe[title="Netlify identity widget"]').forEach(watch);
+      if (ticks > 40) clearInterval(poll);
+    }, 150);
   }
 
   function createSaveBar() {
@@ -191,15 +188,12 @@
       identity.close();
       enterEditMode();
     });
-    identity.on('logout', () => {
-      exitEditMode();
-      hideIdentityWidget();
-    });
+    identity.on('logout', () => exitEditMode());
     identity.on('init', (user) => {
       if (user) enterEditMode();
     });
 
     identity.init();
-    reconcileIdentityModal();
+    forceHideIdentityWidgetForever();
   });
 })();
