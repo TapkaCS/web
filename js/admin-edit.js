@@ -37,6 +37,17 @@
     }, 150);
   }
 
+  // After logout there's nothing left for the widget to show, but its own
+  // internal "hide this part" logic (aria-hidden + a CSS class) isn't
+  // reliable - confirmed live: a visuallyHidden "Coded by Netlify" badge
+  // inside the modal rendered as a full-viewport blue tint instead of being
+  // invisible. Don't trust it - force both iframes fully hidden instead.
+  function hideIdentityWidget() {
+    document.querySelectorAll('iframe[title="Netlify identity widget"]').forEach((f) => {
+      f.style.setProperty('display', 'none', 'important');
+    });
+  }
+
   function createSaveBar() {
     const bar = document.createElement('div');
     bar.id = 'adminSaveBar';
@@ -180,7 +191,10 @@
       identity.close();
       enterEditMode();
     });
-    identity.on('logout', () => exitEditMode());
+    identity.on('logout', () => {
+      exitEditMode();
+      hideIdentityWidget();
+    });
     identity.on('init', (user) => {
       if (user) enterEditMode();
     });
