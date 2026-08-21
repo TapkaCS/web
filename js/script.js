@@ -29,7 +29,7 @@
   });
 
   // =========================================================
-  // Screen router — click-through Minecraft-client navigation.
+  // Screen router: click-through Minecraft-client navigation.
   // The URL hash mirrors the active screen so links stay
   // shareable/bookmarkable, but the interaction is pure clicking.
   // =========================================================
@@ -62,7 +62,7 @@
   showScreen(location.hash.slice(1) || 'title', { push:false });
 
   // =========================================================
-  // Language screen — real switch, highlight follows the
+  // Language screen: real switch, highlight follows the
   // active language whenever it changes (including on load).
   // =========================================================
   function markLangRow(){
@@ -80,7 +80,7 @@
   });
 
   // =========================================================
-  // IP / server-address copy — click to clipboard + flash
+  // IP / server-address copy: click to clipboard + flash
   // =========================================================
   async function copyText(text){
     if (navigator.clipboard && window.isSecureContext){
@@ -119,7 +119,7 @@
   });
 
   // =========================================================
-  // Live server status (mcsrvstat.us — free, no key needed)
+  // Live server status (mcsrvstat.us: free, no key needed)
   // Feeds the title-screen status line and the player counts
   // on the Multiplayer screen's Java/Bedrock rows (one shared
   // player pool). Text is language-aware, re-rendered on every

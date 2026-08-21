@@ -1,5 +1,5 @@
 /* =========================================================
-   TapkaCraft — Minecraft-client style site
+   TapkaCraft: Minecraft-client style site
    ========================================================= */
 
 :root{
@@ -49,7 +49,7 @@ a:focus-visible, button:focus-visible{
 }
 
 /* =========================================================
-   STAGE — single Minecraft-client shell. Every "screen" is a
+   STAGE: single Minecraft-client shell. Every "screen" is a
    full-viewport panel toggled by JS; the panorama + vignette
    stay mounted behind all of them, like a real game client.
    ========================================================= */
@@ -128,7 +128,7 @@ a:focus-visible, button:focus-visible{
 .status-line .dot.off{background:#8b8378;box-shadow:none;}
 
 /* =========================================================
-   SUB-SCREEN PANEL — shared by every non-title screen
+   SUB-SCREEN PANEL: shared by every non-title screen
    ========================================================= */
 .mp-panel{
   position:relative; z-index:2; width:560px; max-width:88vw;
@@ -212,7 +212,7 @@ a:focus-visible, button:focus-visible{
 .srow .flag{font-size:1.3rem;}
 
 /* =========================================================
-   SUPPORT extras — a real payment link + supporters list.
+   SUPPORT extras: a real payment link + supporters list.
    Not part of the reference mockup (which only models the
    tier picker), added because the page needs an actual way
    to pay; kept in the same visual language as everything else.
