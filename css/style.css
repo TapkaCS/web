@@ -89,8 +89,11 @@ a:focus-visible, button:focus-visible{
   font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
   color:rgba(244,241,232,.75); margin-top:10px;
 }
+/* Anchored just past the wordmark's right edge rather than a fixed negative
+   offset, so it can never land on the letters when the pixel font loads. */
 .hero-splash{
-  position:absolute; top:26px; right:-46px; transform:rotate(-16deg);
+  position:absolute; top:24px; left:calc(100% + 10px); right:auto;
+  transform-origin:left center; transform:rotate(-16deg);
   font-family:'Pixelify Sans','Inter',monospace; font-weight:600; font-size:.85rem;
   color:#e37a6f; text-shadow:1px 1px 0 rgba(0,0,0,.6); white-space:nowrap;
   animation:splashBounce 1.3s ease-in-out infinite;
@@ -165,7 +168,13 @@ a:focus-visible, button:focus-visible{
   padding:20px 22px; margin-top:-2px; margin-bottom:12px; display:none;
 }
 .detail.is-open{display:block;}
-.detail .kicker{display:block;font-family:var(--font-brand);font-size:.5rem;color:var(--gold);margin-bottom:12px;}
+/* Inter, not the pixel font: Press Start 2P ships no Czech accented glyphs,
+   so ODEMČEN / KČ / DONÁTOR rendered as mangled marks. */
+.detail .kicker{
+  display:block; font-family:var(--font-body); font-weight:800; font-size:.62rem;
+  text-transform:uppercase; letter-spacing:.18em;
+  color:var(--gold); margin-bottom:12px;
+}
 .detail .addr{
   font-family:'Courier New',monospace;font-size:.98rem;color:var(--green);
   background:#0e0b08;padding:10px 14px;border-radius:2px;display:inline-block;margin-bottom:14px;
@@ -231,7 +240,8 @@ a:focus-visible, button:focus-visible{
   .hero-content{padding-top:56px;}
   .hero-title{font-size:1.9rem;}
   .hero-subtitle{font-size:.7rem;letter-spacing:.1em;}
-  .hero-splash{font-size:.72rem;right:-30px;top:18px;}
+  /* no room beside the wordmark on a phone, so it sits under the subtitle */
+  .hero-splash{font-size:.72rem;top:calc(100% + 4px);left:50%;right:auto;transform-origin:center center;}
   .btnstack{gap:5px;margin-bottom:10px;}
   .mbtn{padding:13px 14px;font-size:.8rem;}
   .btnrow .mbtn{font-size:.68rem;padding:13px 6px;}
