@@ -8,6 +8,36 @@
   const clamp01 = (n) => Math.min(1, Math.max(0, n));
 
   // =========================================================
+  // Mobile hamburger menu
+  // =========================================================
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  if (navToggle && navLinks){
+    const closeMenu = () => {
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.classList.contains('is-open')) return;
+      if (navLinks.contains(e.target) || navToggle.contains(e.target)) return;
+      closeMenu();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+
+  // =========================================================
   // Scroll-driven effects (header, hero logo, hearts, nav CTAs)
   // =========================================================
   let ticking = false;

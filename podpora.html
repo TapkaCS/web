@@ -33,13 +33,28 @@
       <span class="brand-text gradient-text">TapkaCraft</span>
     </a>
 
-    <ul class="nav-links">
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html#nabizime" data-i18n="nav.nabizime">Co nabízíme</a></li>
       <li><a href="index.html#novinky" data-i18n="nav.novinky">Novinky</a></li>
       <li><a href="index.html#komunita" data-i18n="nav.komunita">Komunita</a></li>
       <li><a href="tym.html" data-i18n="nav.tym">Tým</a></li>
       <li><a href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
       <li><a href="index.html#pravidla" data-i18n="nav.pravidla">Pravidla</a></li>
+      <li class="nav-links-divider" aria-hidden="true"></li>
+      <li class="nav-links-cta">
+        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord btn-block">
+          <span class="btn-ico">💬</span><span data-i18n="nav.discord">Discord</span>
+        </a>
+      </li>
+      <li class="nav-links-cta">
+        <a href="podpora.html" class="btn btn-support btn-block">
+          <span class="btn-ico">❤️</span><span data-i18n="nav.podpora">Podpora</span>
+        </a>
+      </li>
     </ul>
 
     <div class="nav-right">
