@@ -74,9 +74,13 @@ a:focus-visible, button:focus-visible{
 .mc-screen.is-active{display:flex;}
 
 /* ===== title screen ===== */
+/* The menu is one compact block like Minecraft's, centred in the window.
+   Without the cap the buttons are pinned to the bottom edge, so on a tall
+   monitor they drift far away from the wordmark. */
+.mc-screen[data-screen="title"]{justify-content:center;}
 .hero-content{
   position:relative; display:flex; flex-direction:column; align-items:center;
-  padding-top:100px; width:100%; height:100%;
+  padding-top:100px; width:100%; height:100%; max-height:640px;
 }
 .hero-brand{position:relative;display:inline-block;text-align:center;}
 .hero-title{
