@@ -1,6 +1,6 @@
 window.I18N = {
   cs: {
-    "meta.title.home": "TapkaCraft · Zabij. Ukradni srdce. Přežij.",
+    "meta.title.home": "TapkaCraft · Náš svět, po našem.",
 
     // browser tab / bookmark label per screen, suffixed with the server name
     "title.multiplayer": "Připojit se",
@@ -122,7 +122,7 @@ window.I18N = {
   },
 
   en: {
-    "meta.title.home": "TapkaCraft · Kill. Steal a heart. Survive.",
+    "meta.title.home": "TapkaCraft · Our world, our way.",
 
     "title.multiplayer": "Connect",
     "title.team": "Our Team",
