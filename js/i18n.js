@@ -23,7 +23,6 @@ window.I18N = {
     "hero.splashes": [
       "Hlasuj pro nás!",
       "Náš svět, po našem!",
-      "Bez cizích pluginů!",
       "Ferdík to schvaluje!",
       "Mythic creeper dělá bum!",
       "Postav si vlastní obchod!",
@@ -33,8 +32,6 @@ window.I18N = {
       "Legendary nebo nic!",
       "Kdo hlasuje, ten pomáhá!",
       "5 jobů najednou!",
-      "Anticheat nespí!",
-      "Vlastní plugin od nuly!",
       "Nekopej rovně dolů!",
       "Aukce právě běží!",
       "Přidej se na Discord!",
@@ -164,7 +161,6 @@ window.I18N = {
     "hero.splashes": [
       "Vote for us!",
       "Our world, our way!",
-      "No third-party plugins!",
       "Ferdík approves!",
       "Mythic creepers go boom!",
       "Build your own shop!",
@@ -174,8 +170,6 @@ window.I18N = {
       "Legendary or nothing!",
       "Voting helps us grow!",
       "5 jobs at once!",
-      "The anticheat never sleeps!",
-      "Custom plugin, built from scratch!",
       "Never dig straight down!",
       "The auction is live!",
       "Join our Discord!",
