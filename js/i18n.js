@@ -12,7 +12,7 @@ window.I18N = {
     "menu.connect": "▶ Připojit se",
     "menu.team": "👥 Náš tým",
     "menu.novinky": "📜 Novinky",
-    "menu.features": "Co nabízíme",
+    "menu.features": "Co u nás najdeš",
     "menu.support": "Podpořit",
     "menu.back": "← Zpět",
 
@@ -90,7 +90,7 @@ window.I18N = {
     "nov.6.name": "Vylepšený LifeSteal",
     "nov.6.desc": "Srdíčka jdou vybrat jako předmět a věnovat padlému hráči.",
 
-    "features.title": "Co nabízíme",
+    "features.title": "Co u nás najdeš",
     "features.lead": "Devět vlastních systémů, jeden server.",
     "feat.1.name": "Pozemky",
     "feat.1.desc": "Chráněná parcela u spawnu, stavět v ní může jen ten, kdo ji koupil.",
@@ -125,7 +125,7 @@ window.I18N = {
     "menu.connect": "▶ Connect",
     "menu.team": "👥 Our Team",
     "menu.novinky": "📜 News",
-    "menu.features": "What We Offer",
+    "menu.features": "What You'll Find",
     "menu.support": "Support",
     "menu.back": "← Back",
 
@@ -203,7 +203,7 @@ window.I18N = {
     "nov.6.name": "Improved LifeSteal",
     "nov.6.desc": "Hearts can be taken as an item and donated to revive a fallen player.",
 
-    "features.title": "What We Offer",
+    "features.title": "What You'll Find Here",
     "features.lead": "Nine custom systems, one server.",
     "feat.1.name": "Land claims",
     "feat.1.desc": "A protected plot near spawn, only the buyer can build or break there.",

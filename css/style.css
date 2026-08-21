@@ -207,7 +207,12 @@ a:focus-visible, button:focus-visible{
 .tname{font-weight:600;font-size:.74rem;line-height:1.3;}
 
 /* ===== plain list (co nabízíme) ===== */
-.plainlist .srow{cursor:default;}
+/* Not clickable, and the icon+text pair sits centred as a unit rather than
+   the icon hugging the left edge with the text floating in the middle.
+   The text column keeps a fixed basis so every icon lands on the same
+   vertical line instead of zig-zagging with each label's length. */
+.plainlist .srow{cursor:default;justify-content:center;}
+.plainlist .srow > div:not(.icn){flex:0 1 440px;text-align:center;}
 
 /* ===== rules list ===== */
 .rulerow{display:flex;gap:14px;align-items:flex-start;padding:14px 2px;border-bottom:1px solid var(--line);}
