@@ -78,6 +78,36 @@
   showScreen(location.hash.slice(1) || 'title', { push:false });
 
   // =========================================================
+  // Splash text: one line picked at random per visit, like the
+  // game's own title screen. The index is fixed for the visit,
+  // so switching language re-translates the same line instead
+  // of rerolling a new one.
+  // =========================================================
+  const splashEl = document.querySelector('.hero-splash');
+  let splashIndex = 0;
+
+  function splashList(lang){
+    const dict = (window.I18N && window.I18N[lang]) || {};
+    const list = dict['hero.splashes'];
+    return Array.isArray(list) && list.length ? list : null;
+  }
+
+  function applySplash(){
+    if (!splashEl) return;
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'cs';
+    const list = splashList(lang) || splashList('cs');
+    if (!list) return; // leave the inline fallback text alone
+    splashEl.textContent = list[splashIndex % list.length];
+  }
+  window.applySplash = applySplash;
+
+  if (splashEl){
+    const base = splashList('cs');
+    if (base) splashIndex = Math.floor(Math.random() * base.length);
+    applySplash();
+  }
+
+  // =========================================================
   // Language screen: real switch, highlight follows the
   // active language whenever it changes (including on load).
   // =========================================================

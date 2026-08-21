@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image.jpg">
 
 <!-- ?v= is bumped on every deploy so browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=20260821i">
+<link rel="stylesheet" href="css/style.css?v=20260821j">
 </head>
 <body data-i18n-title="meta.title.home">
 
@@ -41,7 +41,11 @@
       <div class="hero-brand">
         <h1 class="hero-title">TapkaCraft</h1>
         <p class="hero-subtitle" data-i18n="hero.subtitle">Náš svět, po našem.</p>
-        <a class="hero-splash" href="https://czech-craft.eu/server/tapkacraft/" target="_blank" rel="noopener" data-i18n="hero.splash">Hlasuj pro nás!</a>
+        <!-- text is swapped for a random one by script.js; the inline copy is
+             the no-JS fallback. The label states the destination, since the
+             random line often will not. -->
+        <a class="hero-splash" href="https://czech-craft.eu/server/tapkacraft/" target="_blank" rel="noopener"
+           title="Hlasuj pro TapkaCraft" aria-label="Hlasuj pro TapkaCraft na Czech-Craft.eu">Hlasuj pro nás!</a>
       </div>
 
       <div class="btnstack">
@@ -307,7 +311,7 @@
 
 </main>
 
-<script src="js/i18n.js?v=20260821i"></script>
-<script src="js/script.js?v=20260821i"></script>
+<script src="js/i18n.js?v=20260821j"></script>
+<script src="js/script.js?v=20260821j"></script>
 </body>
 </html>

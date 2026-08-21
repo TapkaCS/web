@@ -17,7 +17,29 @@ window.I18N = {
     "status.error": "Stav serveru nelze zjistit",
 
     "hero.subtitle": "Náš svět, po našem.",
-    "hero.splash": "Hlasuj pro nás!",
+    // one picked at random per visit, like the game's own title screen.
+    // Keep this the same length as the en list: the index is shared, so
+    // switching language shows the same line translated, not a new one.
+    "hero.splashes": [
+      "Hlasuj pro nás!",
+      "Náš svět, po našem!",
+      "Bez cizích pluginů!",
+      "Ferdík to schvaluje!",
+      "Mythic creeper dělá bum!",
+      "Postav si vlastní obchod!",
+      "Srdíčka se tu počítají!",
+      "Java i Bedrock!",
+      "Reforguj to!",
+      "Legendary nebo nic!",
+      "Kdo hlasuje, ten pomáhá!",
+      "5 jobů najednou!",
+      "Anticheat nespí!",
+      "Vlastní plugin od nuly!",
+      "Nekopej rovně dolů!",
+      "Aukce právě běží!",
+      "Přidej se na Discord!",
+      "Hraje se zdarma!"
+    ],
     "menu.connect": "▶ Připojit se",
     "menu.team": "👥 Náš tým",
     "menu.novinky": "📜 Novinky",
@@ -138,7 +160,27 @@ window.I18N = {
     "status.error": "Couldn't check server status",
 
     "hero.subtitle": "Our world, our way.",
-    "hero.splash": "Vote for us!",
+    // same order as the cs list above
+    "hero.splashes": [
+      "Vote for us!",
+      "Our world, our way!",
+      "No third-party plugins!",
+      "Ferdík approves!",
+      "Mythic creepers go boom!",
+      "Build your own shop!",
+      "Hearts count here!",
+      "Java and Bedrock!",
+      "Reforge it!",
+      "Legendary or nothing!",
+      "Voting helps us grow!",
+      "5 jobs at once!",
+      "The anticheat never sleeps!",
+      "Custom plugin, built from scratch!",
+      "Never dig straight down!",
+      "The auction is live!",
+      "Join our Discord!",
+      "Free to play!"
+    ],
     "menu.connect": "▶ Connect",
     "menu.team": "👥 Our Team",
     "menu.novinky": "📜 News",
@@ -273,6 +315,7 @@ window.I18N = {
 
     if (typeof window.renderStatus === 'function') window.renderStatus();
     if (typeof window.markLangRow === 'function') window.markLangRow();
+    if (typeof window.applySplash === 'function') window.applySplash();
     // must run last: re-titles for the open screen, overriding the home
     // title set above when the visitor is not on the title screen
     if (typeof window.applyScreenTitle === 'function') window.applyScreenTitle();
