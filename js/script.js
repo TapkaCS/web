@@ -38,7 +38,18 @@
   }
 
   // =========================================================
-  // Scroll-driven effects (header, hero logo, hearts, nav CTAs)
+  // Title-screen language toggle (🌐 button)
+  // =========================================================
+  document.querySelectorAll('.lang-toggle-mc').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (typeof window.applyLanguage !== 'function') return;
+      const next = document.documentElement.lang === 'en' ? 'cs' : 'en';
+      window.applyLanguage(next);
+    });
+  });
+
+  // =========================================================
+  // Scroll-driven effects (header, nav CTAs)
   // =========================================================
   let ticking = false;
 
@@ -47,22 +58,11 @@
 
     header.classList.toggle('is-scrolled', y > 20);
 
-    // logo + subheading: rise and fade out
-    const heroP = clamp01(y / 260);
-    root.style.setProperty('--hero-opacity', (1 - heroP).toFixed(3));
-    root.style.setProperty('--hero-shift', (-heroP * 50).toFixed(1) + 'px');
-
     // header CTA buttons: sink and vanish faster than the rest of the header
     const ctaP = clamp01(y / 130);
     root.style.setProperty('--nav-cta-opacity', (1 - ctaP).toFixed(3));
     root.style.setProperty('--nav-cta-shift', (ctaP * 26).toFixed(1) + 'px');
     if (navCtas) navCtas.classList.toggle('is-hidden', ctaP >= 1);
-
-    // floating hearts: rise faster than the page, blur and fade out
-    const heartP = clamp01(y / 420);
-    root.style.setProperty('--hearts-lift', (-heartP * 260).toFixed(1) + 'px');
-    root.style.setProperty('--heart-opacity', (1 - heartP).toFixed(3));
-    root.style.setProperty('--heart-blur', (heartP * 9).toFixed(1) + 'px');
 
     ticking = false;
   }

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TapkaCraft · Zabij. Ukradni srdce. Přežij.</title>
+<title>TapkaCraft · Náš svět, po našem.</title>
 
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -11,14 +11,18 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<meta name="description" content="TapkaCraft – český Lifesteal SMP Minecraft server. Zabij soupeře, ukradni mu srdce, přežij. Připoj se na mc.tapkacraft.cz.">
+<meta name="description" content="TapkaCraft – český Minecraft server s vlastním pluginem. Rarity na vybavení, vlastní pets, joby, aukce i vlastní pozemky. Připoj se na mc.tapkacraft.cz.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="TapkaCraft · Zabij. Ukradni srdce. Přežij.">
-<meta property="og:description" content="Český Lifesteal SMP Minecraft server. Zabij soupeře, ukradni mu srdce, přežij. Připoj se na mc.tapkacraft.cz.">
+<meta property="og:title" content="TapkaCraft · Náš svět, po našem.">
+<meta property="og:description" content="Český Minecraft server s vlastním pluginem. Rarity na vybavení, vlastní pets, joby, aukce i vlastní pozemky. Připoj se na mc.tapkacraft.cz.">
 <meta property="og:url" content="https://tapkacraft.cz">
+<meta property="og:image" content="https://tapkacraft.cz/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image.jpg">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -77,50 +81,37 @@
 
 <main id="top">
 
-  <!-- ===================== HERO ===================== -->
+  <!-- ===================== HERO (title screen) ===================== -->
   <section class="hero" id="hero">
     <div class="hero-bg" aria-hidden="true"></div>
 
-    <div class="hero-hearts" aria-hidden="true">
-      <div class="heart-wrap" style="--x:6%;   --y:20%; --size:30px; --dur:6.5s; --delay:0s;    --lift:1.15;"><img class="heart-img" src="assets/img/heart.png" alt=""></div>
-      <div class="heart-wrap" style="--x:16%;  --y:62%; --size:20px; --dur:5.5s; --delay:1.2s;  --lift:0.85;"><img class="heart-img" src="assets/img/heart.png" alt=""></div>
-      <div class="heart-wrap" style="--x:86%;  --y:22%; --size:34px; --dur:7s;   --delay:.6s;   --lift:1.25;"><img class="heart-img" src="assets/img/heart.png" alt=""></div>
-      <div class="heart-wrap" style="--x:91%;  --y:58%; --size:20px; --dur:6s;   --delay:2s;    --lift:0.8;"><img class="heart-img" src="assets/img/heart.png" alt=""></div>
-      <div class="heart-wrap" style="--x:47%;  --y:12%; --size:16px; --dur:5s;   --delay:1.6s;  --lift:1;"><img class="heart-img" src="assets/img/heart.png" alt=""></div>
-      <div class="heart-wrap" style="--x:73%;  --y:72%; --size:24px; --dur:6.8s; --delay:.3s;   --lift:1.05;"><img class="heart-img" src="assets/img/heart.png" alt=""></div>
-      <div class="heart-wrap" style="--x:32%;  --y:40%; --size:15px; --dur:5.8s; --delay:2.4s;  --lift:0.9;"><img class="heart-img" src="assets/img/heart.png" alt=""></div>
-    </div>
-
     <div class="hero-content">
-      <div class="hero-brand" id="heroBrand">
-        <p class="status-pill" id="liveStatus"><span class="dot"></span><span data-i18n="status.loading">Zjišťuji stav serveru…</span></p>
-        <h1 class="hero-title gradient-text" data-text="TapkaCraft">TapkaCraft</h1>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">Český lifesteal server</p>
+      <div class="hero-brand">
+        <h1 class="hero-title">TapkaCraft</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Náš svět, po našem.</p>
+        <a class="hero-splash" href="https://czech-craft.eu/server/tapkacraft/" target="_blank" rel="noopener" data-i18n="hero.splash">Hlasuj pro nás!</a>
       </div>
 
-      <p class="hero-desc reveal" data-i18n="hero.desc">Zabij soupeře a ukradni mu srdce, znič jeho základnu, nebo si najdi spojence. Dojdou-li ti srdce, je konec.</p>
+      <p class="status-pill" id="liveStatus"><span class="dot"></span><span data-i18n="status.loading">Zjišťuji stav serveru…</span></p>
 
-      <div class="hero-actions reveal">
-        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord">
-          <span class="btn-ico">💬</span><span data-i18n="hero.discord">Discord</span>
-        </a>
-        <a href="podpora.html" class="btn btn-support">
-          <span class="btn-ico">❤️</span><span data-i18n="hero.support">Podpora</span>
-        </a>
+      <nav class="menu-stack" aria-label="Hlavní menu">
+        <a href="#pripojit" class="mbtn primary" data-i18n="menu.connect">▶ Připojit se</a>
+        <a href="tym.html" class="mbtn" data-i18n="menu.team">👥 Náš tým</a>
+        <a href="#novinky" class="mbtn" data-i18n="menu.novinky">📜 Novinky</a>
+        <div class="menu-row">
+          <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
+          <a href="#nabizime" class="mbtn" data-i18n="menu.features">Co nabízíme</a>
+          <a href="podpora.html" class="mbtn" data-i18n="menu.support">Podpořit</a>
+        </div>
+      </nav>
+      <div class="hero-smallrow">
+        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="mbtn" aria-label="Discord">💬</a>
+        <a href="#pravidla" class="mbtn" aria-label="Pravidla">📋</a>
       </div>
-
-      <button class="ip-box reveal" type="button" data-ip="mc.tapkacraft.cz" aria-label="Zkopírovat IP adresu serveru mc.tapkacraft.cz">
-        <span class="ip-box-glow" aria-hidden="true"></span>
-        <span class="ip-tooltip" data-i18n="ip.copied">Zkopírováno!</span>
-        <span class="ip-box-label" data-i18n="ip.label">Herní adresa · klikni pro kopírování</span>
-        <span class="ip-box-row">
-          <span class="ip-box-value">mc.tapkacraft.cz</span>
-          <span class="ip-box-icon" aria-hidden="true">⧉</span>
-        </span>
-      </button>
     </div>
 
-    <a href="#mechanic" class="scroll-cue" aria-label="Posunout dolů"><span></span></a>
+    <span class="hero-corner hero-corner-left">Minecraft 26.2</span>
+    <span class="hero-corner hero-corner-right" data-i18n="footer.note">Není spojeno s Mojang.</span>
   </section>
 
   <!-- ===================== MECHANIC ===================== -->
@@ -143,82 +134,50 @@
     <p class="mechanic-foot reveal" data-i18n="mechanic.foot">Dojdou-li ti srdce úplně, <b>čeká tě permanentní vyřazení ze hry</b>.</p>
   </section>
 
-  <!-- ===================== HOWTO ===================== -->
-  <section class="howto">
-    <h2 class="section-title reveal" data-i18n="howto.title">Jak se připojit</h2>
-    <div class="quest-log">
-      <div class="quest-step reveal">
-        <span class="quest-num">01</span>
-        <div class="quest-body">
-          <h3 data-i18n="howto.1.title">Otevři Minecraft</h3>
-          <p data-i18n="howto.1.desc">Spusť Java edici a klikni na <b>Multiplayer</b>.</p>
-        </div>
+  <!-- ===================== PŘIPOJIT SE ===================== -->
+  <section class="howto" id="pripojit">
+    <h2 class="section-title reveal" data-i18n="howto.title">Připoj se na server</h2>
+    <p class="section-lead reveal" data-i18n="howto.lead">Java i Bedrock hráči se připojí na stejný server.</p>
+
+    <div class="panel-card reveal">
+      <div class="srow">
+        <div class="icn"><img src="assets/img/apple-touch-icon.png" alt=""></div>
+        <div><div class="srow-name">TapkaCraft — Java Edition</div><div class="srow-sub">mc.tapkacraft.cz</div></div>
       </div>
-      <div class="quest-step reveal">
-        <span class="quest-num">02</span>
-        <div class="quest-body">
-          <h3 data-i18n="howto.2.title">Přidej server</h3>
-          <p data-i18n="howto.2.desc">Klikni na <b>Add Server</b> a zadej libovolný název.</p>
-        </div>
+      <div class="srow-detail">
+        <span class="addr">mc.tapkacraft.cz</span>
+        <ol>
+          <li data-i18n="howto.1.desc">Spusť Java edici a klikni na <b>Multiplayer</b>.</li>
+          <li data-i18n="howto.2.desc">Klikni na <b>Add Server</b> a zadej libovolný název.</li>
+          <li data-i18n="howto.3.desc">Jako adresu serveru napiš: <code>mc.tapkacraft.cz</code></li>
+        </ol>
       </div>
-      <div class="quest-step reveal">
-        <span class="quest-num">03</span>
-        <div class="quest-body">
-          <h3 data-i18n="howto.3.title">Zadej adresu</h3>
-          <p data-i18n="howto.3.desc">Jako adresu serveru napiš: <code>mc.tapkacraft.cz</code></p>
-        </div>
+
+      <div class="srow">
+        <div class="icn"><img src="assets/img/apple-touch-icon.png" alt=""></div>
+        <div><div class="srow-name">TapkaCraft — Bedrock Edition</div><div class="srow-sub" data-i18n="howto.bedrock.sub">mobil · konzole · Windows appka</div></div>
       </div>
-    </div>
-    <div class="howto-bedrock reveal">
-      <p data-i18n="howto.bedrock.lead">Hraješ z mobilu, konzole nebo Windows appky (<b>Bedrock edice</b>)? V záložce <b>Servery</b> přidej nový server s touto adresou a portem:</p>
-      <div class="howto-bedrock-fields">
-        <div><span data-i18n="howto.bedrock.addr.label">Adresa</span><code>mc.tapkacraft.cz</code></div>
-        <div><span data-i18n="howto.bedrock.port.label">Port</span><code>56642</code></div>
+      <div class="srow-detail">
+        <span class="addr">mc.tapkacraft.cz : 56642</span>
+        <p data-i18n="howto.bedrock.lead">V záložce <b>Servery</b> přidej nový server s adresou <b>mc.tapkacraft.cz</b> a portem <b>56642</b>.</p>
       </div>
     </div>
   </section>
 
   <!-- ===================== FEATURES ===================== -->
-  <section class="features" id="nabizime">
+  <section class="howto" id="nabizime">
     <h2 class="section-title reveal" data-i18n="features.title">Co server nabízí</h2>
-    <p class="section-lead reveal" data-i18n="features.lead">Hotbar plný toho, co na serveru najdeš. Najeď myší nebo na slot klepni.</p>
-    <div class="hotbar reveal">
-      <button class="slot" type="button">
-        <span class="slot-icon">🏠</span>
-        <span class="slot-tooltip"><b data-i18n="features.1.name">Vlastní pozemek</b><span data-i18n="features.1.desc">Chráněná parcela u spawnu, stavět a bourat v ní může jen ten, kdo ji koupil.</span></span>
-      </button>
-      <button class="slot" type="button">
-        <span class="slot-icon">🛠️</span>
-        <span class="slot-tooltip"><b data-i18n="features.2.name">Joby</b><span data-i18n="features.2.desc">5 povolání najednou, bez přihlašování a cooldownů. Levely, vyšší level = vyšší výplata.</span></span>
-      </button>
-      <button class="slot" type="button">
-        <span class="slot-icon">🏪</span>
-        <span class="slot-tooltip"><b data-i18n="features.3.name">Server shop a hráčské obchody</b><span data-i18n="features.3.desc">Nakupuj v přehledném shopu, nebo si postav vlastní obchod se sklad-truhlou.</span></span>
-      </button>
-      <button class="slot" type="button">
-        <span class="slot-icon">💰</span>
-        <span class="slot-tooltip"><b data-i18n="features.4.name">Aukční síň</b><span data-i18n="features.4.desc">Vystav item a nastav si vlastní cenu, ostatní hráči ho koupí přímo od tebe.</span></span>
-      </button>
-      <button class="slot" type="button">
-        <span class="slot-icon">⚔️</span>
-        <span class="slot-tooltip"><b data-i18n="features.5.name">Duely a bounty</b><span data-i18n="features.5.desc">Vyzvi hráče na souboj o itemy, nebo mu dej cenu na hlavu a nech ostatní, ať ho uloví.</span></span>
-      </button>
-      <button class="slot" type="button">
-        <span class="slot-icon">👥</span>
-        <span class="slot-tooltip"><b data-i18n="features.6.name">Teamy</b><span data-i18n="features.6.desc">Spoj se s kamarády, sdílejte home i chat a chraňte se navzájem v PvP.</span></span>
-      </button>
-      <button class="slot" type="button">
-        <span class="slot-icon">🛡️</span>
-        <span class="slot-tooltip"><b data-i18n="features.7.name">Fair-play ochrana</b><span data-i18n="features.7.desc">Anticheat proti podvádění.</span></span>
-      </button>
-      <button class="slot" type="button">
-        <span class="slot-icon">💾</span>
-        <span class="slot-tooltip"><b data-i18n="features.8.name">Pravidelné zálohy</b><span data-i18n="features.8.desc">Svět se zálohuje každou hodinu, tvoje stavby jsou v bezpečí.</span></span>
-      </button>
-      <button class="slot" type="button">
-        <span class="slot-icon">🎙️</span>
-        <span class="slot-tooltip"><b data-i18n="features.9.name">Hlasový chat</b><span data-i18n="features.9.desc">Mluv s hráči v okolí přímo ve hře, hlas slábne se vzdáleností.</span></span>
-      </button>
+    <p class="section-lead reveal" data-i18n="features.lead">Systémy, který jsme si naprogramovali sami. Bez cizích pluginů, bez kompromisů.</p>
+    <div class="panel-card reveal">
+      <div class="frow"><span class="ficn">🏠</span><div><div class="srow-name" data-i18n="features.1.name">Vlastní pozemek</div><div class="srow-sub" data-i18n="features.1.desc">Chráněná parcela u spawnu, stavět a bourat v ní může jen ten, kdo ji koupil.</div></div></div>
+      <div class="frow"><span class="ficn">🛠️</span><div><div class="srow-name" data-i18n="features.2.name">Joby</div><div class="srow-sub" data-i18n="features.2.desc">5 povolání najednou, bez přihlašování a cooldownů. Levely, vyšší level = vyšší výplata.</div></div></div>
+      <div class="frow"><span class="ficn">🏪</span><div><div class="srow-name" data-i18n="features.3.name">Server shop a hráčské obchody</div><div class="srow-sub" data-i18n="features.3.desc">Nakupuj v přehledném shopu, nebo si postav vlastní obchod se sklad-truhlou.</div></div></div>
+      <div class="frow"><span class="ficn">💰</span><div><div class="srow-name" data-i18n="features.4.name">Aukční síň</div><div class="srow-sub" data-i18n="features.4.desc">Vystav item a nastav si vlastní cenu, ostatní hráči ho koupí přímo od tebe.</div></div></div>
+      <div class="frow"><span class="ficn">⚔️</span><div><div class="srow-name" data-i18n="features.5.name">Duely a bounty</div><div class="srow-sub" data-i18n="features.5.desc">Vyzvi hráče na souboj o itemy, nebo mu dej cenu na hlavu a nech ostatní, ať ho uloví.</div></div></div>
+      <div class="frow"><span class="ficn">👥</span><div><div class="srow-name" data-i18n="features.6.name">Teamy</div><div class="srow-sub" data-i18n="features.6.desc">Spoj se s kamarády, sdílejte home i chat a chraňte se navzájem v PvP.</div></div></div>
+      <div class="frow"><span class="ficn">🛡️</span><div><div class="srow-name" data-i18n="features.7.name">Fair-play ochrana</div><div class="srow-sub" data-i18n="features.7.desc">Anticheat proti podvádění.</div></div></div>
+      <div class="frow"><span class="ficn">💾</span><div><div class="srow-name" data-i18n="features.8.name">Pravidelné zálohy</div><div class="srow-sub" data-i18n="features.8.desc">Svět se zálohuje každou hodinu, tvoje stavby jsou v bezpečí.</div></div></div>
+      <div class="frow"><span class="ficn">🎙️</span><div><div class="srow-name" data-i18n="features.9.name">Hlasový chat</div><div class="srow-sub" data-i18n="features.9.desc">Mluv s hráči v okolí přímo ve hře, hlas slábne se vzdáleností.</div></div></div>
     </div>
   </section>
 
@@ -441,13 +400,11 @@
   <!-- ===================== RULES ===================== -->
   <section class="rules" id="pravidla">
     <h2 class="section-title reveal" data-i18n="rules.title">Pravidla</h2>
-    <div class="glass-card rules-card reveal">
-      <ul>
-        <li><span class="bullet">›</span><p data-i18n="rules.1"><b>0 srdcí = konec.</b> Když ztratíš poslední srdce, jsi ze serveru permanentně vyřazen.</p></li>
-        <li><span class="bullet">›</span><p data-i18n="rules.3"><b>Cheatování se nevyplácí.</b> Server automaticky detekuje cheat klienty a hackování je důvod k banu.</p></li>
-        <li><span class="bullet">›</span><p data-i18n="rules.4"><b>Chat je hlídaný automaticky.</b> Spam a vulgarismy jsou filtrované systémem.</p></li>
-        <li><span class="bullet">›</span><p data-i18n="rules.5"><b>Spawn a bezpečná zóna jsou chráněné.</b> V okolí spawnu neplatí PvP a nejde tam stavět ani bourat.</p></li>
-      </ul>
+    <div class="panel-card reveal">
+      <div class="rulerow"><span class="rulenum">1</span><p data-i18n="rules.1"><b>0 srdcí = konec.</b> Když ztratíš poslední srdce, jsi ze serveru permanentně vyřazen.</p></div>
+      <div class="rulerow"><span class="rulenum">2</span><p data-i18n="rules.3"><b>Cheatování se nevyplácí.</b> Server automaticky detekuje cheat klienty a hackování je důvod k banu.</p></div>
+      <div class="rulerow"><span class="rulenum">3</span><p data-i18n="rules.4"><b>Chat je hlídaný automaticky.</b> Spam a vulgarismy jsou filtrované systémem.</p></div>
+      <div class="rulerow"><span class="rulenum">4</span><p data-i18n="rules.5"><b>Spawn a bezpečná zóna jsou chráněné.</b> V okolí spawnu neplatí PvP a nejde tam stavět ani bourat.</p></div>
     </div>
   </section>
 

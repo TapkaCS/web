@@ -18,10 +18,16 @@ window.I18N = {
     "status.offline": "Server offline",
     "status.error": "Stav serveru nelze zjistit",
 
-    "hero.subtitle": "Český lifesteal server",
+    "hero.subtitle": "Náš svět, po našem.",
+    "hero.splash": "Hlasuj pro nás!",
     "hero.desc": "Zabij soupeře a ukradni mu srdce, znič jeho základnu, nebo si najdi spojence. Dojdou-li ti srdce, je konec.",
     "hero.discord": "Discord",
     "hero.support": "Podpora",
+    "menu.connect": "▶ Připojit se",
+    "menu.team": "👥 Náš tým",
+    "menu.novinky": "📜 Novinky",
+    "menu.features": "Co nabízíme",
+    "menu.support": "Podpořit",
 
     "ip.label": "Herní adresa · klikni pro kopírování",
     "ip.copied": "Zkopírováno!",
@@ -32,7 +38,9 @@ window.I18N = {
     "mechanic.kill.desc": "Zabij hráče a ukradni jeho dropnuté srdce pro sebe.",
     "mechanic.foot": "Dojdou-li ti srdce úplně, <b>čeká tě permanentní vyřazení ze hry</b>.",
 
-    "howto.title": "Jak se připojit",
+    "howto.title": "Připoj se na server",
+    "howto.lead": "Java i Bedrock hráči se připojí na stejný server.",
+    "howto.bedrock.sub": "mobil · konzole · Windows appka",
     "howto.1.title": "Otevři Minecraft",
     "howto.1.desc": "Spusť Java edici a klikni na <b>Multiplayer</b>.",
     "howto.2.title": "Přidej server",
@@ -199,10 +207,16 @@ window.I18N = {
     "status.offline": "Server offline",
     "status.error": "Couldn't check server status",
 
-    "hero.subtitle": "Czech lifesteal server",
+    "hero.subtitle": "Our world, our way.",
+    "hero.splash": "Vote for us!",
     "hero.desc": "Kill your opponent and steal their heart, destroy their base, or find allies. If you run out of hearts, it's over.",
     "hero.discord": "Discord",
     "hero.support": "Support",
+    "menu.connect": "▶ Connect",
+    "menu.team": "👥 Our Team",
+    "menu.novinky": "📜 News",
+    "menu.features": "What We Offer",
+    "menu.support": "Support",
 
     "ip.label": "Server address · click to copy",
     "ip.copied": "Copied!",
@@ -213,7 +227,9 @@ window.I18N = {
     "mechanic.kill.desc": "Kill a player and steal their dropped heart for yourself.",
     "mechanic.foot": "If you run out of hearts completely, <b>you'll be permanently removed from the server</b>.",
 
-    "howto.title": "How to connect",
+    "howto.title": "Connect to the server",
+    "howto.lead": "Java and Bedrock players both join the same server.",
+    "howto.bedrock.sub": "mobile · console · Windows app",
     "howto.1.title": "Open Minecraft",
     "howto.1.desc": "Launch the Java Edition and click <b>Multiplayer</b>.",
     "howto.2.title": "Add the server",
@@ -400,6 +416,7 @@ window.I18N = {
 
     storeLang(lang);
   }
+  window.applyLanguage = applyLanguage;
 
   function init(){
     document.querySelectorAll('.lang-btn').forEach(function(btn){
