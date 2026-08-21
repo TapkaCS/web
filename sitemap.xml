@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  One entry on purpose. The screens (#novinky, #features, ...) are URL
+  fragments, which search engines treat as the same page, so listing them
+  would add nothing. tym.html and podpora.html are redirects and are left
+  out deliberately: sitemaps should not list redirecting URLs.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tapkacraft.cz/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

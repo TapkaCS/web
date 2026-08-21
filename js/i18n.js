@@ -2,6 +2,15 @@ window.I18N = {
   cs: {
     "meta.title.home": "TapkaCraft · Zabij. Ukradni srdce. Přežij.",
 
+    // browser tab / bookmark label per screen, suffixed with the server name
+    "title.multiplayer": "Připojit se",
+    "title.team": "Náš tým",
+    "title.support": "Podpořit server",
+    "title.language": "Jazyk",
+    "title.rules": "Pravidla",
+    "title.novinky": "Novinky",
+    "title.features": "Co u nás najdeš",
+
     "status.loading": "Zjišťuji stav serveru…",
     "status.online": "Online · {online}/{max} hráčů",
     "status.offline": "Offline",
@@ -114,6 +123,14 @@ window.I18N = {
 
   en: {
     "meta.title.home": "TapkaCraft · Kill. Steal a heart. Survive.",
+
+    "title.multiplayer": "Connect",
+    "title.team": "Our Team",
+    "title.support": "Support the server",
+    "title.language": "Language",
+    "title.rules": "Rules",
+    "title.novinky": "News",
+    "title.features": "What You'll Find",
 
     "status.loading": "Checking server status…",
     "status.online": "Online · {online}/{max} players",
@@ -256,6 +273,9 @@ window.I18N = {
 
     if (typeof window.renderStatus === 'function') window.renderStatus();
     if (typeof window.markLangRow === 'function') window.markLangRow();
+    // must run last: re-titles for the open screen, overriding the home
+    // title set above when the visitor is not on the title screen
+    if (typeof window.applyScreenTitle === 'function') window.applyScreenTitle();
 
     storeLang(lang);
   }

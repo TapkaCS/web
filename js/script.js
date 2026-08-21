@@ -33,12 +33,28 @@
   // The URL hash mirrors the active screen so links stay
   // shareable/bookmarkable, but the interaction is pure clicking.
   // =========================================================
+  // The tab title follows the open screen, so bookmarks and history entries
+  // say which one they point at instead of all reading the same thing.
+  let currentScreen = 'title';
+
+  function applyScreenTitle(){
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'cs';
+    const dict = (window.I18N && window.I18N[lang]) || {};
+    const home = dict['meta.title.home'] || 'TapkaCraft';
+    const name = currentScreen === 'title' ? null : dict['title.' + currentScreen];
+    document.title = name ? `${name} · TapkaCraft` : home;
+  }
+  window.applyScreenTitle = applyScreenTitle;
+
   function showScreen(name, opts){
     opts = opts || {};
     const target = document.querySelector(`.mc-screen[data-screen="${name}"]`) ? name : 'title';
 
     screens.forEach((s) => s.classList.toggle('is-active', s.dataset.screen === target));
     if (mcBg) mcBg.classList.toggle('dim', target !== 'title');
+
+    currentScreen = target;
+    applyScreenTitle();
 
     const panel = document.querySelector(`.mc-screen[data-screen="${target}"] .mp-panel`);
     if (panel) panel.scrollTop = 0;
