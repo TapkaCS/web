@@ -1,22 +1,47 @@
 (() => {
   'use strict';
 
+  const screens = document.querySelectorAll('.mc-screen');
+  const mcBg = document.getElementById('mcBg');
+  if (!screens.length) return;
+
+  // =========================================================
+  // Click-to-select rows that reveal a matching detail panel
+  // (Multiplayer edition, Team member, Support tier, Novinky tile)
+  // =========================================================
+  const selection = { mp: 'java', team: 'owner', tier: '1', nov: '1' };
+
+  function applySelection(group){
+    document.querySelectorAll(`[data-select="${group}"]`).forEach((row) => {
+      row.classList.toggle('is-selected', row.dataset.key === selection[group]);
+    });
+    document.querySelectorAll(`[data-detail="${group}"]`).forEach((row) => {
+      row.classList.toggle('is-open', row.dataset.key === selection[group]);
+    });
+  }
+
+  document.querySelectorAll('[data-select]').forEach((row) => {
+    row.addEventListener('click', () => {
+      const group = row.dataset.select;
+      selection[group] = row.dataset.key;
+      applySelection(group);
+    });
+  });
+
   // =========================================================
   // Screen router — click-through Minecraft-client navigation.
-  // Screens are toggled by class; the URL hash just mirrors the
-  // active screen so links stay shareable/bookmarkable.
+  // The URL hash mirrors the active screen so links stay
+  // shareable/bookmarkable, but the interaction is pure clicking.
   // =========================================================
-  const screens = document.querySelectorAll('.mc-screen');
-
   function showScreen(name, opts){
     opts = opts || {};
-    if (!screens.length) return;
     const target = document.querySelector(`.mc-screen[data-screen="${name}"]`) ? name : 'title';
 
     screens.forEach((s) => s.classList.toggle('is-active', s.dataset.screen === target));
+    if (mcBg) mcBg.classList.toggle('dim', target !== 'title');
 
-    const inner = document.querySelector(`.mc-screen[data-screen="${target}"] .mc-screen-inner`);
-    if (inner) inner.scrollTop = 0;
+    const panel = document.querySelector(`.mc-screen[data-screen="${target}"] .mp-panel`);
+    if (panel) panel.scrollTop = 0;
 
     if (opts.push !== false){
       const url = target === 'title' ? location.pathname + location.search : `#${target}`;
@@ -25,33 +50,32 @@
   }
   window.showScreen = showScreen;
 
-  if (screens.length){
-    document.querySelectorAll('[data-goto]').forEach((el) => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        showScreen(el.dataset.goto);
-      });
-    });
-
-    document.querySelectorAll('[data-back]').forEach((el) => {
-      el.addEventListener('click', () => showScreen('title'));
-    });
-
-    window.addEventListener('hashchange', () => {
-      showScreen(location.hash.slice(1) || 'title', { push:false });
-    });
-
+  document.querySelectorAll('[data-goto]').forEach((el) => {
+    el.addEventListener('click', () => showScreen(el.dataset.goto));
+  });
+  document.querySelectorAll('[data-back]').forEach((el) => {
+    el.addEventListener('click', () => showScreen('title'));
+  });
+  window.addEventListener('hashchange', () => {
     showScreen(location.hash.slice(1) || 'title', { push:false });
-  }
+  });
+  showScreen(location.hash.slice(1) || 'title', { push:false });
 
   // =========================================================
-  // Language toggle (🌐 button, MC-style — CZ/EN only)
+  // Language screen — real switch, highlight follows the
+  // active language whenever it changes (including on load).
   // =========================================================
-  document.querySelectorAll('.lang-toggle-mc').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (typeof window.applyLanguage !== 'function') return;
-      const next = document.documentElement.lang === 'en' ? 'cs' : 'en';
-      window.applyLanguage(next);
+  function markLangRow(){
+    const active = document.documentElement.lang === 'en' ? 'en' : 'cs';
+    document.querySelectorAll('[data-lang-row]').forEach((row) => {
+      row.classList.toggle('is-selected', row.dataset.langRow === active);
+    });
+  }
+  window.markLangRow = markLangRow;
+
+  document.querySelectorAll('[data-lang-row]').forEach((row) => {
+    row.addEventListener('click', () => {
+      if (typeof window.applyLanguage === 'function') window.applyLanguage(row.dataset.langRow);
     });
   });
 
@@ -80,10 +104,9 @@
     }
   }
 
-  document.querySelectorAll('.addr[data-ip], .ip-box').forEach((box) => {
+  document.querySelectorAll('.addr[data-ip]').forEach((box) => {
     box.addEventListener('click', async () => {
-      const ip = box.dataset.ip || 'mc.tapkacraft.cz';
-      const ok = await copyText(ip);
+      const ok = await copyText(box.dataset.ip);
       if (!ok) return;
 
       box.classList.remove('copied');
@@ -97,37 +120,43 @@
 
   // =========================================================
   // Live server status (mcsrvstat.us — free, no key needed)
-  // Text is language-aware: re-rendered on every i18n switch from
-  // the last fetched result, no extra network round-trip needed.
+  // Feeds the title-screen status line and the player counts
+  // on the Multiplayer screen's Java/Bedrock rows (one shared
+  // player pool). Text is language-aware, re-rendered on every
+  // i18n switch from the last fetched result.
   // =========================================================
   let lastStatus = null; // null = loading, 'error', or {online, players, max}
 
   function renderStatus(){
     const pill = document.getElementById('liveStatus');
-    if (!pill) return;
     const lang = document.documentElement.lang === 'en' ? 'en' : 'cs';
-    const dict = (window.I18N && window.I18N[lang] && window.I18N[lang]) || {};
+    const dict = (window.I18N && window.I18N[lang]) || {};
     const t = {
       loading: dict['status.loading'] || 'Zjišťuji stav serveru…',
-      online: dict['status.online'] || 'Server online · {online}/{max} hráčů',
+      online: dict['status.online'] || 'Online · {online}/{max} hráčů',
       offline: dict['status.offline'] || 'Server offline',
       error: dict['status.error'] || 'Stav serveru nelze zjistit',
     };
 
-    if (lastStatus === null){
-      pill.innerHTML = '<span class="dot"></span>' + t.loading;
-    } else if (lastStatus === 'error'){
-      pill.innerHTML = '<span class="dot off"></span>' + t.error;
-    } else if (lastStatus.online){
-      const txt = t.online.replace('{online}', lastStatus.players).replace('{max}', lastStatus.max);
-      pill.innerHTML = '<span class="dot"></span>' + txt;
-    } else {
-      pill.innerHTML = '<span class="dot off"></span>' + t.offline;
+    if (pill){
+      if (lastStatus === null){
+        pill.innerHTML = '<span class="dot"></span>' + t.loading;
+      } else if (lastStatus === 'error'){
+        pill.innerHTML = '<span class="dot off"></span>' + t.error;
+      } else if (lastStatus.online){
+        pill.innerHTML = '<span class="dot"></span>' + t.online.replace('{online}', lastStatus.players).replace('{max}', lastStatus.max);
+      } else {
+        pill.innerHTML = '<span class="dot off"></span>' + t.offline;
+      }
     }
+
+    const playersEls = document.querySelectorAll('[data-players]');
+    playersEls.forEach((el) => {
+      el.textContent = (lastStatus && lastStatus.online) ? `${lastStatus.players}/${lastStatus.max}` : '· · ·';
+    });
   }
 
   async function loadServerStatus(){
-    if (!document.getElementById('liveStatus')) return;
     try {
       const res = await fetch('https://api.mcsrvstat.us/3/mc.tapkacraft.cz');
       const data = await res.json();
