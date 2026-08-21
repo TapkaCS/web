@@ -28,15 +28,10 @@ window.I18N = {
     "menu.novinky": "📜 Novinky",
     "menu.features": "Co nabízíme",
     "menu.support": "Podpořit",
+    "menu.back": "← Zpět",
 
     "ip.label": "Herní adresa · klikni pro kopírování",
     "ip.copied": "Zkopírováno!",
-
-    "mechanic.death.title": "Smrt",
-    "mechanic.death.desc": "Každou smrtí přijdeš o jedno srdce z maximálního počtu životů.",
-    "mechanic.kill.title": "Zabití",
-    "mechanic.kill.desc": "Zabij hráče a ukradni jeho dropnuté srdce pro sebe.",
-    "mechanic.foot": "Dojdou-li ti srdce úplně, <b>čeká tě permanentní vyřazení ze hry</b>.",
 
     "howto.title": "Připoj se na server",
     "howto.lead": "Java i Bedrock hráči se připojí na stejný server.",
@@ -135,6 +130,7 @@ window.I18N = {
     "faq.5.a": "Ano! Bedrock hráči (mobil, konzole, Windows appka) se mohou připojit přímo. Po prvním připojení si propoj účet příkazem /linkaccount, ať hraješ pod svým jménem se vším, co k němu patří.",
 
     "rules.title": "Pravidla",
+    "rules.lead": "Tenhle svět běží na vlastním LifeStealu: za smrt ztrácíš srdce, za zabití hráče ho získáváš. Dojdou-li ti úplně, čeká tě permanentní vyřazení ze hry – hraj proto podle pravidel.",
     "rules.1": "<b>0 srdcí = konec.</b> Když ztratíš poslední srdce, jsi ze serveru permanentně vyřazen.",
     "rules.3": "<b>Cheatování se nevyplácí.</b> Server automaticky detekuje cheat klienty a hackování je důvod k banu.",
     "rules.4": "<b>Chat je hlídaný automaticky.</b> Spam a vulgarismy jsou filtrované systémem.",
@@ -217,15 +213,10 @@ window.I18N = {
     "menu.novinky": "📜 News",
     "menu.features": "What We Offer",
     "menu.support": "Support",
+    "menu.back": "← Back",
 
     "ip.label": "Server address · click to copy",
     "ip.copied": "Copied!",
-
-    "mechanic.death.title": "Death",
-    "mechanic.death.desc": "Every death costs you one heart from your maximum lives.",
-    "mechanic.kill.title": "Kill",
-    "mechanic.kill.desc": "Kill a player and steal their dropped heart for yourself.",
-    "mechanic.foot": "If you run out of hearts completely, <b>you'll be permanently removed from the server</b>.",
 
     "howto.title": "Connect to the server",
     "howto.lead": "Java and Bedrock players both join the same server.",
@@ -324,6 +315,7 @@ window.I18N = {
     "faq.5.a": "Yes! Bedrock players (mobile, console, Windows app) can connect directly. After your first connection, link your account with /linkaccount so you play under your own name with everything that belongs to it.",
 
     "rules.title": "Rules",
+    "rules.lead": "This world runs on our own LifeSteal twist: die and you lose a heart, kill a player and you take theirs. Run out completely and you're permanently removed — so play by the rules.",
     "rules.1": "<b>0 hearts = game over.</b> When you lose your last heart, you're permanently removed from the server.",
     "rules.3": "<b>Cheating doesn't pay off.</b> The server automatically detects cheat clients, and hacking is grounds for a ban.",
     "rules.4": "<b>Chat is monitored automatically.</b> Spam and profanity are filtered by the system.",

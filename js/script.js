@@ -1,44 +1,51 @@
 (() => {
   'use strict';
 
-  const root = document.documentElement;
-  const header = document.getElementById('siteHeader');
-  const navCtas = document.getElementById('navCtas');
-
-  const clamp01 = (n) => Math.min(1, Math.max(0, n));
-
   // =========================================================
-  // Mobile hamburger menu
+  // Screen router — click-through Minecraft-client navigation.
+  // Screens are toggled by class; the URL hash just mirrors the
+  // active screen so links stay shareable/bookmarkable.
   // =========================================================
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
+  const screens = document.querySelectorAll('.mc-screen');
 
-  if (navToggle && navLinks){
-    const closeMenu = () => {
-      navLinks.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    };
+  function showScreen(name, opts){
+    opts = opts || {};
+    if (!screens.length) return;
+    const target = document.querySelector(`.mc-screen[data-screen="${name}"]`) ? name : 'title';
 
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', String(isOpen));
+    screens.forEach((s) => s.classList.toggle('is-active', s.dataset.screen === target));
+
+    const inner = document.querySelector(`.mc-screen[data-screen="${target}"] .mc-screen-inner`);
+    if (inner) inner.scrollTop = 0;
+
+    if (opts.push !== false){
+      const url = target === 'title' ? location.pathname + location.search : `#${target}`;
+      history.replaceState(null, '', url);
+    }
+  }
+  window.showScreen = showScreen;
+
+  if (screens.length){
+    document.querySelectorAll('[data-goto]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        showScreen(el.dataset.goto);
+      });
     });
 
-    navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
-
-    document.addEventListener('click', (e) => {
-      if (!navLinks.classList.contains('is-open')) return;
-      if (navLinks.contains(e.target) || navToggle.contains(e.target)) return;
-      closeMenu();
+    document.querySelectorAll('[data-back]').forEach((el) => {
+      el.addEventListener('click', () => showScreen('title'));
     });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+    window.addEventListener('hashchange', () => {
+      showScreen(location.hash.slice(1) || 'title', { push:false });
     });
+
+    showScreen(location.hash.slice(1) || 'title', { push:false });
   }
 
   // =========================================================
-  // Title-screen language toggle (🌐 button)
+  // Language toggle (🌐 button, MC-style — CZ/EN only)
   // =========================================================
   document.querySelectorAll('.lang-toggle-mc').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -49,56 +56,7 @@
   });
 
   // =========================================================
-  // Scroll-driven effects (header, nav CTAs)
-  // =========================================================
-  let ticking = false;
-
-  function updateScroll(){
-    const y = window.scrollY || window.pageYOffset;
-
-    header.classList.toggle('is-scrolled', y > 20);
-
-    // header CTA buttons: sink and vanish faster than the rest of the header
-    const ctaP = clamp01(y / 130);
-    root.style.setProperty('--nav-cta-opacity', (1 - ctaP).toFixed(3));
-    root.style.setProperty('--nav-cta-shift', (ctaP * 26).toFixed(1) + 'px');
-    if (navCtas) navCtas.classList.toggle('is-hidden', ctaP >= 1);
-
-    ticking = false;
-  }
-
-  function onScroll(){
-    if (!ticking){
-      requestAnimationFrame(updateScroll);
-      ticking = true;
-    }
-  }
-
-  window.addEventListener('scroll', onScroll, { passive:true });
-  updateScroll();
-
-  // =========================================================
-  // Scroll reveal for glass cards / text blocks
-  // =========================================================
-  const revealEls = document.querySelectorAll('.reveal, .glass-card');
-
-  if ('IntersectionObserver' in window){
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting){
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold:.15, rootMargin:'0px 0px -40px 0px' });
-
-    revealEls.forEach((el) => observer.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add('in-view'));
-  }
-
-  // =========================================================
-  // IP copy boxes: click -> clipboard + flash + tooltip
+  // IP / server-address copy — click to clipboard + flash
   // =========================================================
   async function copyText(text){
     if (navigator.clipboard && window.isSecureContext){
@@ -122,15 +80,15 @@
     }
   }
 
-  document.querySelectorAll('.ip-box').forEach((box) => {
+  document.querySelectorAll('.addr[data-ip], .ip-box').forEach((box) => {
     box.addEventListener('click', async () => {
       const ip = box.dataset.ip || 'mc.tapkacraft.cz';
       const ok = await copyText(ip);
       if (!ok) return;
 
-      box.classList.remove('flash');
-      void box.offsetWidth; // restart the flash animation
-      box.classList.add('flash', 'copied');
+      box.classList.remove('copied');
+      void box.offsetWidth; // restart any transition
+      box.classList.add('copied');
 
       clearTimeout(box._copyTimeout);
       box._copyTimeout = setTimeout(() => box.classList.remove('copied'), 2200);

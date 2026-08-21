@@ -29,135 +29,79 @@
 <body data-i18n-title="meta.title.podpora">
 
 <div class="grain" aria-hidden="true"></div>
-<div class="ambient-glow" aria-hidden="true"><span></span><span></span></div>
 
-<header id="siteHeader">
-  <nav class="nav">
-    <a href="index.html" class="brand">
-      <span class="brand-text gradient-text">TapkaCraft</span>
-    </a>
+<main class="mc-app" id="mcApp">
+  <div class="mc-bg" aria-hidden="true"></div>
+  <div class="mc-scrim" aria-hidden="true"></div>
 
-    <button type="button" class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
+  <section class="mc-screen is-active" data-screen="podpora">
+    <div class="mc-screen-inner wide">
+      <h1 class="section-title" data-i18n="podpora.title">Podpoř nás</h1>
+      <p class="section-lead" data-i18n="podpora.lead">Provoz TapkaCraftu (hosting, doména) něco stojí. Podpora není povinná ani nutná pro hraní — je to jen dobrovolný způsob, jak pomoct serveru zůstat naživu déle.</p>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#nabizime" data-i18n="nav.nabizime">Co nabízíme</a></li>
-      <li><a href="index.html#novinky" data-i18n="nav.novinky">Novinky</a></li>
-      <li><a href="index.html#komunita" data-i18n="nav.komunita">Komunita</a></li>
-      <li><a href="tym.html" data-i18n="nav.tym">Tým</a></li>
-      <li><a href="index.html#faq" data-i18n="nav.faq">FAQ</a></li>
-      <li><a href="index.html#pravidla" data-i18n="nav.pravidla">Pravidla</a></li>
-      <li class="nav-links-divider" aria-hidden="true"></li>
-      <li class="nav-links-cta">
-        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord btn-block">
-          <span class="btn-ico">💬</span><span data-i18n="nav.discord">Discord</span>
-        </a>
-      </li>
-      <li class="nav-links-cta">
-        <a href="podpora.html" class="btn btn-support btn-block">
-          <span class="btn-ico">❤️</span><span data-i18n="nav.podpora">Podpora</span>
-        </a>
-      </li>
-    </ul>
-
-    <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="Jazyk / Language">
-        <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština" aria-pressed="true">CZ</button>
-        <button type="button" class="lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
+      <div class="optgrid">
+        <div class="opt-tile">
+          <div class="opt-tile-name" data-i18n="tier.1.name">Podporovatel</div>
+          <div class="opt-tile-price">99 Kč</div>
+          <ul>
+            <li data-i18n="tier.1.li1">Speciální role na Discordu</li>
+            <li data-i18n="tier.1.li2">Jméno v seznamu podporovatelů na webu</li>
+          </ul>
+        </div>
+        <div class="opt-tile featured">
+          <div class="opt-tile-name" data-i18n="tier.2.name">Donátor</div>
+          <div class="opt-tile-price">249 Kč</div>
+          <ul>
+            <li data-i18n="tier.2.li1">Speciální role na Discordu</li>
+            <li data-i18n="tier.2.li2">Jméno v seznamu podporovatelů na webu</li>
+            <li data-i18n="tier.2.li3">Prefix „Donator&quot; v chatu</li>
+            <li data-i18n="tier.2.li4">Barevné jméno v chatu</li>
+            <li data-i18n="tier.2.li5">1 000 herní měny</li>
+            <li data-i18n="tier.2.li6">1 extra home slot</li>
+          </ul>
+        </div>
+        <div class="opt-tile">
+          <div class="opt-tile-name" data-i18n="tier.3.name">Legenda</div>
+          <div class="opt-tile-price">499 Kč</div>
+          <ul>
+            <li data-i18n="tier.3.li1">Speciální role na Discordu</li>
+            <li data-i18n="tier.3.li2">Jméno v seznamu podporovatelů na webu</li>
+            <li data-i18n="tier.3.li3">Prefix „Legenda&quot; v chatu</li>
+            <li data-i18n="tier.3.li4">Barevné jméno v chatu</li>
+            <li data-i18n="tier.3.li5">3 000 herní měny</li>
+            <li data-i18n="tier.3.li6">3 extra home sloty</li>
+            <li data-i18n="tier.3.li7">Přednostní podpora od A-teamu</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="nav-ctas" id="navCtas">
-        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord btn-sm">
-          <span class="btn-ico">💬</span><span data-i18n="nav.discord">Discord</span>
-        </a>
-        <a href="podpora.html" class="btn btn-support btn-sm">
-          <span class="btn-ico">❤️</span><span data-i18n="nav.podpora">Podpora</span>
-        </a>
-      </div>
-    </div>
-  </nav>
-</header>
+      <nav class="btn-stack" aria-label="Podpora">
+        <a href="https://platby.hostify.cz/38701" target="_blank" rel="noopener" class="mbtn primary">❤️ <span data-i18n="support.cta">Podpořit server</span></a>
+      </nav>
 
-<main>
-  <div class="page-hero">
-    <a href="index.html" class="back" data-i18n="page.back">← Zpět na hlavní stránku</a>
-    <h1 class="gradient-text" data-i18n="podpora.title">Podpoř nás</h1>
-    <p data-i18n="podpora.lead">Provoz TapkaCraftu (hosting, doména) něco stojí. Podpora není povinná ani nutná pro hraní — je to jen dobrovolný způsob, jak pomoct serveru zůstat naživu déle.</p>
-  </div>
+      <p class="section-lead" data-i18n="donate.note">Platba kartou nebo bankovním převodem. Vyber si částku podle úrovně, která tě zaujala. Odměny se ti do hry přidají automaticky po přijetí platby. O speciální roli na Discordu napiš někomu z A-teamu.</p>
 
-  <section class="podpora">
-    <div class="optgrid">
-      <div class="opt-tile reveal">
-        <div class="opt-tile-name" data-i18n="tier.1.name">Podporovatel</div>
-        <div class="opt-tile-price">99 Kč</div>
-        <ul>
-          <li data-i18n="tier.1.li1">Speciální role na Discordu</li>
-          <li data-i18n="tier.1.li2">Jméno v seznamu podporovatelů na webu</li>
-        </ul>
+      <div class="supporters">
+        <h3 data-i18n="supporters.title">Podporovatelé</h3>
+        <div class="panel-card supporters-card">
+          <p class="supporters-empty" data-i18n="supporters.empty">Zatím tu nikdo není — buď první, kdo server podpoří!</p>
+        </div>
       </div>
-      <div class="opt-tile featured reveal">
-        <div class="opt-tile-name" data-i18n="tier.2.name">Donátor</div>
-        <div class="opt-tile-price">249 Kč</div>
-        <ul>
-          <li data-i18n="tier.2.li1">Speciální role na Discordu</li>
-          <li data-i18n="tier.2.li2">Jméno v seznamu podporovatelů na webu</li>
-          <li data-i18n="tier.2.li3">Prefix „Donator&quot; v chatu</li>
-          <li data-i18n="tier.2.li4">Barevné jméno v chatu</li>
-          <li data-i18n="tier.2.li5">1 000 herní měny</li>
-          <li data-i18n="tier.2.li6">1 extra home slot</li>
-        </ul>
-      </div>
-      <div class="opt-tile reveal">
-        <div class="opt-tile-name" data-i18n="tier.3.name">Legenda</div>
-        <div class="opt-tile-price">499 Kč</div>
-        <ul>
-          <li data-i18n="tier.3.li1">Speciální role na Discordu</li>
-          <li data-i18n="tier.3.li2">Jméno v seznamu podporovatelů na webu</li>
-          <li data-i18n="tier.3.li3">Prefix „Legenda&quot; v chatu</li>
-          <li data-i18n="tier.3.li4">Barevné jméno v chatu</li>
-          <li data-i18n="tier.3.li5">3 000 herní měny</li>
-          <li data-i18n="tier.3.li6">3 extra home sloty</li>
-          <li data-i18n="tier.3.li7">Přednostní podpora od A-teamu</li>
-        </ul>
+
+      <div class="contact-block">
+        <h2 class="section-title" data-i18n="podpora.contact.title">Otázky k podpoře?</h2>
+        <p class="section-lead" data-i18n="podpora.contact.desc">Napiš na Discord, rádi poradíme nebo domluvíme odměnu na míru.</p>
+        <nav class="btn-stack" aria-label="Kontakt">
+          <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="mbtn primary">💬 <span data-i18n="contact.discord">Napsat na Discord</span></a>
+        </nav>
       </div>
     </div>
-
-    <div class="hero-actions center reveal">
-      <a href="https://platby.hostify.cz/38701" target="_blank" rel="noopener" class="btn btn-support">
-        <span class="btn-ico">❤️</span><span data-i18n="support.cta">Podpořit server</span>
-      </a>
-    </div>
-
-    <p class="donate-note reveal" data-i18n="donate.note">Platba kartou nebo bankovním převodem. Vyber si částku podle úrovně, která tě zaujala. Odměny se ti do hry přidají automaticky po přijetí platby. O speciální roli na Discordu napiš někomu z A-teamu.</p>
-
-    <div class="supporters reveal">
-      <h3 data-i18n="supporters.title">Podporovatelé</h3>
-      <div class="glass-card supporters-card">
-        <p class="supporters-empty" data-i18n="supporters.empty">Zatím tu nikdo není — buď první, kdo server podpoří!</p>
-      </div>
+    <div class="mc-foot">
+      <a href="index.html" class="mbtn" data-i18n="menu.back">← Zpět</a>
+      <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
     </div>
   </section>
-
-  <div class="contact-box">
-    <div class="glass-card inner reveal">
-      <h2 class="section-title" data-i18n="podpora.contact.title">Otázky k podpoře?</h2>
-      <p data-i18n="podpora.contact.desc">Napiš na Discord, rádi poradíme nebo domluvíme odměnu na míru.</p>
-      <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord">
-        <span class="btn-ico">💬</span><span data-i18n="contact.discord">Napsat na Discord</span>
-      </a>
-    </div>
-  </div>
 </main>
-
-<footer>
-  <div class="footer-inner">
-    <span class="footer-brand gradient-text">TapkaCraft</span>
-    <span class="footer-copy">© 2026 · mc.tapkacraft.cz</span>
-    <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="footer-discord">💬 Discord</a>
-    <span class="footer-note" data-i18n="footer.note">Není spojeno s Mojang.</span>
-  </div>
-</footer>
 
 <script src="js/i18n.js"></script>
 <script src="js/script.js"></script>

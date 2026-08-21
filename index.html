@@ -29,62 +29,13 @@
 <body data-i18n-title="meta.title.home">
 
 <div class="grain" aria-hidden="true"></div>
-<div class="ambient-glow" aria-hidden="true"><span></span><span></span></div>
 
-<header id="siteHeader">
-  <nav class="nav">
-    <a href="#top" class="brand">
-      <span class="brand-text gradient-text">TapkaCraft</span>
-    </a>
+<main class="mc-app" id="mcApp">
+  <div class="mc-bg" aria-hidden="true"></div>
+  <div class="mc-scrim" aria-hidden="true"></div>
 
-    <button type="button" class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
-
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#nabizime" data-i18n="nav.nabizime">Co nabízíme</a></li>
-      <li><a href="#novinky" data-i18n="nav.novinky">Novinky</a></li>
-      <li><a href="#komunita" data-i18n="nav.komunita">Komunita</a></li>
-      <li><a href="tym.html" data-i18n="nav.tym">Tým</a></li>
-      <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
-      <li><a href="#pravidla" data-i18n="nav.pravidla">Pravidla</a></li>
-      <li class="nav-links-divider" aria-hidden="true"></li>
-      <li class="nav-links-cta">
-        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord btn-block">
-          <span class="btn-ico">💬</span><span data-i18n="nav.discord">Discord</span>
-        </a>
-      </li>
-      <li class="nav-links-cta">
-        <a href="podpora.html" class="btn btn-support btn-block">
-          <span class="btn-ico">❤️</span><span data-i18n="nav.podpora">Podpora</span>
-        </a>
-      </li>
-    </ul>
-
-    <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="Jazyk / Language">
-        <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština" aria-pressed="true">CZ</button>
-        <button type="button" class="lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
-      </div>
-
-      <div class="nav-ctas" id="navCtas">
-        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord btn-sm">
-          <span class="btn-ico">💬</span><span data-i18n="nav.discord">Discord</span>
-        </a>
-        <a href="podpora.html" class="btn btn-support btn-sm">
-          <span class="btn-ico">❤️</span><span data-i18n="nav.podpora">Podpora</span>
-        </a>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main id="top">
-
-  <!-- ===================== HERO (title screen) ===================== -->
-  <section class="hero" id="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-
+  <!-- ===================== TITLE SCREEN ===================== -->
+  <section class="mc-screen is-active" id="screen-title" data-screen="title">
     <div class="hero-content">
       <div class="hero-brand">
         <h1 class="hero-title">TapkaCraft</h1>
@@ -95,18 +46,19 @@
       <p class="status-pill" id="liveStatus"><span class="dot"></span><span data-i18n="status.loading">Zjišťuji stav serveru…</span></p>
 
       <nav class="menu-stack" aria-label="Hlavní menu">
-        <a href="#pripojit" class="mbtn primary" data-i18n="menu.connect">▶ Připojit se</a>
+        <a href="#pripojit" class="mbtn primary" data-goto="pripojit" data-i18n="menu.connect">▶ Připojit se</a>
         <a href="tym.html" class="mbtn" data-i18n="menu.team">👥 Náš tým</a>
-        <a href="#novinky" class="mbtn" data-i18n="menu.novinky">📜 Novinky</a>
+        <a href="#novinky" class="mbtn" data-goto="novinky" data-i18n="menu.novinky">📜 Novinky</a>
         <div class="menu-row">
           <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
-          <a href="#nabizime" class="mbtn" data-i18n="menu.features">Co nabízíme</a>
+          <a href="#nabizime" class="mbtn" data-goto="nabizime" data-i18n="menu.features">Co nabízíme</a>
           <a href="podpora.html" class="mbtn" data-i18n="menu.support">Podpořit</a>
         </div>
       </nav>
       <div class="hero-smallrow">
-        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="mbtn" aria-label="Discord">💬</a>
-        <a href="#pravidla" class="mbtn" aria-label="Pravidla">📋</a>
+        <a href="#komunita" class="mbtn" data-goto="komunita" aria-label="Komunita">💬</a>
+        <a href="#pravidla" class="mbtn" data-goto="pravidla" aria-label="Pravidla">📋</a>
+        <a href="#faq" class="mbtn" data-goto="faq" aria-label="Časté dotazy">❓</a>
       </div>
     </div>
 
@@ -114,333 +66,316 @@
     <span class="hero-corner hero-corner-right" data-i18n="footer.note">Není spojeno s Mojang.</span>
   </section>
 
-  <!-- ===================== MECHANIC ===================== -->
-  <section class="mechanic" id="mechanic">
-    <div class="duel reveal">
-      <div class="duel-side duel-side--death">
-        <span class="duel-num">−1</span>
-        <h3 data-i18n="mechanic.death.title">Smrt</h3>
-        <p data-i18n="mechanic.death.desc">Každou smrtí přijdeš o jedno srdce z maximálního počtu životů.</p>
-      </div>
-      <div class="duel-badge">
-        <img src="assets/img/heart.png" alt="Srdce">
-      </div>
-      <div class="duel-side duel-side--kill">
-        <span class="duel-num">+1</span>
-        <h3 data-i18n="mechanic.kill.title">Zabití</h3>
-        <p data-i18n="mechanic.kill.desc">Zabij hráče a ukradni jeho dropnuté srdce pro sebe.</p>
+  <!-- ===================== PŘIPOJIT SE (Multiplayer) ===================== -->
+  <section class="mc-screen" id="screen-pripojit" data-screen="pripojit">
+    <div class="mc-screen-inner">
+      <h2 class="section-title" data-i18n="howto.title">Připoj se na server</h2>
+      <p class="section-lead" data-i18n="howto.lead">Java i Bedrock hráči se připojí na stejný server.</p>
+
+      <div class="panel-card">
+        <div class="srow">
+          <div class="icn"><img src="assets/img/apple-touch-icon.png" alt=""></div>
+          <div><div class="srow-name">TapkaCraft — Java Edition</div><div class="srow-sub">mc.tapkacraft.cz</div></div>
+        </div>
+        <div class="srow-detail">
+          <button type="button" class="addr" data-ip="mc.tapkacraft.cz">mc.tapkacraft.cz</button>
+          <ol>
+            <li data-i18n="howto.1.desc">Spusť Java edici a klikni na <b>Multiplayer</b>.</li>
+            <li data-i18n="howto.2.desc">Klikni na <b>Add Server</b> a zadej libovolný název.</li>
+            <li data-i18n="howto.3.desc">Jako adresu serveru napiš: <code>mc.tapkacraft.cz</code></li>
+          </ol>
+        </div>
+
+        <div class="srow">
+          <div class="icn"><img src="assets/img/apple-touch-icon.png" alt=""></div>
+          <div><div class="srow-name">TapkaCraft — Bedrock Edition</div><div class="srow-sub" data-i18n="howto.bedrock.sub">mobil · konzole · Windows appka</div></div>
+        </div>
+        <div class="srow-detail">
+          <button type="button" class="addr" data-ip="mc.tapkacraft.cz:56642">mc.tapkacraft.cz : 56642</button>
+          <p data-i18n="howto.bedrock.lead">V záložce <b>Servery</b> přidej nový server s adresou <b>mc.tapkacraft.cz</b> a portem <b>56642</b>.</p>
+        </div>
       </div>
     </div>
-    <p class="mechanic-foot reveal" data-i18n="mechanic.foot">Dojdou-li ti srdce úplně, <b>čeká tě permanentní vyřazení ze hry</b>.</p>
-  </section>
-
-  <!-- ===================== PŘIPOJIT SE ===================== -->
-  <section class="howto" id="pripojit">
-    <h2 class="section-title reveal" data-i18n="howto.title">Připoj se na server</h2>
-    <p class="section-lead reveal" data-i18n="howto.lead">Java i Bedrock hráči se připojí na stejný server.</p>
-
-    <div class="panel-card reveal">
-      <div class="srow">
-        <div class="icn"><img src="assets/img/apple-touch-icon.png" alt=""></div>
-        <div><div class="srow-name">TapkaCraft — Java Edition</div><div class="srow-sub">mc.tapkacraft.cz</div></div>
-      </div>
-      <div class="srow-detail">
-        <span class="addr">mc.tapkacraft.cz</span>
-        <ol>
-          <li data-i18n="howto.1.desc">Spusť Java edici a klikni na <b>Multiplayer</b>.</li>
-          <li data-i18n="howto.2.desc">Klikni na <b>Add Server</b> a zadej libovolný název.</li>
-          <li data-i18n="howto.3.desc">Jako adresu serveru napiš: <code>mc.tapkacraft.cz</code></li>
-        </ol>
-      </div>
-
-      <div class="srow">
-        <div class="icn"><img src="assets/img/apple-touch-icon.png" alt=""></div>
-        <div><div class="srow-name">TapkaCraft — Bedrock Edition</div><div class="srow-sub" data-i18n="howto.bedrock.sub">mobil · konzole · Windows appka</div></div>
-      </div>
-      <div class="srow-detail">
-        <span class="addr">mc.tapkacraft.cz : 56642</span>
-        <p data-i18n="howto.bedrock.lead">V záložce <b>Servery</b> přidej nový server s adresou <b>mc.tapkacraft.cz</b> a portem <b>56642</b>.</p>
-      </div>
+    <div class="mc-foot">
+      <button type="button" class="mbtn" data-back data-i18n="menu.back">← Zpět</button>
+      <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
     </div>
   </section>
 
-  <!-- ===================== FEATURES ===================== -->
-  <section class="howto" id="nabizime">
-    <h2 class="section-title reveal" data-i18n="features.title">Co server nabízí</h2>
-    <p class="section-lead reveal" data-i18n="features.lead">Systémy, který jsme si naprogramovali sami. Bez cizích pluginů, bez kompromisů.</p>
-    <div class="panel-card reveal">
-      <div class="frow"><span class="ficn">🏠</span><div><div class="srow-name" data-i18n="features.1.name">Vlastní pozemek</div><div class="srow-sub" data-i18n="features.1.desc">Chráněná parcela u spawnu, stavět a bourat v ní může jen ten, kdo ji koupil.</div></div></div>
-      <div class="frow"><span class="ficn">🛠️</span><div><div class="srow-name" data-i18n="features.2.name">Joby</div><div class="srow-sub" data-i18n="features.2.desc">5 povolání najednou, bez přihlašování a cooldownů. Levely, vyšší level = vyšší výplata.</div></div></div>
-      <div class="frow"><span class="ficn">🏪</span><div><div class="srow-name" data-i18n="features.3.name">Server shop a hráčské obchody</div><div class="srow-sub" data-i18n="features.3.desc">Nakupuj v přehledném shopu, nebo si postav vlastní obchod u villagera.</div></div></div>
-      <div class="frow"><span class="ficn">💰</span><div><div class="srow-name" data-i18n="features.4.name">Aukční síň</div><div class="srow-sub" data-i18n="features.4.desc">Vystav item a nastav si vlastní cenu, ostatní hráči ho koupí přímo od tebe.</div></div></div>
-      <div class="frow"><span class="ficn">⚔️</span><div><div class="srow-name" data-i18n="features.5.name">Duely a bounty</div><div class="srow-sub" data-i18n="features.5.desc">Vyzvi hráče na souboj o itemy, nebo mu dej cenu na hlavu a nech ostatní, ať ho uloví.</div></div></div>
-      <div class="frow"><span class="ficn">👥</span><div><div class="srow-name" data-i18n="features.6.name">Teamy</div><div class="srow-sub" data-i18n="features.6.desc">Spoj se s kamarády, sdílejte home i chat a chraňte se navzájem v PvP.</div></div></div>
-      <div class="frow"><span class="ficn">🛡️</span><div><div class="srow-name" data-i18n="features.7.name">Fair-play ochrana</div><div class="srow-sub" data-i18n="features.7.desc">Anticheat proti podvádění.</div></div></div>
-      <div class="frow"><span class="ficn">💾</span><div><div class="srow-name" data-i18n="features.8.name">Pravidelné zálohy</div><div class="srow-sub" data-i18n="features.8.desc">Svět se zálohuje každou hodinu, tvoje stavby jsou v bezpečí.</div></div></div>
-      <div class="frow"><span class="ficn">🎙️</span><div><div class="srow-name" data-i18n="features.9.name">Hlasový chat</div><div class="srow-sub" data-i18n="features.9.desc">Mluv s hráči v okolí přímo ve hře, hlas slábne se vzdáleností.</div></div></div>
+  <!-- ===================== CO NABÍZÍME ===================== -->
+  <section class="mc-screen" id="screen-nabizime" data-screen="nabizime">
+    <div class="mc-screen-inner">
+      <h2 class="section-title" data-i18n="features.title">Co server nabízí</h2>
+      <p class="section-lead" data-i18n="features.lead">Systémy, který jsme si naprogramovali sami. Bez cizích pluginů, bez kompromisů.</p>
+      <div class="panel-card">
+        <div class="frow"><span class="ficn">🏠</span><div><div class="srow-name" data-i18n="features.1.name">Vlastní pozemek</div><div class="srow-sub" data-i18n="features.1.desc">Chráněná parcela u spawnu, stavět a bourat v ní může jen ten, kdo ji koupil.</div></div></div>
+        <div class="frow"><span class="ficn">🛠️</span><div><div class="srow-name" data-i18n="features.2.name">Joby</div><div class="srow-sub" data-i18n="features.2.desc">5 povolání najednou, bez přihlašování a cooldownů. Levely, vyšší level = vyšší výplata.</div></div></div>
+        <div class="frow"><span class="ficn">🏪</span><div><div class="srow-name" data-i18n="features.3.name">Server shop a hráčské obchody</div><div class="srow-sub" data-i18n="features.3.desc">Nakupuj v přehledném shopu, nebo si postav vlastní obchod u villagera.</div></div></div>
+        <div class="frow"><span class="ficn">💰</span><div><div class="srow-name" data-i18n="features.4.name">Aukční síň</div><div class="srow-sub" data-i18n="features.4.desc">Vystav item a nastav si vlastní cenu, ostatní hráči ho koupí přímo od tebe.</div></div></div>
+        <div class="frow"><span class="ficn">⚔️</span><div><div class="srow-name" data-i18n="features.5.name">Duely a bounty</div><div class="srow-sub" data-i18n="features.5.desc">Vyzvi hráče na souboj o itemy, nebo mu dej cenu na hlavu a nech ostatní, ať ho uloví.</div></div></div>
+        <div class="frow"><span class="ficn">👥</span><div><div class="srow-name" data-i18n="features.6.name">Teamy</div><div class="srow-sub" data-i18n="features.6.desc">Spoj se s kamarády, sdílejte home i chat a chraňte se navzájem v PvP.</div></div></div>
+        <div class="frow"><span class="ficn">🛡️</span><div><div class="srow-name" data-i18n="features.7.name">Fair-play ochrana</div><div class="srow-sub" data-i18n="features.7.desc">Anticheat proti podvádění.</div></div></div>
+        <div class="frow"><span class="ficn">💾</span><div><div class="srow-name" data-i18n="features.8.name">Pravidelné zálohy</div><div class="srow-sub" data-i18n="features.8.desc">Svět se zálohuje každou hodinu, tvoje stavby jsou v bezpečí.</div></div></div>
+        <div class="frow"><span class="ficn">🎙️</span><div><div class="srow-name" data-i18n="features.9.name">Hlasový chat</div><div class="srow-sub" data-i18n="features.9.desc">Mluv s hráči v okolí přímo ve hře, hlas slábne se vzdáleností.</div></div></div>
+      </div>
+    </div>
+    <div class="mc-foot">
+      <button type="button" class="mbtn" data-back data-i18n="menu.back">← Zpět</button>
+      <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
     </div>
   </section>
 
-  <!-- ===================== NOVINKY ===================== -->
-  <section class="novinky" id="novinky">
-    <h2 class="section-title reveal" data-i18n="novinky.title">Novinky</h2>
-    <p class="section-lead reveal" data-i18n="novinky.lead">Celý server teď běží na pluginu, který jsme si od základu naprogramovali sami – žádná slepenina cizích pluginů, všechno postavené a laděné přímo pro TapkaCraft.</p>
+  <!-- ===================== NOVINKY (Advancements) ===================== -->
+  <section class="mc-screen" id="screen-novinky" data-screen="novinky">
+    <div class="mc-screen-inner">
+      <h2 class="section-title" data-i18n="novinky.title">Novinky</h2>
+      <p class="section-lead" data-i18n="novinky.lead">Celý server teď běží na pluginu, který jsme si od základu naprogramovali sami – žádná slepenina cizích pluginů, všechno postavené a laděné přímo pro TapkaCraft.</p>
 
-    <div class="advancements">
-      <div class="advancement reveal">
-        <span class="advancement-icon">📱</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.7.title">Podpora Bedrock edice</b>
-          <p data-i18n="novinky.7.desc">Hraj z mobilu, konzole nebo Windows appky – stačí se připojit a propojit si účet, abys hrál pod svým jménem se všemi věcmi.</p>
+      <div class="advancements">
+        <div class="advancement">
+          <span class="advancement-icon">📱</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.7.title">Podpora Bedrock edice</b>
+            <p data-i18n="novinky.7.desc">Hraj z mobilu, konzole nebo Windows appky – stačí se připojit a propojit si účet, abys hrál pod svým jménem se všemi věcmi.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🧑‍🌾</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.8.title">Obchody u villagerů</b>
+            <p data-i18n="novinky.8.desc">Postav si vlastního villagera, nastav mu ceny a nech ho prodávat i nakupovat za tebe – funguje to i když nejsi online.</p>
+          </div>
+        </div>
+        <figure class="novinky-shot">
+          <img src="assets/img/villagershop.jpg" alt="Promo grafika k villager shopům – Chovatel Jeff a Knihovník Joe" loading="lazy">
+          <figcaption data-i18n="novinky.8.caption">Jeden z hráčských stánků na serveru</figcaption>
+        </figure>
+        <div class="advancement">
+          <span class="advancement-icon">💠</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.9.title">Vlastní tiery na vybavení</b>
+            <p data-i18n="novinky.9.desc">Nářadí a zbroj mají teď rarity od Common po Legendary – čím vzácnější, tím víc damage, míň se opotřebovává a lepší obrana.</p>
+          </div>
+        </div>
+        <figure class="novinky-shot">
+          <img src="assets/img/tiers-gear.jpg" alt="Legendary Netherite Pickaxe s tier nálepkou nad zemí" loading="lazy">
+          <figcaption data-i18n="novinky.9.caption">Legendary tier na netheritovém krumpáči</figcaption>
+        </figure>
+        <div class="advancement">
+          <span class="advancement-icon">👑</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.14.title">Common až Mythic mobové</b>
+            <p data-i18n="novinky.14.desc">Nepřátelé mají teď taky vlastní rarity – mythic je fakt nabitej, doslova, legendary a mythic creepeři vybouchnou jako nabití.</p>
+          </div>
+        </div>
+        <figure class="novinky-shot">
+          <img src="assets/img/tiers-mobs.jpg" alt="Mythic Piglin Brute v Netheru" loading="lazy">
+          <figcaption data-i18n="novinky.14.caption">Mythic Piglin Brute – jeden z nejtěžších mobů</figcaption>
+        </figure>
+        <div class="advancement">
+          <span class="advancement-icon">💎</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.15.title">Tempering crystaly a reforge</b>
+            <p data-i18n="novinky.15.desc">Padají už od rare mobů výš, občas i ze slabších. Sesbírej je a reforguj si vybavení na lepší tier.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">📖</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.16.title">Loot z nejtěžších mobů</b>
+            <p data-i18n="novinky.16.desc">Nejtěžší mobové teď dropujou i enchanted booky a diamantový/netheritový vybavení navíc ke standardnímu lootu.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">💀</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.17.title">Vlastní PvP efekty</b>
+            <p data-i18n="novinky.17.desc">Zabiješ hráče v PvP? Čeká tě vlastní efekt, zvuk a hláška – žádnej nudnej systémovej text.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🐾</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.18.title">Vlastní pets</b>
+            <p data-i18n="novinky.18.desc">Ochoč si zvíře, klidně i víc jich najednou (jedno máš vždycky aktivní venku), a dej mu jméno, barvu i vlastní efekty.</p>
+          </div>
+        </div>
+        <figure class="novinky-shot">
+          <img src="assets/img/pets.jpg" alt="Ferdík, ochočené prasátko na serveru" loading="lazy">
+          <figcaption data-i18n="novinky.18.caption">Ferdík, jeden z pets na serveru</figcaption>
+        </figure>
+        <div class="advancement">
+          <span class="advancement-icon">🗺️</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.10.title">Vlastní pozemky</b>
+            <p data-i18n="novinky.10.desc">Ohranič si kus světa jako svůj, chraň si stavby před cizíma rukama a spravuj vše přehledně v menu.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🏕️</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.11.title">Posezení u ohně</b>
+            <p data-i18n="novinky.11.desc">Klikni s prázdnou rukou na nezažehnuté ohniště a posaď se k němu – ideální na kecání s kamarády.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🧭</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.12.title">Větší dosah /rtp</b>
+            <p data-i18n="novinky.12.desc">Náhodný teleport tě teď zavede mnohem dál od spawnu, takže vždy najdeš čerstvé, nedotčené území.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🏆</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.13.title">Žebříčky jobů</b>
+            <p data-i18n="novinky.13.desc">U každého jobu v menu teď uvidíš i nejlepší hráče – klikni na job a podívej se, kdo vede.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🧩</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.1.title">Vlastní plugin serveru</b>
+            <p data-i18n="novinky.1.desc">Ekonomika, obchody, joby, PvP i teamy – vše na jednom místě, napsané a laděné na míru pro TapkaCraft.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🏪</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.2.title">Server shop a aukční síň</b>
+            <p data-i18n="novinky.2.desc">Nakupuj v přehledném obchodě s lektvary, blocky i očarováním, nebo prodávej hráčům v aukci za vlastní cenu.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🛠️</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.3.title">5 jobů najednou</b>
+            <p data-i18n="novinky.3.desc">Žádné přihlašování k práci – vydělávej rovnou hraním, sleduj svůj level i žebříček nejlepších.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">⚔️</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.4.title">Duely a bounty</b>
+            <p data-i18n="novinky.4.desc">Vyzvi hráče na souboj o itemy, nebo mu dej cenu na hlavu a nech ostatní, ať ho uloví.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">👥</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.5.title">Teamy</b>
+            <p data-i18n="novinky.5.desc">Spoj se s kamarády do teamu, sdílejte home i chat a chraňte se navzájem v PvP.</p>
+          </div>
+        </div>
+        <div class="advancement">
+          <span class="advancement-icon">🩸</span>
+          <div class="advancement-body">
+            <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
+            <b data-i18n="novinky.6.title">Vylepšený LifeSteal</b>
+            <p data-i18n="novinky.6.desc">Srdíčka jdou vybrat jako předmět, sledovat v žebříčku a věnovat na oživení padlého hráče.</p>
+          </div>
         </div>
       </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🧑‍🌾</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.8.title">Obchody u villagerů</b>
-          <p data-i18n="novinky.8.desc">Postav si vlastního villagera, nastav mu ceny a nech ho prodávat i nakupovat za tebe – funguje to i když nejsi online.</p>
-        </div>
+    </div>
+    <div class="mc-foot">
+      <button type="button" class="mbtn" data-back data-i18n="menu.back">← Zpět</button>
+      <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
+    </div>
+  </section>
+
+  <!-- ===================== PRAVIDLA (+ LifeSteal mechanic) ===================== -->
+  <section class="mc-screen" id="screen-pravidla" data-screen="pravidla">
+    <div class="mc-screen-inner">
+      <h2 class="section-title" data-i18n="rules.title">Pravidla</h2>
+      <p class="section-lead" data-i18n="rules.lead">Tenhle svět běží na vlastním LifeStealu: za smrt ztrácíš srdce, za zabití hráče ho získáváš. Dojdou-li ti úplně, čeká tě permanentní vyřazení ze hry – hraj proto podle pravidel.</p>
+      <div class="panel-card">
+        <div class="rulerow"><span class="rulenum">1</span><p data-i18n="rules.1"><b>0 srdcí = konec.</b> Když ztratíš poslední srdce, jsi ze serveru permanentně vyřazen.</p></div>
+        <div class="rulerow"><span class="rulenum">2</span><p data-i18n="rules.3"><b>Cheatování se nevyplácí.</b> Server automaticky detekuje cheat klienty a hackování je důvod k banu.</p></div>
+        <div class="rulerow"><span class="rulenum">3</span><p data-i18n="rules.4"><b>Chat je hlídaný automaticky.</b> Spam a vulgarismy jsou filtrované systémem.</p></div>
+        <div class="rulerow"><span class="rulenum">4</span><p data-i18n="rules.5"><b>Spawn a bezpečná zóna jsou chráněné.</b> V okolí spawnu neplatí PvP a nejde tam stavět ani bourat.</p></div>
       </div>
-      <figure class="novinky-shot reveal">
-        <img src="assets/img/villagershop.jpg" alt="Promo grafika k villager shopům – Chovatel Jeff a Knihovník Joe" loading="lazy">
-        <figcaption data-i18n="novinky.8.caption">Jeden z hráčských stánků na serveru</figcaption>
-      </figure>
-      <div class="advancement reveal">
-        <span class="advancement-icon">💠</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.9.title">Vlastní tiery na vybavení</b>
-          <p data-i18n="novinky.9.desc">Nářadí a zbroj mají teď rarity od Common po Legendary – čím vzácnější, tím víc damage, míň se opotřebovává a lepší obrana.</p>
-        </div>
-      </div>
-      <figure class="novinky-shot reveal">
-        <img src="assets/img/tiers-gear.jpg" alt="Legendary Netherite Pickaxe s tier nálepkou nad zemí" loading="lazy">
-        <figcaption data-i18n="novinky.9.caption">Legendary tier na netheritovém krumpáči</figcaption>
-      </figure>
-      <div class="advancement reveal">
-        <span class="advancement-icon">👑</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.14.title">Common až Mythic mobové</b>
-          <p data-i18n="novinky.14.desc">Nepřátelé mají teď taky vlastní rarity – mythic je fakt nabitej, doslova, legendary a mythic creepeři vybouchnou jako nabití.</p>
-        </div>
-      </div>
-      <figure class="novinky-shot reveal">
-        <img src="assets/img/tiers-mobs.jpg" alt="Mythic Piglin Brute v Netheru" loading="lazy">
-        <figcaption data-i18n="novinky.14.caption">Mythic Piglin Brute – jeden z nejtěžších mobů</figcaption>
-      </figure>
-      <div class="advancement reveal">
-        <span class="advancement-icon">💎</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.15.title">Tempering crystaly a reforge</b>
-          <p data-i18n="novinky.15.desc">Padají už od rare mobů výš, občas i ze slabších. Sesbírej je a reforguj si vybavení na lepší tier.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">📖</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.16.title">Loot z nejtěžších mobů</b>
-          <p data-i18n="novinky.16.desc">Nejtěžší mobové teď dropujou i enchanted booky a diamantový/netheritový vybavení navíc ke standardnímu lootu.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">💀</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.17.title">Vlastní PvP efekty</b>
-          <p data-i18n="novinky.17.desc">Zabiješ hráče v PvP? Čeká tě vlastní efekt, zvuk a hláška – žádnej nudnej systémovej text.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🐾</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.18.title">Vlastní pets</b>
-          <p data-i18n="novinky.18.desc">Ochoč si zvíře, klidně i víc jich najednou (jedno máš vždycky aktivní venku), a dej mu jméno, barvu i vlastní efekty.</p>
-        </div>
-      </div>
-      <figure class="novinky-shot reveal">
-        <img src="assets/img/pets.jpg" alt="Ferdík, ochočené prasátko na serveru" loading="lazy">
-        <figcaption data-i18n="novinky.18.caption">Ferdík, jeden z pets na serveru</figcaption>
-      </figure>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🗺️</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.10.title">Vlastní pozemky</b>
-          <p data-i18n="novinky.10.desc">Ohranič si kus světa jako svůj, chraň si stavby před cizíma rukama a spravuj vše přehledně v menu.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🏕️</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.11.title">Posezení u ohně</b>
-          <p data-i18n="novinky.11.desc">Klikni s prázdnou rukou na nezažehnuté ohniště a posaď se k němu – ideální na kecání s kamarády.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🧭</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.12.title">Větší dosah /rtp</b>
-          <p data-i18n="novinky.12.desc">Náhodný teleport tě teď zavede mnohem dál od spawnu, takže vždy najdeš čerstvé, nedotčené území.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🏆</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.13.title">Žebříčky jobů</b>
-          <p data-i18n="novinky.13.desc">U každého jobu v menu teď uvidíš i nejlepší hráče – klikni na job a podívej se, kdo vede.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🧩</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.1.title">Vlastní plugin serveru</b>
-          <p data-i18n="novinky.1.desc">Ekonomika, obchody, joby, PvP i teamy – vše na jednom místě, napsané a laděné na míru pro TapkaCraft.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🏪</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.2.title">Server shop a aukční síň</b>
-          <p data-i18n="novinky.2.desc">Nakupuj v přehledném obchodě s lektvary, blocky i očarováním, nebo prodávej hráčům v aukci za vlastní cenu.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🛠️</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.3.title">5 jobů najednou</b>
-          <p data-i18n="novinky.3.desc">Žádné přihlašování k práci – vydělávej rovnou hraním, sleduj svůj level i žebříček nejlepších.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">⚔️</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.4.title">Duely a bounty</b>
-          <p data-i18n="novinky.4.desc">Vyzvi hráče na souboj o itemy, nebo mu dej cenu na hlavu a nech ostatní, ať ho uloví.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">👥</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.5.title">Teamy</b>
-          <p data-i18n="novinky.5.desc">Spoj se s kamarády do teamu, sdílejte home i chat a chraňte se navzájem v PvP.</p>
-        </div>
-      </div>
-      <div class="advancement reveal">
-        <span class="advancement-icon">🩸</span>
-        <div class="advancement-body">
-          <span class="advancement-kicker" data-i18n="novinky.kicker">Nový pokrok odemčen</span>
-          <b data-i18n="novinky.6.title">Vylepšený LifeSteal</b>
-          <p data-i18n="novinky.6.desc">Srdíčka jdou vybrat jako předmět, sledovat v žebříčku a věnovat na oživení padlého hráče.</p>
-        </div>
-      </div>
+    </div>
+    <div class="mc-foot">
+      <button type="button" class="mbtn" data-back data-i18n="menu.back">← Zpět</button>
+      <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
     </div>
   </section>
 
   <!-- ===================== KOMUNITA ===================== -->
-  <section class="community" id="komunita">
-    <h2 class="section-title reveal" data-i18n="community.title">Komunita</h2>
-    <p class="section-lead reveal" data-i18n="community.lead">Máš dotaz nebo chceš potkat ostatní hráče? Přidej se na Discord.</p>
+  <section class="mc-screen" id="screen-komunita" data-screen="komunita">
+    <div class="mc-screen-inner">
+      <h2 class="section-title" data-i18n="community.title">Komunita</h2>
+      <p class="section-lead" data-i18n="community.lead">Máš dotaz nebo chceš potkat ostatní hráče? Přidej se na Discord.</p>
 
-    <div class="hero-actions center reveal">
-      <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord">
-        <span class="btn-ico">💬</span><span data-i18n="community.discord">Připojit se na Discord</span>
-      </a>
-      <a href="tym.html" class="btn btn-ghost" data-i18n="community.team">Náš tým →</a>
+      <nav class="btn-stack" aria-label="Komunita">
+        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="mbtn primary">💬 <span data-i18n="community.discord">Připojit se na Discord</span></a>
+        <a href="tym.html" class="mbtn" data-i18n="community.team">Náš tým →</a>
+      </nav>
+
+      <div class="vote-row">
+        <span class="vote-label" data-i18n="community.voteLabel">🗳 Podpoř server hlasem:</span>
+        <a href="https://czech-craft.eu/server/tapkacraft/" target="_blank" rel="noopener" class="vote-chip">Czech-Craft.eu</a>
+        <a href="https://craftlist.cz/tapkacraft" target="_blank" rel="noopener" class="vote-chip">CraftList.cz</a>
+        <a href="https://www.minecraft-list.cz/server/tapkacraft" target="_blank" rel="noopener" class="vote-chip">Minecraft-list.cz</a>
+      </div>
     </div>
-
-    <div class="vote-row reveal">
-      <span class="vote-label" data-i18n="community.voteLabel">🗳 Podpoř server hlasem:</span>
-      <a href="https://czech-craft.eu/server/tapkacraft/" target="_blank" rel="noopener" class="chip">Czech-Craft.eu</a>
-      <a href="https://craftlist.cz/tapkacraft" target="_blank" rel="noopener" class="chip">CraftList.cz</a>
-      <a href="https://www.minecraft-list.cz/server/tapkacraft" target="_blank" rel="noopener" class="chip">Minecraft-list.cz</a>
+    <div class="mc-foot">
+      <button type="button" class="mbtn" data-back data-i18n="menu.back">← Zpět</button>
+      <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
     </div>
   </section>
 
   <!-- ===================== FAQ ===================== -->
-  <section class="faq" id="faq">
-    <h2 class="section-title reveal" data-i18n="faq.title">Časté dotazy</h2>
-    <div class="glass-card faq-panel reveal">
-      <details>
-        <summary data-i18n="faq.1.q">Co se stane, když mi dojdou srdce?</summary>
-        <p data-i18n="faq.1.a">Klesneš-li na 0 srdcí, jsi ze serveru permanentně vyřazen. Hraj proto opatrně a spíš se spojenci, než sólo.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.2.q">Je hraní na serveru zdarma?</summary>
-        <p data-i18n="faq.2.a">Ano, připojení a hraní je úplně zdarma. Stačí znát IP adresu a mít Minecraft Java edici.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.3.q">Jak si koupím pozemek na spawnu?</summary>
-        <p data-i18n="faq.3.a">U spawnu najdeš prodejní parcely, stačí se podívat po cedulích a koupit tu, která se ti líbí. Stavět a bourat v ní pak můžeš jen ty.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.4.q">Co když narazím na cheatera?</summary>
-        <p data-i18n="faq.4.a">Server má automatický anticheat, ale pokud si nejsi jistý, nahlaš to na Discordu a admin tým to prověří.</p>
-      </details>
-      <details>
-        <summary data-i18n="faq.5.q">Podporujete i Bedrock edici (mobil/konzole)?</summary>
-        <p data-i18n="faq.5.a">Ano! Bedrock hráči (mobil, konzole, Windows appka) se mohou připojit přímo. Po prvním připojení si propoj účet příkazem /linkaccount, ať hraješ pod svým jménem se vším, co k němu patří.</p>
-      </details>
+  <section class="mc-screen" id="screen-faq" data-screen="faq">
+    <div class="mc-screen-inner">
+      <h2 class="section-title" data-i18n="faq.title">Časté dotazy</h2>
+      <div class="panel-card">
+        <details>
+          <summary data-i18n="faq.1.q">Co se stane, když mi dojdou srdce?</summary>
+          <p data-i18n="faq.1.a">Klesneš-li na 0 srdcí, jsi ze serveru permanentně vyřazen. Hraj proto opatrně a spíš se spojenci, než sólo.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.2.q">Je hraní na serveru zdarma?</summary>
+          <p data-i18n="faq.2.a">Ano, připojení a hraní je úplně zdarma. Stačí znát IP adresu a mít Minecraft Java edici.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.3.q">Jak si koupím pozemek na spawnu?</summary>
+          <p data-i18n="faq.3.a">U spawnu najdeš prodejní parcely, stačí se podívat po cedulích a koupit tu, která se ti líbí. Stavět a bourat v ní pak můžeš jen ty.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.4.q">Co když narazím na cheatera?</summary>
+          <p data-i18n="faq.4.a">Server má automatický anticheat, ale pokud si nejsi jistý, nahlaš to na Discordu a admin tým to prověří.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.5.q">Podporujete i Bedrock edici (mobil/konzole)?</summary>
+          <p data-i18n="faq.5.a">Ano! Bedrock hráči (mobil, konzole, Windows appka) se mohou připojit přímo. Po prvním připojení si propoj účet příkazem /linkaccount, ať hraješ pod svým jménem se vším, co k němu patří.</p>
+        </details>
+      </div>
     </div>
-  </section>
-
-  <!-- ===================== RULES ===================== -->
-  <section class="rules" id="pravidla">
-    <h2 class="section-title reveal" data-i18n="rules.title">Pravidla</h2>
-    <div class="panel-card reveal">
-      <div class="rulerow"><span class="rulenum">1</span><p data-i18n="rules.1"><b>0 srdcí = konec.</b> Když ztratíš poslední srdce, jsi ze serveru permanentně vyřazen.</p></div>
-      <div class="rulerow"><span class="rulenum">2</span><p data-i18n="rules.3"><b>Cheatování se nevyplácí.</b> Server automaticky detekuje cheat klienty a hackování je důvod k banu.</p></div>
-      <div class="rulerow"><span class="rulenum">3</span><p data-i18n="rules.4"><b>Chat je hlídaný automaticky.</b> Spam a vulgarismy jsou filtrované systémem.</p></div>
-      <div class="rulerow"><span class="rulenum">4</span><p data-i18n="rules.5"><b>Spawn a bezpečná zóna jsou chráněné.</b> V okolí spawnu neplatí PvP a nejde tam stavět ani bourat.</p></div>
+    <div class="mc-foot">
+      <button type="button" class="mbtn" data-back data-i18n="menu.back">← Zpět</button>
+      <button type="button" class="mbtn mbtn-icon lang-toggle-mc" aria-label="Jazyk / Language">🌐</button>
     </div>
-  </section>
-
-  <!-- ===================== FINAL CTA ===================== -->
-  <section class="final-cta">
-    <h2 class="section-title reveal" data-i18n="final.title">Připoj se teď</h2>
-
-    <div class="hero-actions center reveal">
-      <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="btn btn-discord">
-        <span class="btn-ico">💬</span><span data-i18n="hero.discord">Discord</span>
-      </a>
-      <a href="podpora.html" class="btn btn-support">
-        <span class="btn-ico">❤️</span><span data-i18n="hero.support">Podpora</span>
-      </a>
-    </div>
-
-    <button class="ip-box ip-box-sm reveal" type="button" data-ip="mc.tapkacraft.cz" aria-label="Zkopírovat IP adresu serveru mc.tapkacraft.cz">
-      <span class="ip-box-glow" aria-hidden="true"></span>
-      <span class="ip-tooltip" data-i18n="ip.copied">Zkopírováno!</span>
-      <span class="ip-box-row">
-        <span class="ip-box-value">mc.tapkacraft.cz</span>
-        <span class="ip-box-icon" aria-hidden="true">⧉</span>
-      </span>
-    </button>
   </section>
 
 </main>
-
-<footer>
-  <div class="footer-inner">
-    <span class="footer-brand gradient-text">TapkaCraft</span>
-    <span class="footer-copy">© 2026 · mc.tapkacraft.cz</span>
-    <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="footer-discord">💬 Discord</a>
-    <span class="footer-note" data-i18n="footer.note">Není spojeno s Mojang.</span>
-  </div>
-</footer>
 
 <script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
