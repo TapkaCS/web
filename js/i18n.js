@@ -61,7 +61,7 @@ window.I18N = {
     "mp.bedrock.li2": "Adresa: mc.tapkacraft.cz",
     "mp.bedrock.li3": "Port: 56642",
 
-    "team.title": "Vyber si svět",
+    "team.title": "Admin tým",
     "team.lead": "Lidé, kteří drží TapkaCraft nad vodou.",
     "team.owner.role": "Majitel",
     "team.owner.desc": "Zakladatel a hlavní správce serveru.",
@@ -206,7 +206,7 @@ window.I18N = {
     "mp.bedrock.li2": "Address: mc.tapkacraft.cz",
     "mp.bedrock.li3": "Port: 56642",
 
-    "team.title": "Choose your world",
+    "team.title": "Admin Team",
     "team.lead": "The people keeping TapkaCraft afloat.",
     "team.owner.role": "Owner",
     "team.owner.desc": "Founder and lead server admin.",
