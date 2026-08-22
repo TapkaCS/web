@@ -235,9 +235,10 @@ a:focus-visible, button:focus-visible{
    tier picker), added because the page needs an actual way
    to pay; kept in the same visual language as everything else.
    ========================================================= */
-.support-cta{margin:24px 0 4px;}
-.support-cta .mbtn{width:100%;}
-.donate-note{margin:16px 2px 0;color:var(--muted-2);font-size:.8rem;line-height:1.6;}
+/* shared by the Podpora payment link and the Náš tým recruitment link */
+.panel-cta{margin:24px 0 4px;}
+.panel-cta .mbtn{width:100%;}
+.panel-note{margin:16px 2px 0;color:var(--muted-2);font-size:.8rem;line-height:1.6;}
 .supporters{margin-top:32px;padding-top:24px;border-top:1px solid var(--line);}
 .supporters h3{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;font-weight:700;}
 .supporters-empty{color:var(--muted);font-size:.85rem;}

@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image.jpg">
 
 <!-- ?v= is bumped on every deploy so browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=20260821k">
+<link rel="stylesheet" href="css/style.css?v=20260821l">
 </head>
 <body data-i18n-title="meta.title.home">
 
@@ -125,32 +125,62 @@
         <div><div class="name">TapkaCS</div><div class="sub" data-i18n="team.owner.role">Majitel</div></div>
       </div>
       <div class="detail is-open" data-detail="team" data-key="owner">
-        <p data-i18n="team.owner.desc">Zakladatel a hlavní správce serveru. Developer.</p>
+        <p data-i18n="team.owner.desc">Zakladatel a hlavní správce serveru.</p>
       </div>
 
-      <div class="wrow" data-select="team" data-key="admin">
+      <div class="wrow" data-select="team" data-key="headadmin">
         <img src="assets/img/avatar-kajka000.png" alt="">
-        <div><div class="name">kajka000</div><div class="sub" data-i18n="team.admin.role">Admin</div></div>
+        <div><div class="name">kajka000</div><div class="sub" data-i18n="team.headadmin.role">Hlavní admin</div></div>
+      </div>
+      <div class="detail" data-detail="team" data-key="headadmin">
+        <p data-i18n="team.headadmin.desc">Stará se o chod a pořádek na serveru.</p>
+      </div>
+
+      <div class="wrow is-empty" data-select="team" data-key="admin">
+        <img src="assets/img/avatar-empty.png" alt="">
+        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.admin.role">Admin</div></div>
       </div>
       <div class="detail" data-detail="team" data-key="admin">
-        <p data-i18n="team.admin.desc">Stará se o chod a pořádek na serveru.</p>
+        <p data-i18n="team.admin.desc">Pomáhá s chodem serveru, řeší hlášení a dohlíží na moderátory.</p>
       </div>
 
-      <div class="wrow" data-select="team" data-key="mod">
+      <div class="wrow is-empty" data-select="team" data-key="dev">
         <img src="assets/img/avatar-empty.png" alt="">
-        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.mod.role">Moderátor</div></div>
+        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.dev.role">Developer</div></div>
       </div>
-      <div class="detail" data-detail="team" data-key="mod">
-        <p data-i18n="team.empty.desc">Tahle pozice zatím čeká na tebe, napiš na Discord, pokud máš zájem.</p>
+      <div class="detail" data-detail="team" data-key="dev">
+        <p data-i18n="team.dev.desc">Programuje a ladí náš vlastní plugin. Hodí se ti Java a chuť se učit.</p>
       </div>
 
-      <div class="wrow" data-select="team" data-key="helper">
+      <div class="wrow is-empty" data-select="team" data-key="helper">
         <img src="assets/img/avatar-empty.png" alt="">
         <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.helper.role">Helper</div></div>
       </div>
       <div class="detail" data-detail="team" data-key="helper">
-        <p data-i18n="team.empty.desc">Tahle pozice zatím čeká na tebe, napiš na Discord, pokud máš zájem.</p>
+        <p data-i18n="team.helper.desc">Vítá nové hráče a odpovídá na dotazy ve hře i na Discordu.</p>
       </div>
+
+      <div class="wrow is-empty" data-select="team" data-key="mod1">
+        <img src="assets/img/avatar-empty.png" alt="">
+        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.mod.role">Moderátor</div></div>
+      </div>
+      <div class="detail" data-detail="team" data-key="mod1">
+        <p data-i18n="team.mod.desc">Hlídá chat, řeší hlášení a spory mezi hráči.</p>
+      </div>
+
+      <div class="wrow is-empty" data-select="team" data-key="mod2">
+        <img src="assets/img/avatar-empty.png" alt="">
+        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.mod.role">Moderátor</div></div>
+      </div>
+      <div class="detail" data-detail="team" data-key="mod2">
+        <p data-i18n="team.mod.desc">Hlídá chat, řeší hlášení a spory mezi hráči.</p>
+      </div>
+
+      <!-- TODO: swap href for the Google Form once its link exists -->
+      <div class="panel-cta">
+        <a href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" class="mbtn bevel3d">📝 <span data-i18n="team.join.cta">Přihlásit se do týmu</span></a>
+      </div>
+      <p class="panel-note" data-i18n="team.join.note">Máš zájem o některou z volných pozic? Ozvi se nám a napiš, o kterou stojíš a proč zrovna ty.</p>
     </div>
   </section>
 
@@ -191,10 +221,10 @@
         </ul>
       </div>
 
-      <div class="support-cta">
+      <div class="panel-cta">
         <a href="https://platby.hostify.cz/38701" target="_blank" rel="noopener" class="mbtn bevel3d">❤️ <span data-i18n="support.cta">Podpořit server</span></a>
       </div>
-      <p class="donate-note" data-i18n="donate.note">Platba kartou nebo bankovním převodem. Vyber si částku podle úrovně, která tě zaujala. Odměny se ti do hry přidají automaticky po přijetí platby. O speciální roli na Discordu napiš někomu z A-teamu.</p>
+      <p class="panel-note" data-i18n="donate.note">Platba kartou nebo bankovním převodem. Vyber si částku podle úrovně, která tě zaujala. Odměny se ti do hry přidají automaticky po přijetí platby. O speciální roli na Discordu napiš někomu z A-teamu.</p>
 
       <div class="supporters">
         <h3 data-i18n="supporters.title">Podporovatelé</h3>
@@ -311,7 +341,7 @@
 
 </main>
 
-<script src="js/i18n.js?v=20260821k"></script>
-<script src="js/script.js?v=20260821k"></script>
+<script src="js/i18n.js?v=20260821l"></script>
+<script src="js/script.js?v=20260821l"></script>
 </body>
 </html>
