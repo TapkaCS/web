@@ -77,7 +77,7 @@ window.I18N = {
     "team.mod.desc": "Hlídá chat, řeší hlášení a spory mezi hráči.",
     "team.empty.name": "Volná pozice",
     "team.join.cta": "Přihlásit se do týmu",
-    "team.join.note": "Máš zájem o některou z volných pozic? Ozvi se nám a napiš, o kterou stojíš a proč zrovna ty. <b>Podmínkou je minimální věk 16 let.</b>",
+    "team.join.note": "Máš zájem o některou z volných pozic? Vyplň formulář výš a napiš nám, o kterou stojíš a proč zrovna ty. <b>Podmínkou je minimální věk 16 let.</b>",
 
     "support.title": "Možnosti podpory",
     "support.lead": "Dobrovolné, hraní zůstává zdarma pro všechny.",
@@ -222,7 +222,7 @@ window.I18N = {
     "team.mod.desc": "Watches the chat, handles reports and disputes between players.",
     "team.empty.name": "Open position",
     "team.join.cta": "Apply to the team",
-    "team.join.note": "Interested in one of the open positions? Get in touch and tell us which one and why you. <b>You need to be at least 16.</b>",
+    "team.join.note": "Interested in one of the open positions? Fill in the form above and tell us which one and why you. <b>You need to be at least 16.</b>",
 
     "support.title": "Support options",
     "support.lead": "Voluntary, playing stays free for everyone.",
