@@ -316,7 +316,7 @@
 
   function startMusic(){
     if (!bgm || isMuted()) return Promise.reject();
-    bgm.volume = 0.28;                       // background, not a performance
+    bgm.volume = 0.25;                       // background, not a performance
     if (bgm.preload === 'none') bgm.preload = 'auto';
     return bgm.play();
   }
