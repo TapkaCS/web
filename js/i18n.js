@@ -19,6 +19,8 @@ window.I18N = {
     "status.error": "Stav serveru nelze zjistit",
     "players.title": "Právě online",
     "players.more": "a další: {n}",
+    "music.mute": "Ztlumit hudbu",
+    "music.unmute": "Zapnout hudbu",
 
     "hero.subtitle": "Náš svět, po našem.",
     // one picked at random per visit, like the game's own title screen.
@@ -224,6 +226,8 @@ window.I18N = {
     "status.error": "Stav servera sa nedá zistiť",
     "players.title": "Práve online",
     "players.more": "a ďalší: {n}",
+    "music.mute": "Stlmiť hudbu",
+    "music.unmute": "Zapnúť hudbu",
 
     "hero.subtitle": "Náš svet, po našom.",
     // same order as the cs list above
@@ -427,6 +431,8 @@ window.I18N = {
     "status.error": "Couldn't check server status",
     "players.title": "Online right now",
     "players.more": "and {n} more",
+    "music.mute": "Mute music",
+    "music.unmute": "Unmute music",
 
     "hero.subtitle": "Our world, our way.",
     // same order as the cs list above
@@ -635,6 +641,8 @@ window.I18N = {
     "status.error": "Mlha, loď není vidět",
     "players.title": "Právě na palubě",
     "players.more": "a další: {n}",
+    "music.mute": "Umlčet muziku",
+    "music.unmute": "Spustit muziku",
 
     "hero.subtitle": "Naše moře, po našem.",
     // same order as the cs list above
@@ -852,6 +860,10 @@ window.I18N = {
     // news copy comes from data/novinky.json, not from these dictionaries,
     // so the language pass above cannot translate it; re-render instead
     if (typeof window.renderNovinky === 'function') window.renderNovinky();
+    // the mute button's label is built in script.js, not from a data-i18n
+    // attribute, so the pass above cannot reach it
+    if (typeof window.paintMute === 'function' && typeof window.isMusicMuted === 'function')
+      window.paintMute(window.isMusicMuted());
     if (typeof window.markLangRow === 'function') window.markLangRow();
     if (typeof window.applySplash === 'function') window.applySplash();
     // must run last: re-titles for the open screen, overriding the home

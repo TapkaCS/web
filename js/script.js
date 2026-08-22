@@ -284,6 +284,69 @@
   });
 
   // =========================================================
+  // Background music. Browsers refuse to start audio until the
+  // visitor has interacted with the page, so the first play()
+  // is attempted anyway and, when it is rejected, the track is
+  // armed to start on the first click, tap or key instead. On a
+  // click-through site that lands almost immediately.
+  // =========================================================
+  const bgm = document.getElementById('bgm');
+  const muteBtn = document.getElementById('muteBtn');
+  const MUTE_KEY = 'tapkacraft-muted';
+
+  function isMuted(){
+    try { return localStorage.getItem(MUTE_KEY) === '1'; } catch (e) { return false; }
+  }
+  function storeMuted(v){
+    try { localStorage.setItem(MUTE_KEY, v ? '1' : '0'); } catch (e) {}
+  }
+
+  function paintMute(muted){
+    if (!muteBtn) return;
+    const lang = currentLang();
+    const dict = (window.I18N && window.I18N[lang]) || {};
+    muteBtn.textContent = muted ? '🔇' : '🔊';
+    muteBtn.setAttribute('aria-pressed', String(muted));
+    muteBtn.setAttribute('aria-label', muted
+      ? (dict['music.unmute'] || 'Zapnout hudbu')
+      : (dict['music.mute'] || 'Ztlumit hudbu'));
+  }
+  window.paintMute = paintMute;
+  window.isMusicMuted = isMuted;
+
+  function startMusic(){
+    if (!bgm || isMuted()) return Promise.reject();
+    bgm.volume = 0.28;                       // background, not a performance
+    if (bgm.preload === 'none') bgm.preload = 'auto';
+    return bgm.play();
+  }
+
+  if (bgm && muteBtn){
+    paintMute(isMuted());
+
+    if (!isMuted()){
+      // fails on a first visit, which is expected and not an error
+      startMusic().catch(() => {
+        const kick = () => {
+          startMusic().catch(() => {});
+          ['pointerdown', 'keydown', 'touchstart'].forEach((ev) =>
+            document.removeEventListener(ev, kick));
+        };
+        ['pointerdown', 'keydown', 'touchstart'].forEach((ev) =>
+          document.addEventListener(ev, kick, { passive: true }));
+      });
+    }
+
+    muteBtn.addEventListener('click', () => {
+      const next = !isMuted();
+      storeMuted(next);
+      paintMute(next);
+      if (next) bgm.pause();
+      else startMusic().catch(() => {});
+    });
+  }
+
+  // =========================================================
   // Who is online: the game shows the names behind the player
   // count when you hover it in the server list, so this does the
   // same. Tap opens it on a phone, where there is no hover.
