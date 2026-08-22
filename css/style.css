@@ -262,7 +262,10 @@ a.srow.linkrow:hover .go{color:var(--gold);}
    same, and opens on tap for phones. Fixed positioning so the panel is not
    clipped by the scrolling screen it sits in. */
 .playerpop{
-  position:fixed; z-index:20; max-width:min(280px,80vw);
+  /* top/left are pinned here, not just when it opens: without them it fell
+     back to its static position, which is the end of the document past the
+     bottom edge, and iOS counts that as page to scroll to. */
+  position:fixed; top:0; left:0; z-index:20; max-width:min(280px,80vw);
   background:rgba(10,10,12,.96); border:2px solid var(--line); border-radius:2px;
   padding:10px 12px; opacity:0; pointer-events:none; transform:translateY(4px);
   transition:opacity .12s ease, transform .12s ease;
@@ -332,6 +335,17 @@ a.srow.linkrow:hover .go{color:var(--gold);}
   .tile{padding:12px 4px;}
   .corner-left, .corner-right{font-size:.6rem;}
   .corner-right{max-width:150px;}
+}
+
+/* A short window (a phone on its side) cannot fit the title column, and the
+   screen is fixed to the viewport, so the bottom row simply vanished with no
+   way to reach it. Give the column its natural height there and let the screen
+   scroll; margin:auto rather than justify-content so an overflowing column can
+   still be scrolled back to the top. */
+@media (max-height:540px){
+  .mc-screen[data-screen="title"]{justify-content:flex-start;overflow-y:auto;}
+  .hero-content{height:auto;max-height:none;padding-top:0;margin:auto 0;padding-block:20px;}
+  .btnstack{margin-top:26px;margin-bottom:0;}
 }
 
 /* =========================================================
