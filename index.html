@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image-v2.jpg">
 
 <!-- ?v= is bumped on every deploy so browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=20260822f">
+<link rel="stylesheet" href="css/style.css?v=20260822h">
 </head>
 <body data-i18n-title="meta.title.home">
 
@@ -50,9 +50,17 @@
       <div class="btnstack">
         <button type="button" class="mbtn primary bevel3d" data-goto="multiplayer" data-i18n="menu.connect">▶ Připojit se</button>
         <p class="status-line" id="liveStatus"><span class="dot"></span><span data-i18n="status.loading">Zjišťuji stav serveru…</span></p>
-        <button type="button" class="mbtn bevel3d" data-goto="team" data-i18n="menu.team">👥 Náš tým</button>
-        <button type="button" class="mbtn bevel3d" data-goto="novinky" data-i18n="menu.novinky">📜 Novinky</button>
-        <button type="button" class="mbtn bevel3d" data-goto="vote" data-i18n="menu.vote">🗳️ Hlasuj pro nás</button>
+        <!-- Only Pripojit se runs full width, the way the game's own menu keeps
+             one primary action and pairs the rest. Five stacked buttons had
+             squeezed the wordmark down to a 30px gap. -->
+        <div class="btnrow">
+          <button type="button" class="mbtn bevel3d" data-goto="start" data-i18n="menu.start">🧭 Jak začít</button>
+          <button type="button" class="mbtn bevel3d" data-goto="team" data-i18n="menu.team">👥 Náš tým</button>
+        </div>
+        <div class="btnrow">
+          <button type="button" class="mbtn bevel3d" data-goto="novinky" data-i18n="menu.novinky">📜 Novinky</button>
+          <button type="button" class="mbtn bevel3d" data-goto="vote" data-i18n="menu.vote">🗳️ Hlasuj pro nás</button>
+        </div>
         <div class="btnrow">
           <button type="button" class="sbtn bevel3d" data-goto="language" aria-label="Jazyk / Language">🌐</button>
           <button type="button" class="mbtn bevel3d" data-goto="features" data-i18n="menu.features">Co u nás najdeš</button>
@@ -280,6 +288,124 @@
   </section>
 
   <!-- ===================== PRAVIDLA ===================== -->
+  <section class="mc-screen" data-screen="start">
+    <div class="mp-panel">
+      <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
+      <h2 class="mp-title" data-i18n="start.title">Jak začít</h2>
+      <p class="mp-lead" data-i18n="start.lead">Prvních pár minut na serveru.</p>
+
+      <div class="srow is-selected" data-select="start" data-key="first">
+        <div class="icn">🚀</div>
+        <div><div class="name" data-i18n="start.first.name">První kroky</div><div class="sub" data-i18n="start.first.sub">Co dělat hned po připojení</div></div>
+      </div>
+      <div class="detail is-open" data-detail="start" data-key="first">
+        <span class="kicker" data-i18n="start.first.kicker">PRVNÍ KROKY</span>
+        <ol>
+          <li data-i18n="start.first.li1">Připoj se a rozhlédni se po spawnu.</li>
+          <li data-i18n="start.first.li2">Jdi kopat, kácet nebo rybařit. Joby máš zapnuté od začátku a platí se ti hned.</li>
+          <li data-i18n="start.first.li3">Nastav si domov přes /sethome, ať se máš kam vracet.</li>
+          <li data-i18n="start.first.li4">V /shop nakoupíš základ, přes /sell a /sellhand prodáš, co nasbíráš.</li>
+          <li data-i18n="start.first.li5">Zaskoč na /city za hráčskými obchody.</li>
+        </ol>
+      </div>
+
+      <div class="srow" data-select="start" data-key="jobs">
+        <div class="icn">💼</div>
+        <div><div class="name" data-i18n="start.jobs.name">Joby</div><div class="sub" data-i18n="start.jobs.sub">Vydělávej tím, co stejně děláš</div></div>
+      </div>
+      <div class="detail" data-detail="start" data-key="jobs">
+        <span class="kicker" data-i18n="start.jobs.kicker">JOBY</span>
+        <ul>
+          <li data-i18n="start.jobs.li1">Nikam se nehlásíš, všechny joby máš od začátku.</li>
+          <li data-i18n="start.jobs.li2">Platí se ti za práci: těžení, kácení, zabíjení mobů, rybaření a další.</li>
+          <li data-i18n="start.jobs.li3">Každá kategorie má vlastní level a každý blok svou cenu.</li>
+          <li data-i18n="start.jobs.li4">Čím víc kategorii děláš, tím vyšší level, a tím víc peněz za stejnou práci.</li>
+          <li data-i18n="start.jobs.li5">/jobs ukáže tvoje levely i žebříček nejlepších hráčů.</li>
+        </ul>
+      </div>
+
+      <div class="srow" data-select="start" data-key="shop">
+        <div class="icn">🏪</div>
+        <div><div class="name" data-i18n="start.shop.name">Shop a prodej</div><div class="sub" data-i18n="start.shop.sub">Nákup od serveru za pevnou cenu</div></div>
+      </div>
+      <div class="detail" data-detail="start" data-key="shop">
+        <span class="kicker" data-i18n="start.shop.kicker">SHOP A PRODEJ</span>
+        <ul>
+          <li data-i18n="start.shop.li1">/shop otevře serverový obchod: bloky, jídlo, nářadí, enchant knížky a další.</li>
+          <li data-i18n="start.shop.li2">Nářadí a zbroj ze shopu má vždycky raritu Common.</li>
+          <li data-i18n="start.shop.li3">Prodávat jde přes /sell a /sellhand, kterým prodáš to, co zrovna držíš.</li>
+        </ul>
+      </div>
+
+      <div class="srow" data-select="start" data-key="auction">
+        <div class="icn">💰</div>
+        <div><div class="name" data-i18n="start.auction.name">Aukce</div><div class="sub" data-i18n="start.auction.sub">Prodej ostatním hráčům, ne serveru</div></div>
+      </div>
+      <div class="detail" data-detail="start" data-key="auction">
+        <span class="kicker" data-i18n="start.auction.kicker">AUKCE</span>
+        <ul>
+          <li data-i18n="start.auction.li1">Hráčský systém: kupuješ a prodáváš mezi hráči.</li>
+          <li data-i18n="start.auction.li2">Hodí se na věci, které shop nevykoupí, třeba legendary netherite krumpáč.</li>
+          <li data-i18n="start.auction.li3">Cenu si určuješ sám.</li>
+        </ul>
+      </div>
+
+      <div class="srow" data-select="start" data-key="pets">
+        <div class="icn">🐾</div>
+        <div><div class="name" data-i18n="start.pets.name">Pets</div><div class="sub" data-i18n="start.pets.sub">Vlastní zvíře se jménem i efekty</div></div>
+      </div>
+      <div class="detail" data-detail="start" data-key="pets">
+        <span class="kicker" data-i18n="start.pets.kicker">PETS</span>
+        <ul>
+          <li data-i18n="start.pets.li1">Rozmnož zvíře a na mládě klikni se shiftem a pravým tlačítkem. Dostaneš jeho vajíčko.</li>
+          <li data-i18n="start.pets.li2">Vajíčko použij a zvíře se ti objeví v /pets.</li>
+          <li data-i18n="start.pets.li3">Venku můžeš mít jedno zvíře. V /pets mu nastavíš jméno, barvu, dospělou nebo mladou verzi i efekty.</li>
+          <li data-i18n="start.pets.li4">Vajíčka, která nepoužiješ, prodáš v aukci nebo přes villager shop.</li>
+        </ul>
+      </div>
+
+      <div class="srow" data-select="start" data-key="home">
+        <div class="icn">🏠</div>
+        <div><div class="name" data-i18n="start.home.name">Domov a teleporty</div><div class="sub" data-i18n="start.home.sub">Ať se máš kam vracet</div></div>
+      </div>
+      <div class="detail" data-detail="start" data-key="home">
+        <span class="kicker" data-i18n="start.home.kicker">DOMOV A TELEPORTY</span>
+        <ul>
+          <li data-i18n="start.home.li1">/sethome nastaví domov, mít jich můžeš dva.</li>
+          <li data-i18n="start.home.li2">/home tě k němu teleportuje.</li>
+          <li data-i18n="start.home.li3">/spawn tě vrátí na spawn.</li>
+          <li data-i18n="start.home.li4">/city tě hodí do bezpečného města s hráčskými obchody.</li>
+          <li data-i18n="start.home.li5">/tpa nick pošle žádost o teleport k jinému hráči.</li>
+        </ul>
+      </div>
+
+      <div class="srow" data-select="start" data-key="money">
+        <div class="icn">🪙</div>
+        <div><div class="name" data-i18n="start.money.name">Peníze</div><div class="sub" data-i18n="start.money.sub">Zůstatek, placení, žebříček</div></div>
+      </div>
+      <div class="detail" data-detail="start" data-key="money">
+        <span class="kicker" data-i18n="start.money.kicker">PENÍZE</span>
+        <ul>
+          <li data-i18n="start.money.li1">/balance ukáže tvůj zůstatek.</li>
+          <li data-i18n="start.money.li2">/pay pošle peníze přímo jinému hráči.</li>
+          <li data-i18n="start.money.li3">/balancetop je žebříček nejbohatších.</li>
+        </ul>
+      </div>
+
+      <div class="srow" data-select="start" data-key="help">
+        <div class="icn">🆘</div>
+        <div><div class="name" data-i18n="start.help.name">Něco se stalo</div><div class="sub" data-i18n="start.help.sub">Griefing, podvádění, rozbitá věc</div></div>
+      </div>
+      <div class="detail" data-detail="start" data-key="help">
+        <span class="kicker" data-i18n="start.help.kicker">NĚCO SE STALO</span>
+        <ul>
+          <li data-i18n="start.help.li1">Napiš /helpop a ozve se ti někdo z týmu.</li>
+          <li data-i18n="start.help.li2">Stejně dobře to funguje přes Discord.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="mc-screen" data-screen="rules">
     <div class="mp-panel">
       <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
@@ -401,7 +527,7 @@
 
 </main>
 
-<script src="js/i18n.js?v=20260822f"></script>
-<script src="js/script.js?v=20260822f"></script>
+<script src="js/i18n.js?v=20260822h"></script>
+<script src="js/script.js?v=20260822h"></script>
 </body>
 </html>

@@ -193,6 +193,11 @@ a:focus-visible, button:focus-visible,
 .detail .addr.copied::after{content:" ✓";color:var(--green);}
 .detail ol, .detail ul{margin:0;padding-left:18px;color:var(--muted);font-size:.85rem;line-height:1.9;}
 .detail ul{list-style:none;padding-left:0;}
+/* Numbered steps read left: the markers sit on the left edge, so centred text
+   leaves them stranded away from the line they belong to. The tick lists stay
+   centred, they carry their own marker inline. */
+.detail ol{text-align:left;}
+.detail ol li{padding-left:4px;}
 .detail ul li::before{content:"✓ ";color:var(--green);}
 .detail p{margin:0;color:var(--muted);font-size:.86rem;line-height:1.7;}
 .detail b{display:block;font-size:.98rem;color:var(--ink);margin-bottom:6px;}
