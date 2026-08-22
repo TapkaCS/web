@@ -5,6 +5,13 @@
   const mcBg = document.getElementById('mcBg');
   if (!screens.length) return;
 
+  // Which dictionary to read. Anything we don't ship falls back to Czech,
+  // so an unknown <html lang> can't blank the page.
+  function currentLang(){
+    const lang = document.documentElement.lang;
+    return (window.I18N && window.I18N[lang]) ? lang : 'cs';
+  }
+
   // =========================================================
   // Click-to-select rows that reveal a matching detail panel
   // (Multiplayer edition, Team member, Support tier, Novinky tile)
@@ -38,7 +45,7 @@
   let currentScreen = 'title';
 
   function applyScreenTitle(){
-    const lang = document.documentElement.lang === 'en' ? 'en' : 'cs';
+    const lang = currentLang();
     const dict = (window.I18N && window.I18N[lang]) || {};
     const home = dict['meta.title.home'] || 'TapkaCraft';
     const name = currentScreen === 'title' ? null : dict['title.' + currentScreen];
@@ -94,7 +101,7 @@
 
   function applySplash(){
     if (!splashEl) return;
-    const lang = document.documentElement.lang === 'en' ? 'en' : 'cs';
+    const lang = currentLang();
     const list = splashList(lang) || splashList('cs');
     if (!list) return; // leave the inline fallback text alone
     splashEl.textContent = list[splashIndex % list.length];
@@ -112,7 +119,7 @@
   // active language whenever it changes (including on load).
   // =========================================================
   function markLangRow(){
-    const active = document.documentElement.lang === 'en' ? 'en' : 'cs';
+    const active = currentLang();
     document.querySelectorAll('[data-lang-row]').forEach((row) => {
       row.classList.toggle('is-selected', row.dataset.langRow === active);
     });
@@ -175,7 +182,7 @@
 
   function renderStatus(){
     const pill = document.getElementById('liveStatus');
-    const lang = document.documentElement.lang === 'en' ? 'en' : 'cs';
+    const lang = currentLang();
     const dict = (window.I18N && window.I18N[lang]) || {};
     const t = {
       loading: dict['status.loading'] || 'Zjišťuji stav serveru…',
