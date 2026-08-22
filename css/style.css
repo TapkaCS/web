@@ -128,6 +128,9 @@ a:focus-visible, button:focus-visible,
   background:var(--panel-btn);border-radius:2px;color:var(--ink);border:none;text-decoration:none;
 }
 
+.sbtn svg{width:21px;height:21px;display:block;}
+@media (max-width:640px){.sbtn svg{width:18px;height:18px;}}
+
 .corner-left{position:absolute;z-index:2;left:14px;bottom:10px;font-size:.7rem;color:rgba(244,241,232,.55);}
 .corner-right{position:absolute;z-index:2;right:14px;bottom:10px;font-size:.7rem;color:rgba(244,241,232,.55);text-align:right;max-width:260px;}
 

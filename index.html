@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image-v2.jpg">
 
 <!-- ?v= is bumped on every deploy so browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=20260822e">
+<link rel="stylesheet" href="css/style.css?v=20260822f">
 </head>
 <body data-i18n-title="meta.title.home">
 
@@ -59,8 +59,29 @@
           <button type="button" class="mbtn bevel3d" data-goto="support" data-i18n="menu.support">Podpořit</button>
         </div>
       </div>
+      <!-- Brand marks are inline SVG: there is no emoji for these networks,
+           and an image file each would be four more requests for 20px icons.
+           Share-tracking parameters are stripped from the URLs, or every
+           visitor's click would carry the owner's own share token. -->
       <div class="smallbtns">
         <a class="sbtn bevel3d" href="https://discord.gg/dN3UAeU3GV" target="_blank" rel="noopener" aria-label="Discord">💬</a>
+        <a class="sbtn bevel3d" href="https://www.instagram.com/tapkacraft.cz" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.2"/>
+            <circle cx="12" cy="12" r="4.3"/>
+            <circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a class="sbtn bevel3d" href="https://www.facebook.com/share/192UKsewkM/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.6 21.3v-8.2h2.75l.41-3.19H13.6V7.87c0-.92.26-1.55 1.58-1.55h1.69V3.47a22.6 22.6 0 0 0-2.46-.13c-2.43 0-4.1 1.49-4.1 4.22v2.35H7.55v3.19h2.76v8.2h3.29z"/>
+          </svg>
+        </a>
+        <a class="sbtn bevel3d" href="https://www.tiktok.com/@tapkacraft.cz" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16.7 5.82a4.36 4.36 0 0 1-1.06-2.82h-3.06v12.2a2.47 2.47 0 1 1-2.47-2.47c.26 0 .5.04.74.11V9.72a5.6 5.6 0 1 0 4.79 5.53V9.83a7.32 7.32 0 0 0 4.23 1.35V8.13a4.34 4.34 0 0 1-3.17-2.31z"/>
+          </svg>
+        </a>
         <button type="button" class="sbtn bevel3d" data-goto="rules" aria-label="Pravidla">📋</button>
       </div>
     </div>
@@ -380,7 +401,7 @@
 
 </main>
 
-<script src="js/i18n.js?v=20260822e"></script>
-<script src="js/script.js?v=20260822e"></script>
+<script src="js/i18n.js?v=20260822f"></script>
+<script src="js/script.js?v=20260822f"></script>
 </body>
 </html>
