@@ -38,7 +38,8 @@ ul{list-style:none;}
 ::-webkit-scrollbar-thumb:hover{background:var(--red);}
 html{scrollbar-color:#1a1b22 var(--bg);}
 
-a:focus-visible, button:focus-visible{
+a:focus-visible, button:focus-visible,
+.srow:focus-visible, .wrow:focus-visible, .opt:focus-visible, .tile:focus-visible{
   outline:2px solid var(--gold); outline-offset:3px; border-radius:4px;
 }
 

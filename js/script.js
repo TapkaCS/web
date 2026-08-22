@@ -5,6 +5,23 @@
   const mcBg = document.getElementById('mcBg');
   if (!screens.length) return;
 
+  // The selectable rows are plain divs, so a keyboard user could tab through
+  // the menu and then hit a dead end on the screen it opened: no way to pick
+  // Bedrock and read the port, or to switch language. Wiring role/tabindex
+  // here rather than in the markup keeps it honest, since the rows are only
+  // controls once this script has run.
+  function makeActivatable(el, onActivate){
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.addEventListener('click', onActivate);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){
+        e.preventDefault(); // Space would scroll the panel out from under them
+        onActivate();
+      }
+    });
+  }
+
   // Which dictionary to read. Anything we don't ship falls back to Czech,
   // so an unknown <html lang> can't blank the page.
   function currentLang(){
@@ -20,7 +37,9 @@
 
   function applySelection(group){
     document.querySelectorAll(`[data-select="${group}"]`).forEach((row) => {
-      row.classList.toggle('is-selected', row.dataset.key === selection[group]);
+      const on = row.dataset.key === selection[group];
+      row.classList.toggle('is-selected', on);
+      row.setAttribute('aria-pressed', String(on)); // colour alone says nothing aloud
     });
     document.querySelectorAll(`[data-detail="${group}"]`).forEach((row) => {
       row.classList.toggle('is-open', row.dataset.key === selection[group]);
@@ -28,7 +47,7 @@
   }
 
   document.querySelectorAll('[data-select]').forEach((row) => {
-    row.addEventListener('click', () => {
+    makeActivatable(row, () => {
       const group = row.dataset.select;
       selection[group] = row.dataset.key;
       applySelection(group);
@@ -121,13 +140,15 @@
   function markLangRow(){
     const active = currentLang();
     document.querySelectorAll('[data-lang-row]').forEach((row) => {
-      row.classList.toggle('is-selected', row.dataset.langRow === active);
+      const on = row.dataset.langRow === active;
+      row.classList.toggle('is-selected', on);
+      row.setAttribute('aria-pressed', String(on));
     });
   }
   window.markLangRow = markLangRow;
 
   document.querySelectorAll('[data-lang-row]').forEach((row) => {
-    row.addEventListener('click', () => {
+    makeActivatable(row, () => {
       if (typeof window.applyLanguage === 'function') window.applyLanguage(row.dataset.langRow);
     });
   });
