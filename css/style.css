@@ -239,6 +239,9 @@ a:focus-visible, button:focus-visible{
 .panel-cta{margin:24px 0 4px;}
 .panel-cta .mbtn{width:100%;}
 .panel-note{margin:16px 2px 0;color:var(--muted-2);font-size:.8rem;line-height:1.6;}
+/* the note colour is deliberately faint; lift anything bold in it so a hard
+   requirement (the age limit) is not the least readable thing on screen */
+.panel-note b{color:var(--muted);}
 .supporters{margin-top:32px;padding-top:24px;border-top:1px solid var(--line);}
 .supporters h3{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;font-weight:700;}
 .supporters-empty{color:var(--muted);font-size:.85rem;}
