@@ -76,6 +76,7 @@
     opts = opts || {};
     const target = document.querySelector(`.mc-screen[data-screen="${name}"]`) ? name : 'title';
 
+    if (typeof window.closePlayerPop === 'function') window.closePlayerPop();
     screens.forEach((s) => s.classList.toggle('is-active', s.dataset.screen === target));
     if (mcBg) mcBg.classList.toggle('dim', target !== 'title');
 
@@ -283,13 +284,126 @@
   });
 
   // =========================================================
+  // Who is online: the game shows the names behind the player
+  // count when you hover it in the server list, so this does the
+  // same. Tap opens it on a phone, where there is no hover.
+  // =========================================================
+  let popEl = null;
+  let popAnchor = null;
+  let popByHover = false;   // opened by a hover, so a mouseleave may close it
+
+  function popNode(){
+    if (popEl) return popEl;
+    popEl = document.createElement('div');
+    popEl.className = 'playerpop';
+    popEl.setAttribute('role', 'tooltip');
+    popEl.id = 'playerPop';
+    // on <body>, not inside the panel, or the scrolling screen would clip it
+    document.body.appendChild(popEl);
+    return popEl;
+  }
+
+  function fillPop(){
+    const lang = currentLang();
+    const dict = (window.I18N && window.I18N[lang]) || {};
+    const list = (lastStatus && lastStatus.list) || [];
+    const el = popNode();
+    el.textContent = '';
+
+    const h = document.createElement('h4');
+    h.textContent = dict['players.title'] || 'Právě online';
+    el.appendChild(h);
+
+    const ul = document.createElement('ul');
+    list.forEach((name) => {
+      const li = document.createElement('li');
+      li.textContent = name;   // a player name is text, never markup
+      ul.appendChild(li);
+    });
+    el.appendChild(ul);
+
+    // the ping sample is capped, so say so rather than under-reporting
+    const hidden = (lastStatus && lastStatus.players ? lastStatus.players : 0) - list.length;
+    if (hidden > 0){
+      const p = document.createElement('p');
+      p.className = 'more';
+      p.textContent = (dict['players.more'] || 'a další: {n}').replace('{n}', hidden);
+      el.appendChild(p);
+    }
+  }
+
+  function placePop(anchor){
+    const el = popNode();
+    const a = anchor.getBoundingClientRect();
+    const b = el.getBoundingClientRect();
+    let top = a.bottom + 8;
+    if (top + b.height > window.innerHeight - 8) top = a.top - b.height - 8;
+    if (top < 8) top = 8;
+    let left = a.left + a.width / 2 - b.width / 2;
+    left = Math.max(8, Math.min(left, window.innerWidth - b.width - 8));
+    el.style.top = Math.round(top) + 'px';
+    el.style.left = Math.round(left) + 'px';
+  }
+
+  function openPop(anchor){
+    if (!lastStatus || lastStatus === 'error' || !lastStatus.list || !lastStatus.list.length) return;
+    fillPop();
+    const el = popNode();
+    el.classList.add('is-open');
+    popAnchor = anchor;
+    placePop(anchor);
+    anchor.setAttribute('aria-expanded', 'true');
+  }
+
+  function closePop(){
+    popByHover = false;
+    if (!popEl) return;
+    popEl.classList.remove('is-open');
+    if (popAnchor) popAnchor.setAttribute('aria-expanded', 'false');
+    popAnchor = null;
+  }
+  window.closePlayerPop = closePop;
+
+  function wirePop(el, focusable){
+    if (el.dataset.popWired) return;
+    el.dataset.popWired = '1';
+    // A mouse fires mouseenter and then click on the same gesture. Without
+    // tracking which one opened it, the click read as a second tap and shut
+    // the panel the hover had just opened. Hovering previews, clicking pins.
+    el.addEventListener('mouseenter', () => { popByHover = true; openPop(el); });
+    el.addEventListener('mouseleave', () => { if (popByHover){ popByHover = false; closePop(); } });
+    el.addEventListener('click', (e) => {
+      // the multiplayer count sits inside a row that selects an edition;
+      // opening the list should not also change the selection
+      e.stopPropagation();
+      if (popAnchor === el && !popByHover){ closePop(); }
+      else { popByHover = false; openPop(el); }
+    });
+    if (focusable){
+      el.tabIndex = 0;
+      el.setAttribute('aria-describedby', 'playerPop');
+      el.addEventListener('focus', () => openPop(el));
+      el.addEventListener('blur', closePop);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openPop(el); }
+      });
+    }
+  }
+
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePop(); });
+  document.addEventListener('click', (e) => {
+    if (popAnchor && !popAnchor.contains(e.target)) closePop();
+  });
+  window.addEventListener('resize', () => { if (popAnchor) placePop(popAnchor); });
+
+  // =========================================================
   // Live server status (mcsrvstat.us: free, no key needed)
   // Feeds the title-screen status line and the player counts
   // on the Multiplayer screen's Java/Bedrock rows (one shared
   // player pool). Text is language-aware, re-rendered on every
   // i18n switch from the last fetched result.
   // =========================================================
-  let lastStatus = null; // null = loading, 'error', or {online, players, max}
+  let lastStatus = null; // null = loading, 'error', or {online, players, max, list}
 
   function renderStatus(){
     const pill = document.getElementById('liveStatus');
@@ -314,10 +428,41 @@
       }
     }
 
+    const names = (lastStatus && lastStatus.list) || [];
+    const hasList = names.length > 0;
+
     const playersEls = document.querySelectorAll('[data-players]');
     playersEls.forEach((el) => {
       el.textContent = (lastStatus && lastStatus.online) ? `${lastStatus.players}/${lastStatus.max}` : '· · ·';
+      el.classList.toggle('has-list', hasList);
+      if (hasList) wirePop(el, false);
+
+      // The popover is a pointer affordance, and this count sits inside a row
+      // that is already a control, so making it a second one would nest them.
+      // The names ride along in the row's own text instead, where a screen
+      // reader picks them up; sighted keyboard users get the status line below.
+      const row = el.closest('[data-select]');
+      if (row){
+        let sr = row.querySelector('.sr-only[data-players-sr]');
+        if (hasList){
+          if (!sr){
+            sr = document.createElement('span');
+            sr.className = 'sr-only';
+            sr.setAttribute('data-players-sr', '');
+            row.appendChild(sr);
+          }
+          sr.textContent = (dict['players.title'] || 'Právě online') + ': ' + names.join(', ');
+        } else if (sr){
+          sr.remove();
+        }
+      }
     });
+
+    if (pill){
+      pill.classList.toggle('has-list', hasList);
+      if (hasList) wirePop(pill, true);
+    }
+    if (!hasList) closePop();
   }
 
   async function loadServerStatus(){
@@ -325,10 +470,15 @@
       const res = await fetch('https://api.mcsrvstat.us/3/mc.tapkacraft.cz');
       const data = await res.json();
       if (data.online){
+        // players.list only arrives when the server hands out a sample with its
+        // ping (or has query enabled). Plenty of servers send none, so the
+        // popover is wired up only when there is something to put in it.
+        const raw = (data.players && Array.isArray(data.players.list)) ? data.players.list : [];
         lastStatus = {
           online: true,
           players: data.players && data.players.online != null ? data.players.online : 0,
           max: data.players && data.players.max != null ? data.players.max : '?',
+          list: raw.map((e) => (typeof e === 'string' ? e : (e && e.name) || '')).filter(Boolean),
         };
       } else {
         lastStatus = { online: false };

@@ -17,6 +17,8 @@ window.I18N = {
     "status.online": "Online · {online}/{max} hráčů",
     "status.offline": "Offline",
     "status.error": "Stav serveru nelze zjistit",
+    "players.title": "Právě online",
+    "players.more": "a další: {n}",
 
     "hero.subtitle": "Náš svět, po našem.",
     // one picked at random per visit, like the game's own title screen.
@@ -220,6 +222,8 @@ window.I18N = {
     "status.online": "Online · {online}/{max} hráčov",
     "status.offline": "Offline",
     "status.error": "Stav servera sa nedá zistiť",
+    "players.title": "Práve online",
+    "players.more": "a ďalší: {n}",
 
     "hero.subtitle": "Náš svet, po našom.",
     // same order as the cs list above
@@ -421,6 +425,8 @@ window.I18N = {
     "status.online": "Online · {online}/{max} players",
     "status.offline": "Offline",
     "status.error": "Couldn't check server status",
+    "players.title": "Online right now",
+    "players.more": "and {n} more",
 
     "hero.subtitle": "Our world, our way.",
     // same order as the cs list above
@@ -627,6 +633,8 @@ window.I18N = {
     "status.online": "Na palubě · {online}/{max} námořníků",
     "status.offline": "Loď kotví v přístavu",
     "status.error": "Mlha, loď není vidět",
+    "players.title": "Právě na palubě",
+    "players.more": "a další: {n}",
 
     "hero.subtitle": "Naše moře, po našem.",
     // same order as the cs list above
