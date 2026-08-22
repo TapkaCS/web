@@ -367,6 +367,7 @@
   function wirePop(el, focusable){
     if (el.dataset.popWired) return;
     el.dataset.popWired = '1';
+    popNode(); // so aria-describedby has something to resolve to
     // A mouse fires mouseenter and then click on the same gesture. Without
     // tracking which one opened it, the click read as a second tap and shut
     // the panel the hover had just opened. Hovering previews, clicking pins.
@@ -435,33 +436,13 @@
     playersEls.forEach((el) => {
       el.textContent = (lastStatus && lastStatus.online) ? `${lastStatus.players}/${lastStatus.max}` : '· · ·';
       el.classList.toggle('has-list', hasList);
-      if (hasList) wirePop(el, false);
-
-      // The popover is a pointer affordance, and this count sits inside a row
-      // that is already a control, so making it a second one would nest them.
-      // The names ride along in the row's own text instead, where a screen
-      // reader picks them up; sighted keyboard users get the status line below.
-      const row = el.closest('[data-select]');
-      if (row){
-        let sr = row.querySelector('.sr-only[data-players-sr]');
-        if (hasList){
-          if (!sr){
-            sr = document.createElement('span');
-            sr.className = 'sr-only';
-            sr.setAttribute('data-players-sr', '');
-            row.appendChild(sr);
-          }
-          sr.textContent = (dict['players.title'] || 'Právě online') + ': ' + names.join(', ');
-        } else if (sr){
-          sr.remove();
-        }
-      }
+      // Focusable, so the list is reachable without a mouse. Deliberately no
+      // role: it describes the count rather than performing an action, which
+      // also avoids declaring a second control inside the row, itself already
+      // a button that picks an edition.
+      if (hasList) wirePop(el, true);
     });
 
-    if (pill){
-      pill.classList.toggle('has-list', hasList);
-      if (hasList) wirePop(pill, true);
-    }
     if (!hasList) closePop();
   }
 
