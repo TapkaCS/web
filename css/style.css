@@ -104,6 +104,7 @@ a:focus-visible, button:focus-visible,
   animation:splashBounce 1.3s ease-in-out infinite;
 }
 @keyframes splashBounce{0%,100%{transform:rotate(-16deg) translateY(0);}50%{transform:rotate(-16deg) translateY(-6px);}}
+@keyframes splashBounceMobile{0%,100%{transform:translateX(-50%) rotate(-16deg) translateY(0);}50%{transform:translateX(-50%) rotate(-16deg) translateY(-6px);}}
 
 .btnstack{margin-top:auto;margin-bottom:14px;display:flex;flex-direction:column;gap:6px;width:420px;max-width:86vw;}
 .bevel3d{
@@ -267,11 +268,24 @@ a.srow.linkrow:hover .go{color:var(--gold);}
    RESPONSIVE
    ========================================================= */
 @media (max-width:480px){
-  .hero-content{padding-top:56px;}
+  /* On a phone the 640px box was taller than the content, so the wordmark sat
+     at its top and the buttons at its bottom with 200px of dead sky between
+     them, and the menu started past the middle of the screen. Let the column
+     take its natural height instead and let the title screen centre it, so
+     the wordmark and the menu travel together as one block. */
+  .hero-content{padding-top:0;height:auto;max-height:none;padding-bottom:26px;}
+  /* margin-top:auto has nothing to push against now, so the gap is set here.
+     It has to clear the splash, which on a phone hangs below the subtitle. */
+  .btnstack{margin-top:58px;margin-bottom:0;}
   .hero-title{font-size:1.9rem;}
   .hero-subtitle{font-size:.7rem;letter-spacing:.1em;}
-  /* no room beside the wordmark on a phone, so it sits under the subtitle */
-  .hero-splash{font-size:.72rem;top:calc(100% + 4px);left:50%;right:auto;transform-origin:center center;}
+  /* no room beside the wordmark on a phone, so it sits under the subtitle.
+     left:50% only puts its left edge at the centre, so it grew rightwards and
+     the longest lines ran off a 375px screen and got clipped. The bounce
+     keyframes rewrite transform wholesale, so the centring translate has to
+     live inside them rather than on the element. */
+  .hero-splash{font-size:.72rem;top:calc(100% + 4px);left:50%;right:auto;
+    transform-origin:center center;animation-name:splashBounceMobile;}
   .btnstack{gap:5px;margin-bottom:10px;}
   .mbtn{padding:13px 14px;font-size:.8rem;}
   .btnrow .mbtn{font-size:.68rem;padding:13px 6px;}
@@ -290,6 +304,8 @@ a.srow.linkrow:hover .go{color:var(--gold);}
    REDUCED MOTION
    ========================================================= */
 @media (prefers-reduced-motion: reduce){
-  .hero-splash{animation:none;}
+  .hero-splash{animation:none;transform:rotate(-16deg);}
+  /* the mobile centring rides on the keyframes, so restore it by hand here */
+  @media (max-width:480px){.hero-splash{transform:translateX(-50%) rotate(-16deg);}}
   html{scroll-behavior:auto;}
 }
