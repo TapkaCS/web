@@ -168,7 +168,12 @@ a:focus-visible, button:focus-visible,
 .srow.is-selected, .wrow.is-selected, .opt.is-selected, .tile.is-selected{
   border-color:var(--gold); background:rgba(232,165,61,.1);
 }
-.srow .icn{flex:0 0 auto;width:42px;height:42px;background:rgba(255,255,255,.06);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.2rem;overflow:hidden;border-radius:2px;}
+/* Dark chip, not a light one. Apple draws a lot of these emoji in mid grey,
+   and mid grey on a pale translucent square is the one combination that
+   disappears; against near black the same glyph reads. Measured against the
+   real Apple rendering: the microphone, tools and silhouettes all sat near
+   2:1 on the old backing. */
+.srow .icn{flex:0 0 auto;width:42px;height:42px;background:rgba(0,0,0,.55);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.2rem;overflow:hidden;border-radius:2px;}
 .srow .icn img{width:100%;height:100%;object-fit:cover;}
 .wrow img{flex:0 0 auto;width:42px;height:42px;border-radius:3px;background:rgba(255,255,255,.06);border:1px solid var(--line);object-fit:cover;}
 .srow .name, .wrow .name{font-weight:700;font-size:.94rem;}
@@ -219,7 +224,9 @@ a:focus-visible, button:focus-visible,
 /* ===== tile grid (novinky / pokroky) ===== */
 .tilegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px;}
 .tile{cursor:pointer;background:rgba(255,255,255,.05);border:2px solid var(--line);border-radius:2px;padding:16px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px;}
-.ticn{font-size:1.3rem;}
+/* same reason: the tile icon had no backing at all, so it sat straight on the
+   panorama showing through the tile */
+.ticn{font-size:1.3rem;width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);border:1px solid var(--line);border-radius:2px;}
 .tname{font-weight:600;font-size:.74rem;line-height:1.3;}
 
 /* ===== plain list (co nabízíme) ===== */
