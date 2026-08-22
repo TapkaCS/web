@@ -18,14 +18,14 @@
 <meta property="og:title" content="TapkaCraft · Náš svět, po našem.">
 <meta property="og:description" content="Český Minecraft server s vlastním pluginem. Rarity na vybavení, vlastní pets, joby, aukce i vlastní pozemky. Připoj se na mc.tapkacraft.cz.">
 <meta property="og:url" content="https://tapkacraft.cz">
-<meta property="og:image" content="https://tapkacraft.cz/assets/img/og-image.jpg">
+<meta property="og:image" content="https://tapkacraft.cz/assets/img/og-image-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image.jpg">
+<meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image-v2.jpg">
 
 <!-- ?v= is bumped on every deploy so browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=20260822c">
+<link rel="stylesheet" href="css/style.css?v=20260822d">
 </head>
 <body data-i18n-title="meta.title.home">
 
@@ -42,10 +42,9 @@
         <h1 class="hero-title">TapkaCraft</h1>
         <p class="hero-subtitle" data-i18n="hero.subtitle">Náš svět, po našem.</p>
         <!-- text is swapped for a random one by script.js; the inline copy is
-             the no-JS fallback. The label states the destination, since the
-             random line often will not. -->
-        <a class="hero-splash" href="https://czech-craft.eu/server/tapkacraft/" target="_blank" rel="noopener"
-           title="Hlasuj pro TapkaCraft" aria-label="Hlasuj pro TapkaCraft na Czech-Craft.eu">Hlasuj pro nás!</a>
+             the no-JS fallback. Not a link any more: voting has its own menu
+             button, and a random joke line that opened a vote page was a trap. -->
+        <span class="hero-splash">Hlasuj pro nás!</span>
       </div>
 
       <div class="btnstack">
@@ -53,6 +52,7 @@
         <p class="status-line" id="liveStatus"><span class="dot"></span><span data-i18n="status.loading">Zjišťuji stav serveru…</span></p>
         <button type="button" class="mbtn bevel3d" data-goto="team" data-i18n="menu.team">👥 Náš tým</button>
         <button type="button" class="mbtn bevel3d" data-goto="novinky" data-i18n="menu.novinky">📜 Novinky</button>
+        <button type="button" class="mbtn bevel3d" data-goto="vote" data-i18n="menu.vote">🗳️ Hlasuj pro nás</button>
         <div class="btnrow">
           <button type="button" class="sbtn bevel3d" data-goto="language" aria-label="Jazyk / Language">🌐</button>
           <button type="button" class="mbtn bevel3d" data-goto="features" data-i18n="menu.features">Co u nás najdeš</button>
@@ -266,13 +266,46 @@
       <p class="mp-lead" data-i18n="rules.lead">Ať je hra fér pro všechny.</p>
 
       <div class="rulerow"><span class="rulenum">1</span><p data-i18n="rules.1"><b>0 srdcí = konec.</b> Když ztratíš poslední srdce, jsi ze serveru permanentně vyřazen.</p></div>
-      <div class="rulerow"><span class="rulenum">2</span><p data-i18n="rules.3"><b>Cheatování se nevyplácí.</b> Server automaticky detekuje cheat klienty a hackování je důvod k banu.</p></div>
-      <div class="rulerow"><span class="rulenum">3</span><p data-i18n="rules.4"><b>Chat je hlídaný automaticky.</b> Spam a vulgarismy jsou filtrované systémem.</p></div>
-      <div class="rulerow"><span class="rulenum">4</span><p data-i18n="rules.5"><b>Spawn a bezpečná zóna jsou chráněné.</b> V okolí spawnu neplatí PvP a nejde tam stavět ani bourat.</p></div>
+      <div class="rulerow"><span class="rulenum">2</span><p data-i18n="rules.2"><b>Cheatování se nevyplácí.</b> Server automaticky detekuje cheat klienty a hackování je důvod k banu.</p></div>
+      <div class="rulerow"><span class="rulenum">3</span><p data-i18n="rules.3"><b>Ban se neobchází.</b> Vracet se na druhý účet nebo si tak přihrávat srdce znamená ban i pro ten nový účet.</p></div>
+      <div class="rulerow"><span class="rulenum">4</span><p data-i18n="rules.4"><b>Bugy se hlásí, ne zneužívají.</b> Když najdeš chybu v pluginu, napiš ji adminům. Kdo ji místo toho ždímá, přijde o to, co si tím nahrál.</p></div>
+      <div class="rulerow"><span class="rulenum">5</span><p data-i18n="rules.5"><b>Griefing a kradení se neodpouští.</b> Bourat cizí stavby nebo vybírat cizí truhly mimo férové PvP je důvod k banu.</p></div>
+      <div class="rulerow"><span class="rulenum">6</span><p data-i18n="rules.6"><b>Spawn a bezpečná zóna jsou chráněné.</b> V okolí spawnu neplatí PvP a nejde tam stavět ani bourat.</p></div>
+      <div class="rulerow"><span class="rulenum">7</span><p data-i18n="rules.7"><b>Chat je hlídaný automaticky.</b> Spam a vulgarismy jsou filtrované systémem.</p></div>
+      <div class="rulerow"><span class="rulenum">8</span><p data-i18n="rules.8"><b>Chovej se slušně.</b> Urážky, vyhrožování a shazování ostatních hráčů tu nemají místo.</p></div>
+      <div class="rulerow"><span class="rulenum">9</span><p data-i18n="rules.9"><b>Reklama na jiné servery je zakázaná.</b> Zvaní hráčů jinam v chatu i v soukromých zprávách znamená ban.</p></div>
     </div>
   </section>
 
   <!-- ===================== NOVINKY (Pokroky) ===================== -->
+  <!-- Outbound rows, not the click-to-select kind used elsewhere: these
+       leave the site, so they carry an arrow instead of a selected state. -->
+  <section class="mc-screen" data-screen="vote">
+    <div class="mp-panel">
+      <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
+      <h2 class="mp-title" data-i18n="vote.title">Hlasuj pro server</h2>
+      <p class="mp-lead" data-i18n="vote.lead">Každý hlas nás posune výš v žebříčku.</p>
+
+      <a class="srow linkrow" href="https://czech-craft.eu/server/tapkacraft/" target="_blank" rel="noopener">
+        <div class="icn">🏆</div>
+        <div><div class="name">Czech-Craft</div><div class="sub">czech-craft.eu</div></div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+      <a class="srow linkrow" href="https://craftlist.cz/tapkacraft" target="_blank" rel="noopener">
+        <div class="icn">📋</div>
+        <div><div class="name">CraftList</div><div class="sub">craftlist.cz</div></div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+      <a class="srow linkrow" href="https://www.minecraft-list.cz/server/tapkacraft" target="_blank" rel="noopener">
+        <div class="icn">⭐</div>
+        <div><div class="name">Minecraft-List</div><div class="sub">minecraft-list.cz</div></div>
+        <span class="go" aria-hidden="true">↗</span>
+      </a>
+
+      <p class="panel-note" data-i18n="vote.note">Hlasování zabere pár vteřin a za každý hlas dostaneš odměnu přímo do hry (peníze, itemy). Díky, že podporuješ server! ❤️</p>
+    </div>
+  </section>
+
   <section class="mc-screen" data-screen="novinky">
     <div class="mp-panel">
       <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
@@ -347,7 +380,7 @@
 
 </main>
 
-<script src="js/i18n.js?v=20260822c"></script>
-<script src="js/script.js?v=20260822c"></script>
+<script src="js/i18n.js?v=20260822d"></script>
+<script src="js/script.js?v=20260822d"></script>
 </body>
 </html>

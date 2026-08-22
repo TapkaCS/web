@@ -226,6 +226,14 @@ a:focus-visible, button:focus-visible{
 .rulerow p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.6;}
 .rulerow p b{color:var(--ink);}
 
+/* ===== vote screen =====
+   Rows that leave the site. Same shell as a selectable row, but they never
+   take an is-selected state, so the arrow is what says "this goes out". */
+a.srow.linkrow{text-decoration:none;color:inherit;}
+a.srow.linkrow .go{margin-left:auto;flex:0 0 auto;color:var(--muted-2);font-size:1.05rem;}
+a.srow.linkrow:hover{border-color:var(--gold);background:rgba(232,165,61,.08);}
+a.srow.linkrow:hover .go{color:var(--gold);}
+
 /* ===== language screen ===== */
 .srow .flag{font-size:1.3rem;}
 
