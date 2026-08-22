@@ -38,6 +38,12 @@ ul{list-style:none;}
 ::-webkit-scrollbar-thumb:hover{background:var(--red);}
 html{scrollbar-color:#1a1b22 var(--bg);}
 
+/* iOS reads a quick second tap on a small element as "zoom to fit this", so
+   double-tapping a 110px news tile blew the page up 3.5x into clipped text.
+   Turn the gesture off on things meant to be tapped. Pinch zoom is untouched,
+   so anyone who needs to magnify the page still can. */
+button, a, .srow, .wrow, .tile, .opt, .addr{touch-action:manipulation;}
+
 a:focus-visible, button:focus-visible,
 .srow:focus-visible, .wrow:focus-visible, .opt:focus-visible, .tile:focus-visible{
   outline:2px solid var(--gold); outline-offset:3px; border-radius:4px;
