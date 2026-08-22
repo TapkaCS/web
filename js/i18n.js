@@ -182,18 +182,6 @@ window.I18N = {
     "novinky.title": "Pokroky",
     "novinky.lead": "Co se v poslední době na serveru změnilo.",
     "novinky.kicker": "NOVÝ POKROK ODEMČEN",
-    "nov.1.name": "Villager shopy",
-    "nov.1.desc": "Postav si vlastního villagera, nastav mu ceny a nech ho prodávat i nakupovat za tebe.",
-    "nov.2.name": "Rarity na vybavení",
-    "nov.2.desc": "Nářadí a zbroj mají teď rarity od Common po Legendary.",
-    "nov.3.name": "Rarity mobů",
-    "nov.3.desc": "Nepřátelé mají teď taky vlastní rarity, mythic je fakt nabitej.",
-    "nov.4.name": "Tempering & reforge",
-    "nov.4.desc": "Sesbírej crystaly a reforguj si vybavení na lepší tier.",
-    "nov.5.name": "Vlastní pets",
-    "nov.5.desc": "Ochoč si zvíře, dej mu jméno, barvu i vlastní efekty.",
-    "nov.6.name": "Vylepšený LifeSteal",
-    "nov.6.desc": "Srdíčka jdou vybrat jako předmět a věnovat padlému hráči.",
 
     "features.title": "Co u nás najdeš",
     "features.lead": "Vlastní systémy, jeden server.",
@@ -395,18 +383,6 @@ window.I18N = {
     "novinky.title": "Pokroky",
     "novinky.lead": "Čo sa v poslednom čase na serveri zmenilo.",
     "novinky.kicker": "NOVÝ POKROK ODOMKNUTÝ",
-    "nov.1.name": "Villager shopy",
-    "nov.1.desc": "Postav si vlastného villagera, nastav mu ceny a nechaj ho predávať aj nakupovať za teba.",
-    "nov.2.name": "Rarity na vybavenie",
-    "nov.2.desc": "Náradie a zbroj majú teraz rarity od Common po Legendary.",
-    "nov.3.name": "Rarity mobov",
-    "nov.3.desc": "Nepriatelia majú teraz tiež vlastné rarity, mythic je fakt nabitý.",
-    "nov.4.name": "Tempering & reforge",
-    "nov.4.desc": "Pozbieraj kryštály a reforgni si vybavenie na lepší tier.",
-    "nov.5.name": "Vlastné pets",
-    "nov.5.desc": "Ochoč si zviera, daj mu meno, farbu aj vlastné efekty.",
-    "nov.6.name": "Vylepšený LifeSteal",
-    "nov.6.desc": "Srdiečka sa dajú vybrať ako predmet a venovať padnutému hráčovi.",
 
     "features.title": "Čo u nás nájdeš",
     "features.lead": "Vlastné systémy, jeden server.",
@@ -608,18 +584,6 @@ window.I18N = {
     "novinky.title": "Advancements",
     "novinky.lead": "What's changed on the server recently.",
     "novinky.kicker": "NEW ADVANCEMENT UNLOCKED",
-    "nov.1.name": "Villager shops",
-    "nov.1.desc": "Set up your own villager, set its prices, and let it buy and sell for you.",
-    "nov.2.name": "Custom gear tiers",
-    "nov.2.desc": "Tools and armor now roll a rarity from Common to Legendary.",
-    "nov.3.name": "Mob rarities",
-    "nov.3.desc": "Enemies now roll their own rarity too. Mythic ones are genuinely dangerous.",
-    "nov.4.name": "Tempering & reforging",
-    "nov.4.desc": "Collect crystals and reforge your gear to a better tier.",
-    "nov.5.name": "Custom pets",
-    "nov.5.desc": "Tame an animal and give it a name, color, and its own effects.",
-    "nov.6.name": "Improved LifeSteal",
-    "nov.6.desc": "Hearts can be taken as an item and donated to revive a fallen player.",
 
     "features.title": "What You'll Find Here",
     "features.lead": "Custom systems, one server.",
@@ -826,18 +790,6 @@ window.I18N = {
     "novinky.title": "Zprávy z moří",
     "novinky.lead": "Co se na lodi poslední dobou změnilo.",
     "novinky.kicker": "NOVÁ ZPRÁVA Z VRÁNÍHO HNÍZDA",
-    "nov.1.name": "Villager krámy",
-    "nov.1.desc": "Postav si vlastního villagera, nastav mu ceny a nech ho handlovat za tebe.",
-    "nov.2.name": "Rarity na výbavu",
-    "nov.2.desc": "Náčiní a brnění mají teď rarity od Common po Legendary.",
-    "nov.3.name": "Rarity oblud",
-    "nov.3.desc": "Obludy mají teď taky vlastní rarity, mythic je pořádná mrcha.",
-    "nov.4.name": "Kalení & překování",
-    "nov.4.desc": "Sesbírej krystaly a překovej si výbavu na lepší tier.",
-    "nov.5.name": "Vlastní zvířata",
-    "nov.5.desc": "Ochoč si zvíře, dej mu jméno, barvu i vlastní efekty. Papoušek se na loď hodí.",
-    "nov.6.name": "Vylepšený LifeSteal",
-    "nov.6.desc": "Srdíčka jdou vybrat jako předmět a věnovat padlému kumpánovi.",
 
     "features.title": "Co máme v podpalubí",
     "features.lead": "Vlastní systémy, jedna loď.",
@@ -889,6 +841,9 @@ window.I18N = {
     if (titleKey && dict[titleKey]) document.title = dict[titleKey];
 
     if (typeof window.renderStatus === 'function') window.renderStatus();
+    // news copy comes from data/novinky.json, not from these dictionaries,
+    // so the language pass above cannot translate it; re-render instead
+    if (typeof window.renderNovinky === 'function') window.renderNovinky();
     if (typeof window.markLangRow === 'function') window.markLangRow();
     if (typeof window.applySplash === 'function') window.applySplash();
     // must run last: re-titles for the open screen, overriding the home

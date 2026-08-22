@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image-v2.jpg">
 
 <!-- ?v= is bumped on every deploy so browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=20260822i">
+<link rel="stylesheet" href="css/style.css?v=20260822j">
 </head>
 <body data-i18n-title="meta.title.home">
 
@@ -459,49 +459,13 @@
       <h2 class="mp-title" data-i18n="novinky.title">Pokroky</h2>
       <p class="mp-lead" data-i18n="novinky.lead">Co se v poslední době na serveru změnilo.</p>
 
-      <div class="tilegrid">
-        <div class="tile is-selected" data-select="nov" data-key="1"><span class="ticn">🏪</span><span class="tname" data-i18n="nov.1.name">Villager shopy</span></div>
-        <div class="tile" data-select="nov" data-key="2"><span class="ticn">💠</span><span class="tname" data-i18n="nov.2.name">Rarity na vybavení</span></div>
-        <div class="tile" data-select="nov" data-key="3"><span class="ticn">👑</span><span class="tname" data-i18n="nov.3.name">Rarity mobů</span></div>
-        <div class="tile" data-select="nov" data-key="4"><span class="ticn">💎</span><span class="tname" data-i18n="nov.4.name">Tempering &amp; reforge</span></div>
-        <div class="tile" data-select="nov" data-key="5"><span class="ticn">🐾</span><span class="tname" data-i18n="nov.5.name">Vlastní pets</span></div>
-        <div class="tile" data-select="nov" data-key="6"><span class="ticn">🩸</span><span class="tname" data-i18n="nov.6.name">Vylepšený LifeSteal</span></div>
-      </div>
+      <!-- Tiles and panels are built by script.js from data/novinky.json, so
+           adding a news item means editing that file on github.com, with no
+           HTML or dictionary to touch. -->
+      <div class="tilegrid" id="novTiles"></div>
+      <div id="novDetails"></div>
+      <p class="panel-note" id="novError" hidden>Novinky se teď nepodařilo načíst. Zkus to prosím za chvíli.</p>
 
-      <div class="detail is-open" data-detail="nov" data-key="1">
-        <span class="kicker" data-i18n="novinky.kicker">NOVÝ POKROK ODEMČEN</span>
-        <img class="detail-photo" src="assets/img/villagershop.jpg" alt="" loading="lazy">
-        <b data-i18n="nov.1.name">Villager shopy</b>
-        <p data-i18n="nov.1.desc">Postav si vlastního villagera, nastav mu ceny a nech ho prodávat i nakupovat za tebe.</p>
-      </div>
-      <div class="detail" data-detail="nov" data-key="2">
-        <span class="kicker" data-i18n="novinky.kicker">NOVÝ POKROK ODEMČEN</span>
-        <img class="detail-photo" src="assets/img/tiers-gear.jpg" alt="" loading="lazy">
-        <b data-i18n="nov.2.name">Rarity na vybavení</b>
-        <p data-i18n="nov.2.desc">Nářadí a zbroj mají teď rarity od Common po Legendary.</p>
-      </div>
-      <div class="detail" data-detail="nov" data-key="3">
-        <span class="kicker" data-i18n="novinky.kicker">NOVÝ POKROK ODEMČEN</span>
-        <img class="detail-photo" src="assets/img/tiers-mobs.jpg" alt="" loading="lazy">
-        <b data-i18n="nov.3.name">Rarity mobů</b>
-        <p data-i18n="nov.3.desc">Nepřátelé mají teď taky vlastní rarity, mythic je fakt nabitej.</p>
-      </div>
-      <div class="detail" data-detail="nov" data-key="4">
-        <span class="kicker" data-i18n="novinky.kicker">NOVÝ POKROK ODEMČEN</span>
-        <b data-i18n="nov.4.name">Tempering &amp; reforge</b>
-        <p data-i18n="nov.4.desc">Sesbírej crystaly a reforguj si vybavení na lepší tier.</p>
-      </div>
-      <div class="detail" data-detail="nov" data-key="5">
-        <span class="kicker" data-i18n="novinky.kicker">NOVÝ POKROK ODEMČEN</span>
-        <img class="detail-photo" src="assets/img/pets.jpg" alt="" loading="lazy">
-        <b data-i18n="nov.5.name">Vlastní pets</b>
-        <p data-i18n="nov.5.desc">Ochoč si zvíře, dej mu jméno, barvu i vlastní efekty.</p>
-      </div>
-      <div class="detail" data-detail="nov" data-key="6">
-        <span class="kicker" data-i18n="novinky.kicker">NOVÝ POKROK ODEMČEN</span>
-        <b data-i18n="nov.6.name">Vylepšený LifeSteal</b>
-        <p data-i18n="nov.6.desc">Srdíčka jdou vybrat jako předmět a věnovat padlému hráči.</p>
-      </div>
     </div>
   </section>
 
@@ -527,7 +491,7 @@
 
 </main>
 
-<script src="js/i18n.js?v=20260822i"></script>
-<script src="js/script.js?v=20260822i"></script>
+<script src="js/i18n.js?v=20260822j"></script>
+<script src="js/script.js?v=20260822j"></script>
 </body>
 </html>

@@ -134,6 +134,96 @@
   }
 
   // =========================================================
+  // Novinky: content lives in data/novinky.json so the owner can
+  // add an entry on github.com without touching HTML or the
+  // dictionaries. Rendered here, in the same tile/detail shape the
+  // hand-written version used.
+  // =========================================================
+  const novTiles = document.getElementById('novTiles');
+  const novDetails = document.getElementById('novDetails');
+  const novError = document.getElementById('novError');
+  let novItems = null;
+
+  function novText(item, lang){
+    // Only cs is required. Anything the owner has not translated falls back to
+    // it, so a new entry shows up everywhere instead of leaving a blank tile.
+    const t = item[lang] || item.cs || {};
+    const cs = item.cs || {};
+    return { name: t.name || cs.name || '', desc: t.desc || cs.desc || '' };
+  }
+
+  function renderNovinky(){
+    if (!novTiles || !novDetails || !novItems) return;
+    const lang = currentLang();
+    const dict = (window.I18N && window.I18N[lang]) || {};
+    const kicker = dict['novinky.kicker'] || 'NOVÝ POKROK ODEMČEN';
+
+    novTiles.textContent = '';
+    novDetails.textContent = '';
+
+    novItems.forEach((item, i) => {
+      const key = String(i + 1);
+      const t = novText(item, lang);
+
+      const tile = document.createElement('div');
+      tile.className = 'tile';
+      tile.dataset.select = 'nov';
+      tile.dataset.key = key;
+      const icn = document.createElement('span');
+      icn.className = 'ticn';
+      icn.textContent = item.icon || '📜';
+      const nm = document.createElement('span');
+      nm.className = 'tname';
+      nm.textContent = t.name;
+      tile.append(icn, nm);
+      // textContent throughout: the JSON is content, not markup, so a stray
+      // angle bracket in a description stays a character
+      makeActivatable(tile, () => { selection.nov = key; applySelection('nov'); });
+      novTiles.appendChild(tile);
+
+      const detail = document.createElement('div');
+      detail.className = 'detail';
+      detail.dataset.detail = 'nov';
+      detail.dataset.key = key;
+      const k = document.createElement('span');
+      k.className = 'kicker';
+      k.textContent = kicker;
+      detail.appendChild(k);
+      if (item.photo){
+        const img = document.createElement('img');
+        img.className = 'detail-photo';
+        img.src = item.photo;
+        img.alt = '';
+        img.loading = 'lazy';
+        detail.appendChild(img);
+      }
+      const b = document.createElement('b');
+      b.textContent = t.name;
+      const p = document.createElement('p');
+      p.textContent = t.desc;
+      detail.append(b, p);
+      novDetails.appendChild(detail);
+    });
+
+    if (!novItems.some((_, i) => String(i + 1) === selection.nov)) selection.nov = '1';
+    applySelection('nov');
+  }
+  window.renderNovinky = renderNovinky;
+
+  if (novTiles){
+    // no-cache so an edit to the JSON reaches visitors on their next load
+    // instead of waiting out a cached copy; unchanged files still answer 304
+    fetch('data/novinky.json', { cache: 'no-cache' })
+      .then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); })
+      .then((data) => {
+        novItems = Array.isArray(data.novinky) ? data.novinky : [];
+        if (novError) novError.hidden = novItems.length > 0;
+        renderNovinky();
+      })
+      .catch(() => { if (novError) novError.hidden = false; });
+  }
+
+  // =========================================================
   // Language screen: real switch, highlight follows the
   // active language whenever it changes (including on load).
   // =========================================================

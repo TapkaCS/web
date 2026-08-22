@@ -1,0 +1,129 @@
+{
+  "_navod": [
+    "Tenhle soubor drží obsah obrazovky Novinky. Uprav ho na githubu.com, dej Commit changes, a za chvíli je to na webu.",
+    "Nová novinka: zkopiruj jeden blok ve slozkach nize, vloz ho NAHORU (nejnovejsi prvni) a prepis texty.",
+    "icon je emoji na dlazdici. photo je nepovinne, vynech cely radek kdyz fotku nemas.",
+    "Staci vyplnit cs. Co nevyplnis (sk, en, cs-x-pirate), se navstevnikovi ukaze cesky.",
+    "Pozor na carky mezi bloky a na uvozovky, jinak se soubor nenacte."
+  ],
+  "novinky": [
+    {
+      "icon": "🏪",
+      "photo": "assets/img/villagershop.jpg",
+      "cs": {
+        "name": "Villager shopy",
+        "desc": "Postav si vlastního villagera, nastav mu ceny a nech ho prodávat i nakupovat za tebe."
+      },
+      "sk": {
+        "name": "Villager shopy",
+        "desc": "Postav si vlastného villagera, nastav mu ceny a nechaj ho predávať aj nakupovať za teba."
+      },
+      "en": {
+        "name": "Villager shops",
+        "desc": "Set up your own villager, set its prices, and let it buy and sell for you."
+      },
+      "cs-x-pirate": {
+        "name": "Villager krámy",
+        "desc": "Postav si vlastního villagera, nastav mu ceny a nech ho handlovat za tebe."
+      }
+    },
+    {
+      "icon": "💠",
+      "photo": "assets/img/tiers-gear.jpg",
+      "cs": {
+        "name": "Rarity na vybavení",
+        "desc": "Nářadí a zbroj mají teď rarity od Common po Legendary."
+      },
+      "sk": {
+        "name": "Rarity na vybavenie",
+        "desc": "Náradie a zbroj majú teraz rarity od Common po Legendary."
+      },
+      "en": {
+        "name": "Custom gear tiers",
+        "desc": "Tools and armor now roll a rarity from Common to Legendary."
+      },
+      "cs-x-pirate": {
+        "name": "Rarity na výbavu",
+        "desc": "Náčiní a brnění mají teď rarity od Common po Legendary."
+      }
+    },
+    {
+      "icon": "👑",
+      "photo": "assets/img/tiers-mobs.jpg",
+      "cs": {
+        "name": "Rarity mobů",
+        "desc": "Nepřátelé mají teď taky vlastní rarity, mythic je fakt nabitej."
+      },
+      "sk": {
+        "name": "Rarity mobov",
+        "desc": "Nepriatelia majú teraz tiež vlastné rarity, mythic je fakt nabitý."
+      },
+      "en": {
+        "name": "Mob rarities",
+        "desc": "Enemies now roll their own rarity too. Mythic ones are genuinely dangerous."
+      },
+      "cs-x-pirate": {
+        "name": "Rarity oblud",
+        "desc": "Obludy mají teď taky vlastní rarity, mythic je pořádná mrcha."
+      }
+    },
+    {
+      "icon": "💎",
+      "cs": {
+        "name": "Tempering & reforge",
+        "desc": "Sesbírej crystaly a reforguj si vybavení na lepší tier."
+      },
+      "sk": {
+        "name": "Tempering & reforge",
+        "desc": "Pozbieraj kryštály a reforgni si vybavenie na lepší tier."
+      },
+      "en": {
+        "name": "Tempering & reforging",
+        "desc": "Collect crystals and reforge your gear to a better tier."
+      },
+      "cs-x-pirate": {
+        "name": "Kalení & překování",
+        "desc": "Sesbírej krystaly a překovej si výbavu na lepší tier."
+      }
+    },
+    {
+      "icon": "🐾",
+      "photo": "assets/img/pets.jpg",
+      "cs": {
+        "name": "Vlastní pets",
+        "desc": "Ochoč si zvíře, dej mu jméno, barvu i vlastní efekty."
+      },
+      "sk": {
+        "name": "Vlastné pets",
+        "desc": "Ochoč si zviera, daj mu meno, farbu aj vlastné efekty."
+      },
+      "en": {
+        "name": "Custom pets",
+        "desc": "Tame an animal and give it a name, color, and its own effects."
+      },
+      "cs-x-pirate": {
+        "name": "Vlastní zvířata",
+        "desc": "Ochoč si zvíře, dej mu jméno, barvu i vlastní efekty. Papoušek se na loď hodí."
+      }
+    },
+    {
+      "icon": "🩸",
+      "cs": {
+        "name": "Vylepšený LifeSteal",
+        "desc": "Srdíčka jdou vybrat jako předmět a věnovat padlému hráči."
+      },
+      "sk": {
+        "name": "Vylepšený LifeSteal",
+        "desc": "Srdiečka sa dajú vybrať ako predmet a venovať padnutému hráčovi."
+      },
+      "en": {
+        "name": "Improved LifeSteal",
+        "desc": "Hearts can be taken as an item and donated to revive a fallen player."
+      },
+      "cs-x-pirate": {
+        "name": "Vylepšený LifeSteal",
+        "desc": "Srdíčka jdou vybrat jako předmět a věnovat padlému kumpánovi."
+      }
+    }
+  ]
+}
