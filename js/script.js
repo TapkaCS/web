@@ -82,6 +82,7 @@
 
     currentScreen = target;
     applyScreenTitle();
+    window.dispatchEvent(new CustomEvent('tapkacraft:screen', { detail: target }));
 
     const panel = document.querySelector(`.mc-screen[data-screen="${target}"] .mp-panel`);
     if (panel) panel.scrollTop = 0;
@@ -282,6 +283,73 @@
       box._copyTimeout = setTimeout(() => box.classList.remove('copied'), 2200);
     });
   });
+
+  // =========================================================
+  // Falling snow on the title screen, for the December teaser.
+  // Square flakes on a canvas rather than DOM nodes: the game's
+  // snow is pixels, and a few dozen elements animating every
+  // frame would cost far more than one canvas.
+  // =========================================================
+  const snowCv = document.getElementById('snow');
+  if (snowCv && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const ctx = snowCv.getContext('2d');
+    let flakes = [], w = 0, h = 0, dpr = 1, raf = 0, last = 0;
+
+    function resize(){
+      const r = snowCv.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = r.width; h = r.height;
+      snowCv.width = Math.round(w * dpr);
+      snowCv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      // fewer flakes on a phone, both for the look and for the battery
+      const count = Math.round(Math.min(90, Math.max(28, w / 16)));
+      flakes = Array.from({ length: count }, () => spawn(true));
+    }
+
+    function spawn(anywhere){
+      const size = 2 + Math.floor(Math.random() * 3);   // 2 to 4 px, kept whole
+      return {
+        x: Math.random() * w,
+        y: anywhere ? Math.random() * h : -size,
+        s: size,
+        vy: 14 + Math.random() * 26,                    // px per second
+        drift: (Math.random() - 0.5) * 14,
+        phase: Math.random() * Math.PI * 2,
+        alpha: 0.35 + Math.random() * 0.45,
+      };
+    }
+
+    function frame(t){
+      const dt = last ? Math.min((t - last) / 1000, 0.05) : 0.016;
+      last = t;
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < flakes.length; i++){
+        const f = flakes[i];
+        f.y += f.vy * dt;
+        f.phase += dt;
+        f.x += Math.sin(f.phase) * f.drift * dt;
+        if (f.y > h + f.s){ flakes[i] = spawn(false); continue; }
+        ctx.globalAlpha = f.alpha;
+        ctx.fillStyle = '#eaf4ff';
+        // whole pixels, or the squares blur into round dots
+        ctx.fillRect(Math.round(f.x), Math.round(f.y), f.s, f.s);
+      }
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start(){ if (!raf){ last = 0; raf = requestAnimationFrame(frame); } }
+    function stop(){ if (raf){ cancelAnimationFrame(raf); raf = 0; } }
+
+    resize();
+    start();
+    window.addEventListener('resize', resize);
+    // nothing to animate while the tab is in the background
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    // or while another screen is open, since the canvas is not on them
+    window.addEventListener('tapkacraft:screen', (e) => e.detail === 'title' ? start() : stop());
+  }
 
   // =========================================================
   // Background music. Browsers refuse to start audio until the

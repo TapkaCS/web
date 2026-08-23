@@ -21,6 +21,9 @@ window.I18N = {
     "players.more": "a další: {n}",
     "music.mute": "Ztlumit hudbu",
     "music.unmute": "Zapnout hudbu",
+    "teaser.kicker": "Chystáme",
+    "teaser.title": "I v pekle sněží",
+    "teaser.when": "v prosinci 2026",
 
     "hero.subtitle": "Náš svět, po našem.",
     // one picked at random per visit, like the game's own title screen.
@@ -228,6 +231,9 @@ window.I18N = {
     "players.more": "a ďalší: {n}",
     "music.mute": "Stlmiť hudbu",
     "music.unmute": "Zapnúť hudbu",
+    "teaser.kicker": "Chystáme",
+    "teaser.title": "Aj v pekle sneží",
+    "teaser.when": "v decembri 2026",
 
     "hero.subtitle": "Náš svet, po našom.",
     // same order as the cs list above
@@ -433,6 +439,9 @@ window.I18N = {
     "players.more": "and {n} more",
     "music.mute": "Mute music",
     "music.unmute": "Unmute music",
+    "teaser.kicker": "Coming soon",
+    "teaser.title": "It snows in the Nether now",
+    "teaser.when": "December 2026",
 
     "hero.subtitle": "Our world, our way.",
     // same order as the cs list above
@@ -643,6 +652,9 @@ window.I18N = {
     "players.more": "a další: {n}",
     "music.mute": "Umlčet muziku",
     "music.unmute": "Spustit muziku",
+    "teaser.kicker": "Chystáme",
+    "teaser.title": "I v pekle chumelí",
+    "teaser.when": "v prosinci 2026",
 
     "hero.subtitle": "Naše moře, po našem.",
     // same order as the cs list above
