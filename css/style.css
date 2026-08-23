@@ -177,6 +177,13 @@ a:focus-visible, button:focus-visible,
 .srow .icn img{width:100%;height:100%;object-fit:cover;}
 .wrow img{flex:0 0 auto;width:42px;height:42px;border-radius:3px;background:rgba(255,255,255,.06);border:1px solid var(--line);object-fit:cover;}
 .srow .name, .wrow .name{font-weight:700;font-size:.94rem;}
+/* a trial run is worth saying on the row itself, not buried in the panel */
+.trial{
+  display:inline-block; margin-left:6px; padding:1px 6px; border-radius:2px;
+  background:rgba(232,165,61,.16); border:1px solid rgba(232,165,61,.45);
+  color:var(--gold); font-size:.66rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.06em; vertical-align:1px;
+}
 .srow .sub, .wrow .sub{color:var(--muted);font-size:.78rem;margin-top:2px;}
 .srow-right{margin-left:auto;flex:0 0 auto;display:flex;align-items:center;gap:10px;}
 .srow .players{font-size:.74rem;color:var(--muted);}
