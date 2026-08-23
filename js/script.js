@@ -302,18 +302,20 @@
       snowCv.width = Math.round(w * dpr);
       snowCv.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      // fewer flakes on a phone, both for the look and for the battery
-      const count = Math.round(Math.min(90, Math.max(28, w / 16)));
+      // scaled to the card's area rather than a screen's: a few dozen flakes in
+      // a 232px panel is a blizzard, and it has to hold up on the wider
+      // horizontal strip the card becomes on a phone
+      const count = Math.round(Math.min(70, Math.max(16, (w * h) / 1400)));
       flakes = Array.from({ length: count }, () => spawn(true));
     }
 
     function spawn(anywhere){
-      const size = 2 + Math.floor(Math.random() * 3);   // 2 to 4 px, kept whole
+      const size = 1 + Math.floor(Math.random() * 3);   // 1 to 3 px, kept whole
       return {
         x: Math.random() * w,
         y: anywhere ? Math.random() * h : -size,
         s: size,
-        vy: 14 + Math.random() * 26,                    // px per second
+        vy: 10 + Math.random() * 20,                    // px per second
         drift: (Math.random() - 0.5) * 14,
         phase: Math.random() * Math.PI * 2,
         alpha: 0.35 + Math.random() * 0.45,
