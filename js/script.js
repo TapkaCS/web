@@ -31,9 +31,10 @@
 
   // =========================================================
   // Click-to-select rows that reveal a matching detail panel
-  // (Multiplayer edition, Team member, Support tier, Novinky tile)
+  // (Multiplayer edition, Team member, Support tier, Novinky tile,
+  //  Jak zacit step, server Event)
   // =========================================================
-  const selection = { mp: 'java', team: 'owner', tier: '1', nov: '1', start: 'first' };
+  const selection = { mp: 'java', team: 'owner', tier: '1', nov: '1', start: 'first', event: 'doubledrop' };
 
   function applySelection(group){
     document.querySelectorAll(`[data-select="${group}"]`).forEach((row) => {

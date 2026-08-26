@@ -205,7 +205,22 @@ window.I18N = {
     "feat.7.name": "Teamy",
     "feat.7.desc": "Sdílený home i chat s partou, ochrana v PvP.",
     "feat.8.name": "Hlasový chat",
-    "feat.8.desc": "Mluv s hráči v okolí přímo ve hře. Potřebuješ k tomu mod Simple Voice Chat."
+    "feat.8.desc": "Mluv s hráči v okolí přímo ve hře. Potřebuješ k tomu mod Simple Voice Chat.",
+
+    "events.title": "Události",
+    "events.lead": "Spouští se samy a bez varování. Sleduj chat, ať ti neutečou.",
+    "ev.1.name": "Double drop hour",
+    "ev.1.sub": "Hodina, kdy z mobů padá dvakrát víc věcí.",
+    "ev.1.desc": "V náhodný čas se na hodinu zapne double drop. Po celou tu dobu z mobů padá dvakrát víc věcí, takže se vyplatí být zrovna venku a mlátit do všeho, co se hýbe.",
+    "ev.2.name": "Bloodmoon",
+    "ev.2.sub": "Deset procent šance, že se z noci stane peklo.",
+    "ev.2.desc": "V náhodných intervalech je 10% šance, že se spustí bloodmoon. Mobové pak dávají 1,5× víc damage a spawnují se jenom high tier, od rare po mythic. Během bloodmoonu se navíc nedá spát, takže ho musíš přečkat.",
+    "ev.3.name": "Víkendový blackmarket",
+    "ev.3.sub": "Dostavník s pašeráckým villagerem, jen na víkend.",
+    "ev.3.desc": "Každý pátek se někde ve světě spawne dostavník s blackmarket villagerem. Prodává a vykupuje high tier věci, netherite a podobně. Souřadnice vždycky najdeš v chatu. V pondělí o půlnoci dostavník i s villagerem mizí.",
+    "ev.4.name": "Treasure",
+    "ev.4.sub": "Poklad na souřadnicích, kdo dřív přijde, ten bere.",
+    "ev.4.desc": "Náhodně se ve světě objeví poklad s itemy a penězi. Souřadnice se jednou ukážou v chatu a pak už jde jen o rychlost, protože poklad patří tomu, kdo dorazí první. Na místě vydrží maximálně 15 minut."
   },
 
   sk: {
@@ -411,7 +426,22 @@ window.I18N = {
     "feat.7.name": "Tímy",
     "feat.7.desc": "Zdieľaný home aj chat s partiou, ochrana v PvP.",
     "feat.8.name": "Hlasový chat",
-    "feat.8.desc": "Hovor s hráčmi v okolí priamo v hre. Potrebuješ na to mod Simple Voice Chat."
+    "feat.8.desc": "Hovor s hráčmi v okolí priamo v hre. Potrebuješ na to mod Simple Voice Chat.",
+
+    "events.title": "Udalosti",
+    "events.lead": "Spúšťajú sa samy a bez varovania. Sleduj chat, nech ti neutečú.",
+    "ev.1.name": "Double drop hour",
+    "ev.1.sub": "Hodina, keď z mobov padá dvakrát viac vecí.",
+    "ev.1.desc": "V náhodný čas sa na hodinu zapne double drop. Po celý ten čas z mobov padá dvakrát viac vecí, takže sa oplatí byť práve vonku a mlátiť do všetkého, čo sa hýbe.",
+    "ev.2.name": "Bloodmoon",
+    "ev.2.sub": "Desať percent šanca, že sa z noci stane peklo.",
+    "ev.2.desc": "V náhodných intervaloch je 10% šanca, že sa spustí bloodmoon. Moby potom dávajú 1,5× viac damage a spawnujú sa iba high tier, od rare po mythic. Počas bloodmoonu sa navyše nedá spať, takže ho musíš prečkať.",
+    "ev.3.name": "Víkendový blackmarket",
+    "ev.3.sub": "Dostavník s pašeráckym villagerom, len na víkend.",
+    "ev.3.desc": "Každý piatok sa niekde vo svete spawne dostavník s blackmarket villagerom. Predáva a vykupuje high tier veci, netherite a podobne. Súradnice vždy nájdeš v chate. V pondelok o polnoci dostavník aj s villagerom mizne.",
+    "ev.4.name": "Treasure",
+    "ev.4.sub": "Poklad na súradniciach, kto prv príde, ten berie.",
+    "ev.4.desc": "Náhodne sa vo svete objaví poklad s itemami a peniazmi. Súradnice sa raz ukážu v chate a potom už ide len o rýchlosť, lebo poklad patrí tomu, kto dorazí prvý. Na mieste vydrží maximálne 15 minút."
   },
 
   en: {
@@ -617,7 +647,22 @@ window.I18N = {
     "feat.7.name": "Teams",
     "feat.7.desc": "Shared homes and chat with your crew, protection in PvP.",
     "feat.8.name": "Voice chat",
-    "feat.8.desc": "Talk to nearby players right in-game. You'll need the Simple Voice Chat mod."
+    "feat.8.desc": "Talk to nearby players right in-game. You'll need the Simple Voice Chat mod.",
+
+    "events.title": "Events",
+    "events.lead": "They fire on their own with no warning. Keep an eye on chat.",
+    "ev.1.name": "Double drop hour",
+    "ev.1.sub": "One hour where mobs drop twice as much.",
+    "ev.1.desc": "At a random time double drop switches on for a whole hour. Everything you kill drops twice the loot, so it pays to be out in the world when it hits.",
+    "ev.2.name": "Bloodmoon",
+    "ev.2.sub": "A 10% chance the night turns against you.",
+    "ev.2.desc": "Every so often there is a 10% chance a bloodmoon rises. Mobs deal 1.5× more damage and only high tier ones spawn, from rare all the way up to mythic. You cannot sleep through a bloodmoon either, so you have to survive it.",
+    "ev.3.name": "Weekend black market",
+    "ev.3.sub": "A smuggler's wagon, Friday to Monday only.",
+    "ev.3.desc": "Every Friday a wagon carrying a black market villager spawns somewhere in the world. It buys and sells high tier gear, netherite and the like. The coordinates always show up in chat, and at midnight on Monday the whole thing is gone.",
+    "ev.4.name": "Treasure",
+    "ev.4.sub": "Coordinates in chat, first one there keeps it.",
+    "ev.4.desc": "A treasure full of items and money drops somewhere in the world at random. Its coordinates are posted in chat once, and from there it is a race, because it belongs to whoever gets there first. It stays for 15 minutes at most."
   },
 
   // Easter egg, the way Minecraft ships Pirate Speak in its own language
@@ -828,7 +873,22 @@ window.I18N = {
     "feat.7.name": "Posádky",
     "feat.7.desc": "Sdílená kajuta i chat s partou, ochrana v PvP.",
     "feat.8.name": "Volání přes palubu",
-    "feat.8.desc": "Mluv s námořníky v okolí přímo ve hře. Potřebuješ k tomu mod Simple Voice Chat."
+    "feat.8.desc": "Mluv s námořníky v okolí přímo ve hře. Potřebuješ k tomu mod Simple Voice Chat.",
+
+    "events.title": "Co se semele",
+    "events.lead": "Spustí se samy a bez varování. Koukej do chatu, ať ti neuplavou.",
+    "ev.1.name": "Hodina dvojité kořisti",
+    "ev.1.sub": "Hodina, kdy z potvor padá dvakrát víc lupu.",
+    "ev.1.desc": "V náhodný čas se na hodinu zapne dvojitá kořist. Po celou tu dobu z potvor padá dvakrát víc lupu, takže je to hodina, kdy se rabuje.",
+    "ev.2.name": "Krvavý měsíc",
+    "ev.2.sub": "Deset ze sta nocí patří potvorám.",
+    "ev.2.desc": "V náhodných intervalech je 10% šance, že vyjde krvavý měsíc. Potvory pak dávají 1,5× víc damage a ven lezou jenom ty nejhorší, od rare po mythic. A spát se pod ním nedá, takže ho musíš přečkat.",
+    "ev.3.name": "Víkendový černý trh",
+    "ev.3.sub": "Dostavník s pašerákem, jen přes víkend.",
+    "ev.3.desc": "Každý pátek někde ve světě zakotví dostavník s pašeráckým villagerem. Kupuje a prodává ty nejlepší kusy, netherite a tak. Souřadnice vždycky visí v chatu. V pondělí o půlnoci zvedne kotvy a je pryč.",
+    "ev.4.name": "Poklad",
+    "ev.4.sub": "Souřadnice v chatu, kdo dřív přijde, ten bere.",
+    "ev.4.desc": "Náhodně se ve světě zakope poklad plný itemů a dublonů. Souřadnice se jednou mihnou v chatu a pak už jde jen o rychlost, protože poklad patří tomu, kdo dorazí první. V zemi vydrží maximálně 15 minut."
   }
 };
 

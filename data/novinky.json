@@ -8,6 +8,82 @@
   ],
   "novinky": [
     {
+      "icon": "⏳",
+      "cs": {
+        "name": "Double drop hour",
+        "desc": "V náhodný čas se na hodinu zapne double drop a z mobů padá dvakrát víc věcí."
+      },
+      "sk": {
+        "name": "Double drop hour",
+        "desc": "V náhodný čas sa na hodinu zapne double drop a z mobov padá dvakrát viac vecí."
+      },
+      "en": {
+        "name": "Double drop hour",
+        "desc": "At a random time double drop kicks in for an hour and mobs drop twice the loot."
+      },
+      "cs-x-pirate": {
+        "name": "Hodina dvojité kořisti",
+        "desc": "V náhodný čas se na hodinu zapne dvojitá kořist a z potvor padá dvakrát víc lupu."
+      }
+    },
+    {
+      "icon": "🌕",
+      "cs": {
+        "name": "Bloodmoon",
+        "desc": "Deset procent šance, že se spustí bloodmoon. Mobové dávají 1,5× víc damage, spawnují se jen ti nejsilnější a spát se nedá."
+      },
+      "sk": {
+        "name": "Bloodmoon",
+        "desc": "Desať percent šanca, že sa spustí bloodmoon. Moby dávajú 1,5× viac damage, spawnujú sa len tí najsilnejší a spať sa nedá."
+      },
+      "en": {
+        "name": "Bloodmoon",
+        "desc": "A 10% chance a bloodmoon rises. Mobs hit 1.5× harder, only the strongest spawn, and nobody sleeps."
+      },
+      "cs-x-pirate": {
+        "name": "Krvavý měsíc",
+        "desc": "Deset procent šance, že vyjde krvavý měsíc. Potvory dávají 1,5× víc damage, lezou ven jen ty nejhorší a spát se nedá."
+      }
+    },
+    {
+      "icon": "💼",
+      "cs": {
+        "name": "Víkendový blackmarket",
+        "desc": "Od pátku do pondělní půlnoci stojí někde ve světě dostavník, který kupuje a prodává high tier věci. Souřadnice hlásíme v chatu."
+      },
+      "sk": {
+        "name": "Víkendový blackmarket",
+        "desc": "Od piatka do pondelňajšej polnoci stojí niekde vo svete dostavník, ktorý kupuje a predáva high tier veci. Súradnice hlásime v chate."
+      },
+      "en": {
+        "name": "Weekend black market",
+        "desc": "From Friday to midnight on Monday a wagon stands somewhere in the world, buying and selling high tier gear. Coordinates go out in chat."
+      },
+      "cs-x-pirate": {
+        "name": "Víkendový černý trh",
+        "desc": "Od pátku do pondělní půlnoci kotví někde ve světě dostavník, co kupuje a prodává ty nejlepší kusy. Souřadnice visí v chatu."
+      }
+    },
+    {
+      "icon": "🗺️",
+      "cs": {
+        "name": "Treasure",
+        "desc": "Ve světě se náhodně objeví poklad s itemy i penězi. Souřadnice jednou proletí chatem a kdo dorazí první, ten ho má."
+      },
+      "sk": {
+        "name": "Treasure",
+        "desc": "Vo svete sa náhodne objaví poklad s itemami aj peniazmi. Súradnice raz preletia chatom a kto dorazí prvý, ten ho má."
+      },
+      "en": {
+        "name": "Treasure",
+        "desc": "A treasure with items and money appears at random. Its coordinates flash in chat once, and the first player there keeps it."
+      },
+      "cs-x-pirate": {
+        "name": "Poklad",
+        "desc": "Ve světě se náhodně zakope poklad s itemy i dublony. Souřadnice jednou proletí chatem a kdo dorazí první, ten ho má."
+      }
+    },
+    {
       "icon": "🏪",
       "photo": "assets/img/villagershop.jpg",
       "cs": {

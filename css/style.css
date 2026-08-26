@@ -244,6 +244,22 @@ a:focus-visible, button:focus-visible,
 .plainlist .srow{cursor:default;justify-content:center;}
 .plainlist .srow > div:not(.icn){flex:0 1 440px;text-align:center;}
 
+/* ===== events group on the features screen =====
+   The systems above are read-only, so they use the centred .plainlist look.
+   Events are tappable and carry a paragraph each, so they take the ordinary
+   row style instead: icon on the left, text left-aligned and free to fill the
+   row, which is what a full sentence needs. */
+.grouphead{
+  font-family:var(--font-body); font-weight:800; text-transform:uppercase; letter-spacing:.04em;
+  font-size:.95rem; margin:26px 0 4px; padding-top:24px; border-top:1px solid var(--line);
+}
+.groupnote{color:var(--muted-2);font-size:.8rem;margin:0 0 16px;}
+.eventlist .srow > div:not(.icn){flex:1 1 auto;min-width:0;text-align:left;}
+.eventlist .srow .sub{line-height:1.45;}
+/* The other detail panels hold one short line, so the screen's centring suits
+   them. These run two or three lines and go ragged centred. */
+.eventlist .detail p{text-align:left;}
+
 /* ===== rules list ===== */
 .rulerow{display:flex;gap:14px;align-items:flex-start;padding:14px 2px;border-bottom:1px solid var(--line);}
 .rulerow:last-child{border-bottom:none;}
