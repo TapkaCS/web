@@ -219,6 +219,10 @@ a:focus-visible, button:focus-visible,
 .detail ol li{padding-left:4px;}
 .detail ul li::before{content:"✓ ";color:var(--green);}
 .detail p{margin:0;color:var(--muted);font-size:.86rem;line-height:1.7;}
+/* a second paragraph in a detail is an aside: it needs the gap the shared
+   margin:0 removes, and sits back a step so it does not compete. */
+.detail p + p{margin-top:10px;}
+.detail p.aside{color:var(--muted-2);font-size:.8rem;}
 .detail b{display:block;font-size:.98rem;color:var(--ink);margin-bottom:6px;}
 .detail-photo{width:100%;height:auto;border-radius:2px;border:1px solid var(--line);margin-bottom:14px;display:block;}
 
