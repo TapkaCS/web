@@ -256,6 +256,43 @@ a:focus-visible, button:focus-visible,
 }
 
 .mp-panel.cdx-panel{width:880px;max-width:92vw;text-align:left;}
+
+/* ===== server list =====
+   Pripojit se is laid out the way the game's own multiplayer screen is: an
+   icon square on the left, the name over its address, the player count and
+   ping bars hard right, and the selected entry rimmed in white rather than
+   in the site's ember, because that is what the game does. */
+.serverlist{width:660px;text-align:left;}
+.serverlist .srow{
+  background:rgba(0,0,0,.55); border:2px solid transparent; border-radius:0;
+  box-shadow:none; padding:8px 10px; gap:12px; align-items:flex-start; margin-bottom:4px;
+}
+.serverlist .srow:hover{background:rgba(255,255,255,.1);}
+.serverlist .srow.is-selected{
+  border-color:#fff; background:rgba(0,0,0,.55); box-shadow:none;
+}
+.serverlist .srow .icn{
+  width:64px;height:64px;flex:0 0 64px;background:#000;border:none;border-radius:0;
+}
+.serverlist .srow .icn img{width:64px;height:64px;object-fit:cover;image-rendering:pixelated;}
+.serverlist .srow > div:not(.icn):not(.srow-right){flex:1 1 auto;min-width:0;}
+.serverlist .name{
+  font-family:var(--font-ui);font-weight:500;font-size:1.02rem;color:#fff;
+  text-shadow:2px 2px 0 #3f3f3f;
+}
+.serverlist .sub{color:#9c9c9c;font-size:.86rem;margin-top:4px;}
+/* count above bars, both hard right, exactly where the game puts them */
+.serverlist .srow-right{
+  flex-direction:column;align-items:flex-end;gap:6px;align-self:flex-start;margin-left:auto;
+}
+.serverlist .players{
+  font-family:var(--font-ui);font-size:.82rem;color:#9c9c9c;text-shadow:2px 2px 0 #3f3f3f;
+}
+.serverlist .ping i{background:#7fd88f;}
+/* the how-to sits under the chosen entry like the game's own server blurb */
+.serverlist .detail{
+  background:rgba(0,0,0,.42);border:2px solid #2b2b2b;margin-top:2px;margin-bottom:14px;
+}
 .cdx{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:start;}
 .cdx-idx{display:flex;flex-direction:column;gap:4px;
   border-right:2px solid #33291c;padding-right:18px;}
