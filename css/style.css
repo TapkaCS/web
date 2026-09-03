@@ -102,8 +102,12 @@ a:focus-visible, button:focus-visible,
 .hero-title{margin:0;line-height:0;}
 .hero-logo{
   width:min(560px,78vw); height:auto; display:block;
-  image-rendering:pixelated;
-  filter:drop-shadow(0 6px 0 rgba(0,0,0,.5)) drop-shadow(0 0 42px rgba(255,120,36,.28));
+  /* No pixelated here, unlike the buttons. Their texture is 200px wide and
+     gets blown up, where nearest neighbour is what keeps it crisp. The logo
+     goes the other way, 1340px down to 560, and nearest neighbour drops pixel
+     columns unevenly and chews the letterforms. The artwork already carries
+     its own hard edges, so smooth downscaling is what preserves them. */
+  filter:drop-shadow(0 4px 6px rgba(0,0,0,.55)) drop-shadow(0 0 48px rgba(255,110,30,.32));
 }
 .hero-subtitle{
   font-family:var(--font-ui); font-weight:500;
