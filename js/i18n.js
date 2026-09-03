@@ -28,7 +28,6 @@ window.I18N = {
     // switching language shows the same line translated, not a new one.
     "hero.splashes": [
       "Hlasuj pro nás!",
-      "Náš svět, po našem!",
       "Ferdík to schvaluje!",
       "Mythic creeper dělá bum!",
       "Postav si vlastní obchod!",
@@ -252,7 +251,6 @@ window.I18N = {
     // same order as the cs list above
     "hero.splashes": [
       "Hlasuj za nás!",
-      "Náš svet, po našom!",
       "Ferdík to schvaľuje!",
       "Mythic creeper robí bum!",
       "Postav si vlastný obchod!",
@@ -476,7 +474,6 @@ window.I18N = {
     // same order as the cs list above
     "hero.splashes": [
       "Vote for us!",
-      "Our world, our way!",
       "Ferdík approves!",
       "Mythic creepers go boom!",
       "Build your own shop!",
@@ -705,7 +702,6 @@ window.I18N = {
     // same order as the cs list above
     "hero.splashes": [
       "Hlasuj pro nás, ty lenochu!",
-      "Naše moře, po našem!",
       "Ferdík to schvaluje, arr!",
       "Mythic creeper dělá bum, k čertu!",
       "Postav si vlastní krám!",

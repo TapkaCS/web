@@ -68,18 +68,43 @@ a:focus-visible, button:focus-visible,
    stay mounted behind all of them, like a real game client.
    ========================================================= */
 .mc-app{position:relative;min-height:100vh;min-height:100svh;}
+/* Minecraft keeps its panorama in full colour and then blurs and darkens it
+   so the menu reads on top. Same treatment here, applied once on the parent
+   rather than per layer, which is also four times less blurring to do. */
 .mc-bg{
-  position:fixed; inset:0; z-index:0;
-  background:url('../assets/img/hero-bg.jpg') center 38% / cover no-repeat;
-  filter:saturate(.5) brightness(.52) contrast(1.08) sepia(.32);
+  position:fixed; inset:0; z-index:0; overflow:hidden; background:#0b0d0a;
+  filter:blur(3px) brightness(.6) saturate(.95);
   transition:filter .25s ease;
 }
-.mc-bg.dim{filter:saturate(.35) brightness(.32) sepia(.3) blur(2px);}
+.mc-bg.dim{filter:blur(5px) brightness(.34) saturate(.7);}
+.mc-bg i{
+  position:absolute; inset:-3%;
+  background-size:cover; background-position:center;
+  opacity:0; will-change:opacity,transform;
+  animation:panoCycle 56s linear infinite;
+}
+.mc-bg i:nth-child(1){background-image:url('../assets/img/pano-1.jpg');animation-delay:0s;}
+.mc-bg i:nth-child(2){background-image:url('../assets/img/pano-2.jpg');animation-delay:14s;}
+.mc-bg i:nth-child(3){background-image:url('../assets/img/pano-3.jpg');animation-delay:28s;}
+.mc-bg i:nth-child(4){background-image:url('../assets/img/pano-4.jpg');animation-delay:42s;}
+@keyframes panoCycle{
+  0%{opacity:0;transform:scale(1.03);}
+  3%{opacity:1;}
+  22%{opacity:1;}
+  25%{opacity:0;transform:scale(1.10);}
+  100%{opacity:0;transform:scale(1.03);}
+}
+/* A panorama that never stops moving is a nuisance to anyone who asked the
+   system to stop animations, so it holds on the first frame instead. */
+@media (prefers-reduced-motion: reduce){
+  .mc-bg i{animation:none;}
+  .mc-bg i:nth-child(1){opacity:1;}
+}
+/* Light hand now: the panorama is already blurred and dimmed, so this only
+   has to seat the corner text and stop the menu floating on bright sky. */
 .mc-scrim{
   position:fixed; inset:0; z-index:1; pointer-events:none;
-  background:
-    radial-gradient(120% 70% at 50% 92%, rgba(180,60,14,.20) 0%, rgba(0,0,0,0) 62%),
-    linear-gradient(180deg, rgba(16,10,7,.24) 0%, rgba(16,10,7,.5) 45%, rgba(12,8,6,.96) 100%);
+  background:linear-gradient(180deg, rgba(6,8,6,.34) 0%, rgba(6,8,6,.18) 40%, rgba(6,8,6,.62) 100%);
 }
 
 .mc-screen{
@@ -128,51 +153,54 @@ a:focus-visible, button:focus-visible,
 
 .btnstack{margin-top:auto;margin-bottom:14px;display:flex;flex-direction:column;gap:6px;width:420px;max-width:86vw;}
 /* ===== Minecraft widget buttons =====
-   Chrome taken from the reference pen: a pixelated stone fill, a hard 2px
-   black edge, and the whole bevel carried by two inset shadows rather than
-   border colours. The texture is generated into the repo instead of hotlinked
-   from the pen's image host. */
+   The game's widget is a vertical grey ramp inside a hard black rim, with the
+   bevel drawn as a lit top-left and a shadowed bottom-right. Built from a
+   gradient rather than the reference pen's texture: a 400px bitmap stretched
+   across buttons of three different widths loses exactly the crisp 1px edges
+   that make it read as Minecraft, and a gradient stays sharp at any size. */
 .bevel3d{
   border:2px solid #000;
-  box-shadow:inset -2px -4px rgba(0,0,0,.4), inset 2px 2px rgba(255,255,255,.42);
+  box-shadow:inset 2px 2px 0 rgba(255,255,255,.30), inset -2px -2px 0 rgba(0,0,0,.36);
 }
 .bevel3d:active{
-  box-shadow:inset -2px -4px rgba(0,0,0,.26), inset 2px 2px rgba(255,255,255,.32);
+  box-shadow:inset 2px 2px 0 rgba(0,0,0,.30), inset -2px -2px 0 rgba(255,255,255,.16);
 }
 .mbtn{
-  font-family:var(--font-ui); font-weight:600; font-size:1rem; color:#ded7cc; cursor:pointer;
-  background:#6d665e url('../assets/img/btn-stone.png') center / cover;
-  image-rendering:pixelated;
+  font-family:var(--font-ui); font-weight:600; font-size:1rem; cursor:pointer;
+  color:#fff; text-shadow:2px 2px 0 #3f3f3f;
+  background:linear-gradient(180deg,#9a9a9a 0%,#7c7c7c 55%,#5a5a5a 100%);
   border-radius:0; border:none;
   padding:14px 22px; display:flex; align-items:center; justify-content:center; gap:10px;
   letter-spacing:.01em; text-decoration:none;
-  text-shadow:2px 2px rgba(0,0,0,.65);
 }
-.mbtn:hover{color:#ffffa0;text-shadow:2px 2px rgba(32,32,19,.8);}
-.mbtn:hover::after{
-  content:""; position:absolute; inset:0; pointer-events:none;
-  background:rgba(120,110,255,.32);
+/* In game the hovered widget lightens and takes a white rim, and the label
+   turns yellow. No coloured wash over the top: that was the pen's flourish. */
+.mbtn:hover{
+  background:linear-gradient(180deg,#b4b4c4 0%,#9494a4 55%,#70707e 100%);
+  border-color:#fff;
+  color:#ffffa0;
 }
-.mbtn{position:relative;overflow:hidden;}
-/* The primary action is forged, not quarried: hot metal instead of stone. */
 .mbtn.primary{
-  background:#8a3a12 url('../assets/img/btn-stone.png') center / cover;
-  background-blend-mode:multiply;
-  color:#ffd9a0;
+  background:linear-gradient(180deg,#a8722c 0%,#8a5820 55%,#653d13 100%);
+  color:#fff;
 }
-.mbtn.primary:hover{color:#fff3c4;}
+.mbtn.primary:hover{
+  background:linear-gradient(180deg,#c98c38 0%,#a86e28 55%,#7d4d18 100%);
+  color:#ffffa0;
+}
 .btnrow{display:flex;gap:6px;}
 .btnrow .mbtn{flex:1;font-size:.86rem;padding:14px 10px;}
 
 .smallbtns{display:flex;gap:8px;margin-top:10px;width:420px;max-width:86vw;justify-content:center;}
 .sbtn{
   cursor:pointer;width:46px;height:46px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;
-  background:#6d665e url('../assets/img/btn-stone.png') center / cover;
-  image-rendering:pixelated;
-  border-radius:0;color:#ded7cc;border:none;text-decoration:none;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#9a9a9a 0%,#7c7c7c 55%,#5a5a5a 100%);
+  border-radius:0;color:#fff;border:none;text-decoration:none;
 }
-.sbtn:hover{color:#ffffa0;}
-.sbtn:hover::after{content:"";position:absolute;inset:0;pointer-events:none;background:rgba(120,110,255,.32);}
+.sbtn:hover{
+  background:linear-gradient(180deg,#b4b4c4 0%,#9494a4 55%,#70707e 100%);
+  border-color:#fff;color:#ffffa0;
+}
 
 .sbtn svg{width:21px;height:21px;display:block;}
 @media (max-width:640px){.sbtn svg{width:18px;height:18px;}}
