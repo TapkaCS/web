@@ -152,55 +152,63 @@ a:focus-visible, button:focus-visible,
 @keyframes splashBounceMobile{0%,100%{transform:translateX(-50%) rotate(-16deg) translateY(0);}50%{transform:translateX(-50%) rotate(-16deg) translateY(-6px);}}
 
 .btnstack{margin-top:auto;margin-bottom:14px;display:flex;flex-direction:column;gap:6px;width:420px;max-width:86vw;}
-/* ===== Minecraft widget buttons =====
-   The game's widget is a vertical grey ramp inside a hard black rim, with the
-   bevel drawn as a lit top-left and a shadowed bottom-right. Built from a
-   gradient rather than the reference pen's texture: a 400px bitmap stretched
-   across buttons of three different widths loses exactly the crisp 1px edges
-   that make it read as Minecraft, and a gradient stays sharp at any size. */
+/* ===== buttons: dark panel, brass corner fittings =====
+   The corners are eight strips painted into one pseudo element rather than
+   four extra nodes, so a button stays a single element and the fittings can
+   never be selected, tabbed to, or read aloud. They sit on inset:-2px so they
+   cap the border instead of floating inside it. */
 .bevel3d{
-  border:2px solid #000;
-  box-shadow:inset 2px 2px 0 rgba(255,255,255,.30), inset -2px -2px 0 rgba(0,0,0,.36);
+  border:2px solid #4a3d2a;
+  box-shadow:inset 0 1px 0 rgba(255,235,190,.07), inset 0 -2px 0 rgba(0,0,0,.45);
 }
 .bevel3d:active{
-  box-shadow:inset 2px 2px 0 rgba(0,0,0,.30), inset -2px -2px 0 rgba(255,255,255,.16);
+  box-shadow:inset 0 2px 4px rgba(0,0,0,.55);
+}
+.mbtn, .sbtn{
+  position:relative;
+  background:rgba(24,20,16,.88);
+  color:#e6dcc8; text-shadow:2px 2px 0 #000;
+  border-radius:0;
+  transition:background .16s ease, border-color .16s ease, color .16s ease;
+}
+.mbtn::before, .sbtn::before{
+  content:""; position:absolute; inset:-2px; pointer-events:none;
+  background:
+    linear-gradient(var(--fit),var(--fit)) left  top    / var(--fit-l) var(--fit-w) no-repeat,
+    linear-gradient(var(--fit),var(--fit)) left  top    / var(--fit-w) var(--fit-l) no-repeat,
+    linear-gradient(var(--fit),var(--fit)) right top    / var(--fit-l) var(--fit-w) no-repeat,
+    linear-gradient(var(--fit),var(--fit)) right top    / var(--fit-w) var(--fit-l) no-repeat,
+    linear-gradient(var(--fit),var(--fit)) left  bottom / var(--fit-l) var(--fit-w) no-repeat,
+    linear-gradient(var(--fit),var(--fit)) left  bottom / var(--fit-w) var(--fit-l) no-repeat,
+    linear-gradient(var(--fit),var(--fit)) right bottom / var(--fit-l) var(--fit-w) no-repeat,
+    linear-gradient(var(--fit),var(--fit)) right bottom / var(--fit-w) var(--fit-l) no-repeat;
 }
 .mbtn{
+  --fit:#c9a25a; --fit-l:14px; --fit-w:3px;
   font-family:var(--font-ui); font-weight:600; font-size:1rem; cursor:pointer;
-  color:#fff; text-shadow:2px 2px 0 #3f3f3f;
-  background:linear-gradient(180deg,#9a9a9a 0%,#7c7c7c 55%,#5a5a5a 100%);
-  border-radius:0; border:none;
-  padding:14px 22px; display:flex; align-items:center; justify-content:center; gap:10px;
+  border:none;
+  padding:15px 22px; display:flex; align-items:center; justify-content:center; gap:10px;
   letter-spacing:.01em; text-decoration:none;
 }
-/* In game the hovered widget lightens and takes a white rim, and the label
-   turns yellow. No coloured wash over the top: that was the pen's flourish. */
-.mbtn:hover{
-  background:linear-gradient(180deg,#b4b4c4 0%,#9494a4 55%,#70707e 100%);
-  border-color:#fff;
-  color:#ffffa0;
-}
-.mbtn.primary{
-  background:linear-gradient(180deg,#a8722c 0%,#8a5820 55%,#653d13 100%);
-  color:#fff;
-}
-.mbtn.primary:hover{
-  background:linear-gradient(180deg,#c98c38 0%,#a86e28 55%,#7d4d18 100%);
-  color:#ffffa0;
-}
-.btnrow{display:flex;gap:6px;}
-.btnrow .mbtn{flex:1;font-size:.86rem;padding:14px 10px;}
+.mbtn:hover{ background:rgba(58,42,22,.92); border-color:#c9a25a; color:#ffe9a8; }
+.mbtn.primary{ background:rgba(96,44,16,.9); border-color:#8a5a24; color:#ffd9a0; }
+.mbtn.primary:hover{ background:rgba(126,58,20,.94); border-color:#e8a53d; color:#fff0c8; }
+/* Fittings on neighbouring buttons were meeting in the gap and reading as a
+   grid of crosses rather than as corners, so the row breathes wider and the
+   narrower buttons get shorter fittings. */
+.btnrow{display:flex;gap:14px;}
+.btnrow .mbtn{flex:1;font-size:.86rem;padding:15px 10px;--fit-l:10px;}
 
-.smallbtns{display:flex;gap:8px;margin-top:10px;width:420px;max-width:86vw;justify-content:center;}
+.smallbtns{display:flex;gap:8px;margin-top:12px;width:420px;max-width:86vw;justify-content:center;}
 .sbtn{
-  cursor:pointer;width:46px;height:46px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;
-  background:linear-gradient(180deg,#9a9a9a 0%,#7c7c7c 55%,#5a5a5a 100%);
-  border-radius:0;color:#fff;border:none;text-decoration:none;
+  /* shorter fittings: 14px on a 46px square would eat a third of each side */
+  cursor:pointer;width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem; border:none; text-decoration:none;
 }
-.sbtn:hover{
-  background:linear-gradient(180deg,#b4b4c4 0%,#9494a4 55%,#70707e 100%);
-  border-color:#fff;color:#ffffa0;
-}
+/* Six icon buttons side by side would carry 24 fittings in one short strip.
+   They keep the panel and the border and drop the corners. */
+.sbtn::before{content:none;}
+.sbtn:hover{ background:rgba(58,42,22,.92); border-color:#c9a25a; color:#ffe9a8; }
 
 .sbtn svg{width:21px;height:21px;display:block;}
 @media (max-width:640px){.sbtn svg{width:18px;height:18px;}}
