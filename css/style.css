@@ -3,15 +3,22 @@
    ========================================================= */
 
 :root{
-  --bg:#0c0e14;
-  --font-brand:'Press Start 2P','Inter',monospace;
+  --bg:#100c0a;
+  /* Minecraftia, which the reference pen embeds, has no Czech hacek glyphs:
+     6 of the 10 menu labels would render broken. Pixelify Sans is the pixel
+     face that does carry them, so it takes every piece of UI text. */
+  --font-brand:'Pixelify Sans','Press Start 2P','Inter',monospace;
+  --font-ui:'Pixelify Sans','Inter',monospace;
   --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --panel-btn:rgba(15,15,10,.55);
-  --line:rgba(255,255,255,.28);
-  --ink:#f4f1e8;
-  --muted:rgba(244,241,232,.7);
-  --muted-2:rgba(244,241,232,.4);
+  --line:rgba(255,255,255,.22);
+  --ink:#f2ece2;
+  --muted:rgba(242,236,226,.72);
+  --muted-2:rgba(242,236,226,.42);
   --gold:#e8a53d;
+  --ember:#ff7a24;
+  --ember-dim:#a83c10;
+  --stone:#6d665e;
   --green:#7fd88f;
   --red:#ff2d4d;
 }
@@ -64,13 +71,15 @@ a:focus-visible, button:focus-visible,
 .mc-bg{
   position:fixed; inset:0; z-index:0;
   background:url('../assets/img/hero-bg.jpg') center 38% / cover no-repeat;
-  filter:saturate(1.05) brightness(.92);
+  filter:saturate(.5) brightness(.52) contrast(1.08) sepia(.32);
   transition:filter .25s ease;
 }
-.mc-bg.dim{filter:saturate(.7) brightness(.5) blur(2px);}
+.mc-bg.dim{filter:saturate(.35) brightness(.32) sepia(.3) blur(2px);}
 .mc-scrim{
   position:fixed; inset:0; z-index:1; pointer-events:none;
-  background:linear-gradient(180deg, rgba(10,8,16,.18) 0%, rgba(10,8,16,.42) 45%, rgba(8,6,12,.95) 100%);
+  background:
+    radial-gradient(120% 70% at 50% 92%, rgba(180,60,14,.20) 0%, rgba(0,0,0,0) 62%),
+    linear-gradient(180deg, rgba(16,10,7,.24) 0%, rgba(16,10,7,.5) 45%, rgba(12,8,6,.96) 100%);
 }
 
 .mc-screen{
@@ -90,15 +99,16 @@ a:focus-visible, button:focus-visible,
   padding-top:100px; width:100%; height:100%; max-height:640px;
 }
 .hero-brand{position:relative;display:inline-block;text-align:center;}
-.hero-title{
-  font-family:var(--font-brand); font-size:2.5rem; line-height:1; margin:0;
-  color:var(--ink); text-shadow:4px 4px 0 rgba(0,0,0,.45), 0 0 40px rgba(255,180,110,.35);
-  letter-spacing:.02em;
+.hero-title{margin:0;line-height:0;}
+.hero-logo{
+  width:min(560px,78vw); height:auto; display:block;
+  image-rendering:pixelated;
+  filter:drop-shadow(0 6px 0 rgba(0,0,0,.5)) drop-shadow(0 0 42px rgba(255,120,36,.28));
 }
 .hero-subtitle{
-  font-family:var(--font-body); font-weight:600;
-  font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
-  color:rgba(244,241,232,.75); margin-top:10px;
+  font-family:var(--font-ui); font-weight:500;
+  font-size:.9rem; letter-spacing:.1em;
+  color:rgba(242,236,226,.62); margin-top:22px; text-shadow:2px 2px rgba(0,0,0,.6);
 }
 /* Anchored just past the wordmark's right edge rather than a fixed negative
    offset, so it can never land on the letters when the pixel font loads. */
@@ -106,34 +116,59 @@ a:focus-visible, button:focus-visible,
   position:absolute; top:24px; left:calc(100% + 10px); right:auto;
   transform-origin:left center; transform:rotate(-16deg);
   font-family:'Pixelify Sans','Inter',monospace; font-weight:600; font-size:.85rem;
-  color:#e37a6f; text-shadow:1px 1px 0 rgba(0,0,0,.6); white-space:nowrap;
+  color:#ffe14d; text-shadow:2px 2px 0 rgba(0,0,0,.7); white-space:nowrap;
   animation:splashBounce 1.3s ease-in-out infinite;
 }
 @keyframes splashBounce{0%,100%{transform:rotate(-16deg) translateY(0);}50%{transform:rotate(-16deg) translateY(-6px);}}
 @keyframes splashBounceMobile{0%,100%{transform:translateX(-50%) rotate(-16deg) translateY(0);}50%{transform:translateX(-50%) rotate(-16deg) translateY(-6px);}}
 
 .btnstack{margin-top:auto;margin-bottom:14px;display:flex;flex-direction:column;gap:6px;width:420px;max-width:86vw;}
+/* ===== Minecraft widget buttons =====
+   Chrome taken from the reference pen: a pixelated stone fill, a hard 2px
+   black edge, and the whole bevel carried by two inset shadows rather than
+   border colours. The texture is generated into the repo instead of hotlinked
+   from the pen's image host. */
 .bevel3d{
-  border-style:solid; border-width:3px;
-  border-color:rgba(255,255,255,.35) rgba(0,0,0,.55) rgba(0,0,0,.55) rgba(255,255,255,.35);
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.3);
+  border:2px solid #000;
+  box-shadow:inset -2px -4px rgba(0,0,0,.4), inset 2px 2px rgba(255,255,255,.42);
 }
-.bevel3d:active{border-color:rgba(0,0,0,.55) rgba(255,255,255,.35) rgba(255,255,255,.35) rgba(0,0,0,.55);}
+.bevel3d:active{
+  box-shadow:inset -2px -4px rgba(0,0,0,.26), inset 2px 2px rgba(255,255,255,.32);
+}
 .mbtn{
-  font-family:var(--font-body); font-weight:700; font-size:.92rem; color:var(--ink); cursor:pointer;
-  background:var(--panel-btn); border-radius:2px; border:none;
-  padding:15px 22px; display:flex; align-items:center; justify-content:center; gap:10px;
-  text-transform:uppercase; letter-spacing:.03em; text-decoration:none;
+  font-family:var(--font-ui); font-weight:600; font-size:1rem; color:#ded7cc; cursor:pointer;
+  background:#6d665e url('../assets/img/btn-stone.png') center / cover;
+  image-rendering:pixelated;
+  border-radius:0; border:none;
+  padding:14px 22px; display:flex; align-items:center; justify-content:center; gap:10px;
+  letter-spacing:.01em; text-decoration:none;
+  text-shadow:2px 2px rgba(0,0,0,.65);
 }
-.mbtn.primary{background:rgba(90,60,20,.6); color:#ffd9a0;}
+.mbtn:hover{color:#ffffa0;text-shadow:2px 2px rgba(32,32,19,.8);}
+.mbtn:hover::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:rgba(120,110,255,.32);
+}
+.mbtn{position:relative;overflow:hidden;}
+/* The primary action is forged, not quarried: hot metal instead of stone. */
+.mbtn.primary{
+  background:#8a3a12 url('../assets/img/btn-stone.png') center / cover;
+  background-blend-mode:multiply;
+  color:#ffd9a0;
+}
+.mbtn.primary:hover{color:#fff3c4;}
 .btnrow{display:flex;gap:6px;}
-.btnrow .mbtn{flex:1;font-size:.8rem;padding:15px 10px;}
+.btnrow .mbtn{flex:1;font-size:.86rem;padding:14px 10px;}
 
 .smallbtns{display:flex;gap:8px;margin-top:10px;width:420px;max-width:86vw;justify-content:center;}
 .sbtn{
   cursor:pointer;width:46px;height:46px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;
-  background:var(--panel-btn);border-radius:2px;color:var(--ink);border:none;text-decoration:none;
+  background:#6d665e url('../assets/img/btn-stone.png') center / cover;
+  image-rendering:pixelated;
+  border-radius:0;color:#ded7cc;border:none;text-decoration:none;position:relative;overflow:hidden;
 }
+.sbtn:hover{color:#ffffa0;}
+.sbtn:hover::after{content:"";position:absolute;inset:0;pointer-events:none;background:rgba(120,110,255,.32);}
 
 .sbtn svg{width:21px;height:21px;display:block;}
 @media (max-width:640px){.sbtn svg{width:18px;height:18px;}}
@@ -153,20 +188,27 @@ a:focus-visible, button:focus-visible,
   margin-top:80px; max-height:740px; overflow-y:auto; padding-bottom:60px;
 }
 .back{
-  font-family:var(--font-body); font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.03em;
+  font-family:var(--font-ui); font-weight:500; font-size:.95rem; letter-spacing:.02em;
   color:var(--muted); background:transparent; border:none; cursor:pointer;
   padding:8px 0 22px; display:flex; align-items:center; gap:6px;
+  text-shadow:2px 2px rgba(0,0,0,.6);
 }
-.mp-title{font-family:var(--font-body);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:1.3rem;margin:0 0 6px;}
+.back:hover{color:#ffffa0;}
+.mp-title{font-family:var(--font-ui);font-weight:600;letter-spacing:.02em;font-size:1.5rem;margin:0 0 8px;
+  color:var(--ink);text-shadow:2px 2px rgba(0,0,0,.7);}
 .mp-lead{color:var(--muted);font-size:.86rem;margin:0 0 26px;}
 
 .srow, .wrow{
   cursor:pointer; display:flex; align-items:center; gap:14px;
-  background:rgba(255,255,255,.05); border:2px solid var(--line); border-radius:2px;
+  background:rgba(28,22,18,.72); border:2px solid #000; border-radius:0;
+  box-shadow:inset -2px -3px rgba(0,0,0,.42), inset 2px 2px rgba(255,255,255,.16);
   padding:12px 16px; margin-bottom:10px;
 }
+.srow:hover, .wrow:hover{background:rgba(48,36,28,.78);}
 .srow.is-selected, .wrow.is-selected, .opt.is-selected, .tile.is-selected{
-  border-color:var(--gold); background:rgba(232,165,61,.1);
+  border-color:var(--ember); background:rgba(255,122,36,.14);
+  box-shadow:inset -2px -3px rgba(0,0,0,.42), inset 2px 2px rgba(255,255,255,.16),
+             0 0 14px rgba(255,122,36,.3);
 }
 /* Dark chip, not a light one. Apple draws a lot of these emoji in mid grey,
    and mid grey on a pale translucent square is the one combination that
@@ -191,16 +233,17 @@ a:focus-visible, button:focus-visible,
 .srow .ping i{display:block;width:3px;background:var(--green);border-radius:1px;}
 
 .detail{
-  background:rgba(0,0,0,.4); border:2px solid var(--line); border-radius:2px;
+  background:rgba(10,7,5,.82); border:2px solid #000; border-radius:0;
+  box-shadow:inset 2px 2px rgba(255,255,255,.08);
   padding:20px 22px; margin-top:-2px; margin-bottom:12px; display:none;
 }
 .detail.is-open{display:block;}
 /* Inter, not the pixel font: Press Start 2P ships no Czech accented glyphs,
    so ODEMČEN / KČ / DONÁTOR rendered as mangled marks. */
 .detail .kicker{
-  display:block; font-family:var(--font-body); font-weight:800; font-size:.62rem;
-  text-transform:uppercase; letter-spacing:.18em;
-  color:var(--gold); margin-bottom:12px;
+  display:block; font-family:var(--font-ui); font-weight:600; font-size:.78rem;
+  text-transform:uppercase; letter-spacing:.14em;
+  color:var(--ember); margin-bottom:12px; text-shadow:2px 2px rgba(0,0,0,.6);
 }
 .detail .addr{
   font-family:'Courier New',monospace;font-size:.98rem;color:var(--green);
@@ -228,13 +271,19 @@ a:focus-visible, button:focus-visible,
 
 /* ===== options grid (support) ===== */
 .optgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px;}
-.opt{cursor:pointer;background:rgba(255,255,255,.05);border:2px solid var(--line);border-radius:2px;padding:16px 10px;text-align:center;display:flex;flex-direction:column;gap:6px;}
+.opt{cursor:pointer;background:rgba(28,22,18,.72);border:2px solid #000;border-radius:0;
+  box-shadow:inset -2px -3px rgba(0,0,0,.42), inset 2px 2px rgba(255,255,255,.16);
+  padding:16px 10px;text-align:center;display:flex;flex-direction:column;gap:6px;}
+.opt:hover{background:rgba(48,36,28,.78);}
 .opt-name{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.02em;}
 .opt-val{color:var(--gold);font-weight:800;font-size:.92rem;}
 
 /* ===== tile grid (novinky / pokroky) ===== */
 .tilegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px;}
-.tile{cursor:pointer;background:rgba(255,255,255,.05);border:2px solid var(--line);border-radius:2px;padding:16px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px;}
+.tile{cursor:pointer;background:rgba(28,22,18,.72);border:2px solid #000;border-radius:0;
+  box-shadow:inset -2px -3px rgba(0,0,0,.42), inset 2px 2px rgba(255,255,255,.16);
+  padding:16px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px;}
+.tile:hover{background:rgba(48,36,28,.78);}
 /* same reason: the tile icon had no backing at all, so it sat straight on the
    panorama showing through the tile */
 .ticn{font-size:1.3rem;width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);border:1px solid var(--line);border-radius:2px;}
@@ -342,7 +391,7 @@ a.srow.linkrow:hover .go{color:var(--gold);}
   .hero-content{padding-top:0;height:auto;max-height:none;padding-bottom:26px;}
   /* margin-top:auto has nothing to push against now, so the gap is set here.
      It has to clear the splash, which on a phone hangs below the subtitle. */
-  .btnstack{margin-top:58px;margin-bottom:0;}
+  .btnstack{margin-top:76px;margin-bottom:0;}
   .hero-title{font-size:1.9rem;}
   .hero-subtitle{font-size:.7rem;letter-spacing:.1em;}
   /* no room beside the wordmark on a phone, so it sits under the subtitle.
@@ -350,7 +399,10 @@ a.srow.linkrow:hover .go{color:var(--gold);}
      the longest lines ran off a 375px screen and got clipped. The bounce
      keyframes rewrite transform wholesale, so the centring translate has to
      live inside them rather than on the element. */
-  .hero-splash{font-size:.72rem;top:calc(100% + 4px);left:50%;right:auto;
+  /* The 4px that used to clear the subtitle no longer does: rotating a long
+     line about its centre lifts the left end by roughly half its width times
+     sin(16deg), which put it back on top of the tagline. */
+  .hero-splash{font-size:.72rem;top:calc(100% + 24px);left:50%;right:auto;
     transform-origin:center center;animation-name:splashBounceMobile;}
   .btnstack{gap:5px;margin-bottom:10px;}
   .mbtn{padding:13px 14px;font-size:.8rem;}
