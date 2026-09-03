@@ -214,6 +214,21 @@
   }
   window.renderNovinky = renderNovinky;
 
+  // The TAB list header counts filled seats. Computed rather than written into
+  // the page, so it cannot go stale the next time somebody joins or leaves.
+  function renderTeamCount(){
+    const el = document.getElementById('teamCount');
+    if (!el) return;
+    const rows = document.querySelectorAll('.tabl-grid .wrow');
+    if (!rows.length) return;
+    const taken = [...rows].filter(r => !r.classList.contains('is-free')).length;
+    const dict = (window.I18N && window.I18N[currentLang()]) || {};
+    const tpl = dict['team.seats'] || '{n} z {max} pozic obsazeno';
+    el.textContent = tpl.replace('{n}', taken).replace('{max}', rows.length);
+  }
+  window.renderTeamCount = renderTeamCount;
+  renderTeamCount();
+
   if (novTiles){
     // no-cache so an edit to the JSON reaches visitors on their next load
     // instead of waiting out a cached copy; unchanged files still answer 304

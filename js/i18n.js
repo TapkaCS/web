@@ -87,6 +87,14 @@ window.I18N = {
     "team.mod.role": "Moderátor",
     "team.mod.desc": "Hlídá chat, řeší hlášení a spory mezi hráči.",
     "team.empty.name": "Volná pozice",
+    "team.tag.owner": "Majitel",
+    "team.tag.headadmin": "Hlavní admin",
+    "team.tag.admin": "Admin",
+    "team.tag.designer": "Design",
+    "team.tag.dev": "Developer",
+    "team.tag.helper": "Helper",
+    "team.tag.mod": "Moderátor",
+    "team.seats": "{n} z {max} pozic obsazeno",
     "team.join.cta": "Přihlásit se do týmu",
     "team.join.note": "Máš zájem o některou z volných pozic? Vyplň formulář výš a napiš nám, o kterou stojíš a proč zrovna ty. <b>Podmínkou je minimální věk 16 let.</b>",
 
@@ -310,6 +318,14 @@ window.I18N = {
     "team.mod.role": "Moderátor",
     "team.mod.desc": "Stráži chat, rieši hlásenia a spory medzi hráčmi.",
     "team.empty.name": "Voľná pozícia",
+    "team.tag.owner": "Majiteľ",
+    "team.tag.headadmin": "Hlavný admin",
+    "team.tag.admin": "Admin",
+    "team.tag.designer": "Dizajn",
+    "team.tag.dev": "Developer",
+    "team.tag.helper": "Helper",
+    "team.tag.mod": "Moderátor",
+    "team.seats": "{n} z {max} pozícií obsadených",
     "team.join.cta": "Prihlásiť sa do tímu",
     "team.join.note": "Máš záujem o niektorú z voľných pozícií? Vyplň formulár vyššie a napíš nám, o ktorú stojíš a prečo práve ty. <b>Podmienkou je minimálny vek 16 rokov.</b>",
 
@@ -533,6 +549,14 @@ window.I18N = {
     "team.mod.role": "Moderator",
     "team.mod.desc": "Watches the chat, handles reports and disputes between players.",
     "team.empty.name": "Open position",
+    "team.tag.owner": "Owner",
+    "team.tag.headadmin": "Head Admin",
+    "team.tag.admin": "Admin",
+    "team.tag.designer": "Design",
+    "team.tag.dev": "Developer",
+    "team.tag.helper": "Helper",
+    "team.tag.mod": "Moderator",
+    "team.seats": "{n} of {max} seats filled",
     "team.join.cta": "Apply to the team",
     "team.join.note": "Interested in one of the open positions? Fill in the form above and tell us which one and why you. <b>You need to be at least 16.</b>",
 
@@ -761,6 +785,14 @@ window.I18N = {
     "team.mod.role": "Hlídka",
     "team.mod.desc": "Hlídá chat, řeší stížnosti a rvačky mezi námořníky.",
     "team.empty.name": "Volné místo na palubě",
+    "team.tag.owner": "Kapitán",
+    "team.tag.headadmin": "1. důstojník",
+    "team.tag.admin": "Důstojník",
+    "team.tag.designer": "Kartograf",
+    "team.tag.dev": "Kovář",
+    "team.tag.helper": "Plavčík",
+    "team.tag.mod": "Hlídka",
+    "team.seats": "{n} z {max} míst na palubě obsazeno",
     "team.join.cta": "Přidat se k posádce",
     "team.join.note": "Chceš některé z volných míst? Vyplň ten pergamen výš a napiš nám, o které stojíš a proč zrovna ty. <b>Podmínkou je minimální věk 16 let.</b>",
 
@@ -932,6 +964,7 @@ window.I18N = {
     // news copy comes from data/novinky.json, not from these dictionaries,
     // so the language pass above cannot translate it; re-render instead
     if (typeof window.renderNovinky === 'function') window.renderNovinky();
+  if (typeof window.renderTeamCount === 'function') window.renderTeamCount();
     // the mute button's label is built in script.js, not from a data-i18n
     // attribute, so the pass above cannot reach it
     if (typeof window.paintMute === 'function' && typeof window.isMusicMuted === 'function')

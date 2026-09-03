@@ -293,6 +293,62 @@ a:focus-visible, button:focus-visible,
 .serverlist .detail{
   background:rgba(0,0,0,.42);border:2px solid #2b2b2b;margin-top:2px;margin-bottom:14px;
 }
+
+/* ===== TAB player list =====
+   The roster is laid out like the list the game shows while TAB is held: a
+   centred header, names in two columns with a coloured rank prefix and ping
+   bars, unfilled seats greyed the way an offline player is. Rank colours are
+   the server's own rarity ladder, so the palette teaches the system before a
+   visitor ever joins. */
+.tablist{width:720px;text-align:left;}
+.tabl{background:rgba(0,0,0,.62);padding:14px 16px;margin-bottom:14px;}
+.tabl-head{
+  text-align:center;color:#fff;font-family:var(--font-ui);font-size:1rem;
+  text-shadow:2px 2px 0 #3f3f3f;margin-bottom:3px;
+}
+.tabl-sub{text-align:center;color:#a8a8a8;font-family:var(--font-ui);font-size:.8rem;margin-bottom:14px;}
+.tabl-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px 20px;}
+
+.tabl .wrow{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.09);border:none;border-radius:0;box-shadow:none;
+  padding:5px 8px;margin:0;cursor:pointer;min-width:0;
+}
+.tabl .wrow:hover{background:rgba(255,255,255,.18);}
+.tabl .wrow.is-selected{background:rgba(255,255,255,.26);box-shadow:inset 0 0 0 2px #fff;}
+.tabl .wrow img{width:22px;height:22px;flex:0 0 22px;border:none;border-radius:0;background:none;}
+.tabl .tag{
+  font-family:var(--font-ui);font-size:.76rem;flex:0 0 auto;
+  text-shadow:2px 2px 0 #3f3f3f;white-space:nowrap;
+}
+.tabl .tag::before{content:"[";}
+.tabl .tag::after{content:"]";}
+.tabl .pname{
+  flex:1 1 auto;min-width:0;font-family:var(--font-ui);font-size:.84rem;color:#fff;
+  text-shadow:2px 2px 0 #3f3f3f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tabl .ping{display:flex;gap:2px;align-items:flex-end;height:12px;flex:0 0 auto;}
+.tabl .ping i{width:2px;background:#4fbf5f;}
+.tabl .ping i:nth-child(1){height:3px;}
+.tabl .ping i:nth-child(2){height:5px;}
+.tabl .ping i:nth-child(3){height:7px;}
+.tabl .ping i:nth-child(4){height:9px;}
+.tabl .ping i:nth-child(5){height:12px;}
+/* an unfilled seat reads the way an offline player does in game */
+.tabl .wrow.is-free{opacity:.45;}
+.tabl .wrow.is-free .ping i{background:#6a6a6a;}
+.tabl .wrow.is-free .tag{color:#9a9a9a;}
+
+.tabl .r-owner .tag{color:#ff5c5c;}
+.tabl .r-headadmin .tag{color:#ffb03a;}
+.tabl .r-admin .tag{color:#c86bff;}
+.tabl .r-designer .tag{color:#5b9dff;}
+
+.tablist .detail{background:rgba(0,0,0,.42);border:2px solid #2b2b2b;}
+@media (max-width:640px){
+  .tabl-grid{grid-template-columns:1fr;}
+  .tabl .tag{font-size:.7rem;}
+}
 .cdx{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:start;}
 .cdx-idx{display:flex;flex-direction:column;gap:4px;
   border-right:2px solid #33291c;padding-right:18px;}
