@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image-v2.jpg">
 
 <!-- ?v= is bumped on every deploy so browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=20260903e">
+<link rel="stylesheet" href="css/style.css?v=20260903g">
 </head>
 <body data-i18n-title="meta.title.home">
 
@@ -107,44 +107,49 @@
   <!-- ===================== MULTIPLAYER (Připojit se) ===================== -->
   <section class="mc-screen" data-screen="multiplayer">
     <div class="mp-panel">
-      <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
+            <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
       <h2 class="mp-title" data-i18n="mp.title">Vyber si edici</h2>
       <p class="mp-lead" data-i18n="mp.lead">Java i Bedrock hráči se připojí na stejný server.</p>
 
-      <div class="srow is-selected" data-select="mp" data-key="java">
-        <div class="icn"><img src="assets/img/apple-touch-icon.png" alt="" width="42" height="42"></div>
-        <div><div class="name" data-i18n="mp.java.name">TapkaCraft Java Edition</div><div class="sub" data-i18n="mp.java.sub">mc.tapkacraft.cz</div></div>
-        <div class="srow-right">
-          <span class="players" data-players>· · ·</span>
-          <div class="ping"><i style="height:5px"></i><i style="height:9px"></i><i style="height:13px"></i><i style="height:16px"></i></div>
+      <div class="cdx">
+        <div class="cdx-idx">
+                <div class="srow is-selected" data-select="mp" data-key="java">
+            <div class="icn"><img src="assets/img/apple-touch-icon.png" alt="" width="42" height="42"></div>
+            <div><div class="name" data-i18n="mp.java.name">TapkaCraft Java Edition</div><div class="sub" data-i18n="mp.java.sub">mc.tapkacraft.cz</div></div>
+            <div class="srow-right">
+              <span class="players" data-players>· · ·</span>
+              <div class="ping"><i style="height:5px"></i><i style="height:9px"></i><i style="height:13px"></i><i style="height:16px"></i></div>
+      </div>
+          </div>
+                <div class="srow" data-select="mp" data-key="bedrock">
+            <div class="icn"><img src="assets/img/apple-touch-icon.png" alt="" width="42" height="42"></div>
+            <div><div class="name" data-i18n="mp.bedrock.name">TapkaCraft Bedrock Edition</div><div class="sub" data-i18n="mp.bedrock.sub">mobil · konzole · Windows</div></div>
+            <div class="srow-right">
+              <span class="players" data-players>· · ·</span>
+              <div class="ping"><i style="height:5px"></i><i style="height:9px"></i><i style="height:13px"></i><i style="height:16px"></i></div>
+      </div>
+          </div>
         </div>
-      </div>
-      <div class="detail is-open" data-detail="mp" data-key="java">
-        <span class="kicker" data-i18n="mp.java.kicker">JAVA EDITION</span>
-        <button type="button" class="addr" data-ip="mc.tapkacraft.cz">mc.tapkacraft.cz</button>
-        <ol>
-          <li data-i18n="mp.java.li1">Otevři Minecraft a klikni na Multiplayer</li>
-          <li data-i18n="mp.java.li2">Add Server → zadej libovolný název</li>
-          <li data-i18n="mp.java.li3">Jako adresu napiš mc.tapkacraft.cz</li>
-        </ol>
-      </div>
-
-      <div class="srow" data-select="mp" data-key="bedrock">
-        <div class="icn"><img src="assets/img/apple-touch-icon.png" alt="" width="42" height="42"></div>
-        <div><div class="name" data-i18n="mp.bedrock.name">TapkaCraft Bedrock Edition</div><div class="sub" data-i18n="mp.bedrock.sub">mobil · konzole · Windows</div></div>
-        <div class="srow-right">
-          <span class="players" data-players>· · ·</span>
-          <div class="ping"><i style="height:5px"></i><i style="height:9px"></i><i style="height:13px"></i><i style="height:16px"></i></div>
+        <div class="cdx-pane">
+                <div class="detail is-open" data-detail="mp" data-key="java">
+            <span class="kicker" data-i18n="mp.java.kicker">JAVA EDITION</span>
+            <button type="button" class="addr" data-ip="mc.tapkacraft.cz">mc.tapkacraft.cz</button>
+            <ol>
+              <li data-i18n="mp.java.li1">Otevři Minecraft a klikni na Multiplayer</li>
+              <li data-i18n="mp.java.li2">Add Server → zadej libovolný název</li>
+              <li data-i18n="mp.java.li3">Jako adresu napiš mc.tapkacraft.cz</li>
+            </ol>
+          </div>
+                <div class="detail" data-detail="mp" data-key="bedrock">
+            <span class="kicker" data-i18n="mp.bedrock.kicker">BEDROCK EDITION</span>
+            <button type="button" class="addr" data-ip="mc.tapkacraft.cz:56642">mc.tapkacraft.cz : 56642</button>
+            <ol>
+              <li data-i18n="mp.bedrock.li1">Záložka Servery → Přidat server</li>
+              <li data-i18n="mp.bedrock.li2">Adresa: mc.tapkacraft.cz</li>
+              <li data-i18n="mp.bedrock.li3">Port: 56642</li>
+            </ol>
+          </div>
         </div>
-      </div>
-      <div class="detail" data-detail="mp" data-key="bedrock">
-        <span class="kicker" data-i18n="mp.bedrock.kicker">BEDROCK EDITION</span>
-        <button type="button" class="addr" data-ip="mc.tapkacraft.cz:56642">mc.tapkacraft.cz : 56642</button>
-        <ol>
-          <li data-i18n="mp.bedrock.li1">Záložka Servery → Přidat server</li>
-          <li data-i18n="mp.bedrock.li2">Adresa: mc.tapkacraft.cz</li>
-          <li data-i18n="mp.bedrock.li3">Port: 56642</li>
-        </ol>
       </div>
     </div>
   </section>
@@ -152,78 +157,86 @@
   <!-- ===================== SINGLEPLAYER (Náš tým) ===================== -->
   <section class="mc-screen" data-screen="team">
     <div class="mp-panel">
-      <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
+            <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
       <h2 class="mp-title" data-i18n="team.title">Admin tým</h2>
       <p class="mp-lead" data-i18n="team.lead">Lidé, kteří drží TapkaCraft nad vodou.</p>
 
-      <div class="wrow is-selected" data-select="team" data-key="owner">
-        <img src="assets/img/avatar-tapkacs.png" alt="">
-        <div><div class="name">TapkaCS</div><div class="sub" data-i18n="team.owner.role">Majitel</div></div>
-      </div>
-      <div class="detail is-open" data-detail="team" data-key="owner">
-        <p data-i18n="team.owner.desc">Zakladatel a hlavní správce serveru.</p>
-      </div>
-
-      <div class="wrow" data-select="team" data-key="headadmin">
-        <img src="assets/img/avatar-kajka000.png" alt="">
-        <div><div class="name">kajka000</div><div class="sub" data-i18n="team.headadmin.role">Hlavní admin</div></div>
-      </div>
-      <div class="detail" data-detail="team" data-key="headadmin">
-        <p data-i18n="team.headadmin.desc">Stará se o chod a pořádek na serveru.</p>
-      </div>
-
-      <div class="wrow" data-select="team" data-key="admin">
-        <img src="assets/img/avatar-tom_in_prime.png" alt="">
-        <div><div class="name">Tom_in_prime__</div><div class="sub"><span data-i18n="team.admin.role">Admin</span> <span class="trial" data-i18n="team.trial">na zkoušku</span></div></div>
-      </div>
-      <div class="detail" data-detail="team" data-key="admin">
-        <p data-i18n="team.admin.desc">Pomáhá s chodem serveru, řeší hlášení a dohlíží na moderátory.</p>
-      </div>
-
-      <div class="wrow" data-select="team" data-key="designer">
-        <img src="assets/img/avatar-empty.png" alt="">
-        <div><div class="name">AchiCZ</div><div class="sub" data-i18n="team.designer.role">RPG &amp; Game Designer</div></div>
-      </div>
-      <div class="detail" data-detail="team" data-key="designer">
-        <p data-i18n="team.designer.desc">Dává TapkaCraftu jeho RPG duši. Vytváří itemy, Relic, sety, runy, moby, bossy a jejich schopnosti. Z obyčejného survivalu staví svět plný tajemství a unikátního lootu.</p>
-        <p class="aside" data-i18n="team.designer.aside">(Bugy hledat nemusí. Bug si najde jeho.)</p>
-      </div>
-
-      <div class="wrow is-empty" data-select="team" data-key="dev">
-        <img src="assets/img/avatar-empty.png" alt="">
-        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.dev.role">Developer</div></div>
-      </div>
-      <div class="detail" data-detail="team" data-key="dev">
-        <p data-i18n="team.dev.desc">Programuje a ladí náš vlastní plugin. Hodí se ti Java a chuť se učit.</p>
-      </div>
-
-      <div class="wrow is-empty" data-select="team" data-key="helper">
-        <img src="assets/img/avatar-empty.png" alt="">
-        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.helper.role">Helper</div></div>
-      </div>
-      <div class="detail" data-detail="team" data-key="helper">
-        <p data-i18n="team.helper.desc">Vítá nové hráče a odpovídá na dotazy ve hře i na Discordu.</p>
-      </div>
-
-      <div class="wrow is-empty" data-select="team" data-key="mod1">
-        <img src="assets/img/avatar-empty.png" alt="">
-        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.mod.role">Moderátor</div></div>
-      </div>
-      <div class="detail" data-detail="team" data-key="mod1">
-        <p data-i18n="team.mod.desc">Hlídá chat, řeší hlášení a spory mezi hráči.</p>
-      </div>
-
-      <div class="wrow is-empty" data-select="team" data-key="mod2">
-        <img src="assets/img/avatar-empty.png" alt="">
-        <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.mod.role">Moderátor</div></div>
-      </div>
-      <div class="detail" data-detail="team" data-key="mod2">
-        <p data-i18n="team.mod.desc">Hlídá chat, řeší hlášení a spory mezi hráči.</p>
+      <div class="cdx">
+        <div class="cdx-idx">
+                <div class="wrow is-selected" data-select="team" data-key="owner">
+            <img src="assets/img/avatar-tapkacs.png" alt="">
+            <div><div class="name">TapkaCS</div><div class="sub" data-i18n="team.owner.role">Majitel</div></div>
+          </div>
+                <div class="wrow" data-select="team" data-key="headadmin">
+            <img src="assets/img/avatar-kajka000.png" alt="">
+            <div><div class="name">kajka000</div><div class="sub" data-i18n="team.headadmin.role">Hlavní admin</div></div>
+          </div>
+                <div class="wrow" data-select="team" data-key="admin">
+            <img src="assets/img/avatar-tom_in_prime.png" alt="">
+            <div><div class="name">Tom_in_prime__</div><div class="sub"><span data-i18n="team.admin.role">Admin</span> <span class="trial" data-i18n="team.trial">na zkoušku</span></div></div>
+          </div>
+                <div class="wrow" data-select="team" data-key="designer">
+            <img src="assets/img/avatar-empty.png" alt="">
+            <div><div class="name">AchiCZ</div><div class="sub" data-i18n="team.designer.role">RPG &amp; Game Designer</div></div>
+          </div>
+                <div class="wrow is-empty" data-select="team" data-key="dev">
+            <img src="assets/img/avatar-empty.png" alt="">
+            <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.dev.role">Developer</div></div>
+          </div>
+                <div class="wrow is-empty" data-select="team" data-key="helper">
+            <img src="assets/img/avatar-empty.png" alt="">
+            <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.helper.role">Helper</div></div>
+          </div>
+                <div class="wrow is-empty" data-select="team" data-key="mod1">
+            <img src="assets/img/avatar-empty.png" alt="">
+            <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.mod.role">Moderátor</div></div>
+          </div>
+                <div class="wrow is-empty" data-select="team" data-key="mod2">
+            <img src="assets/img/avatar-empty.png" alt="">
+            <div><div class="name" data-i18n="team.empty.name">Volná pozice</div><div class="sub" data-i18n="team.mod.role">Moderátor</div></div>
+          </div>
+        </div>
+        <div class="cdx-pane">
+                <div class="detail is-open" data-detail="team" data-key="owner">
+          <b>TapkaCS</b>
+          <p data-i18n="team.owner.desc">Zakladatel a hlavní správce serveru.</p>
+          </div>
+                <div class="detail" data-detail="team" data-key="headadmin">
+          <b>kajka000</b>
+          <p data-i18n="team.headadmin.desc">Stará se o chod a pořádek na serveru.</p>
+          </div>
+                <div class="detail" data-detail="team" data-key="admin">
+          <b>Tom_in_prime__</b>
+          <p data-i18n="team.admin.desc">Pomáhá s chodem serveru, řeší hlášení a dohlíží na moderátory.</p>
+          </div>
+                <div class="detail" data-detail="team" data-key="designer">
+          <b>AchiCZ</b>
+          <p data-i18n="team.designer.desc">Dává TapkaCraftu jeho RPG duši. Vytváří itemy, Relic, sety, runy, moby, bossy a jejich schopnosti. Z obyčejného survivalu staví svět plný tajemství a unikátního lootu.</p>
+            <p class="aside" data-i18n="team.designer.aside">(Bugy hledat nemusí. Bug si najde jeho.)</p>
+          </div>
+                <div class="detail" data-detail="team" data-key="dev">
+          <b>Volná pozice</b>
+          <p data-i18n="team.dev.desc">Programuje a ladí náš vlastní plugin. Hodí se ti Java a chuť se učit.</p>
+          </div>
+                <div class="detail" data-detail="team" data-key="helper">
+          <b>Volná pozice</b>
+          <p data-i18n="team.helper.desc">Vítá nové hráče a odpovídá na dotazy ve hře i na Discordu.</p>
+          </div>
+                <div class="detail" data-detail="team" data-key="mod1">
+          <b>Volná pozice</b>
+          <p data-i18n="team.mod.desc">Hlídá chat, řeší hlášení a spory mezi hráči.</p>
+          </div>
+                <div class="detail" data-detail="team" data-key="mod2">
+          <b>Volná pozice</b>
+          <p data-i18n="team.mod.desc">Hlídá chat, řeší hlášení a spory mezi hráči.</p>
+          </div>
+        </div>
       </div>
 
       <div class="panel-cta">
         <a href="https://forms.gle/BXt4UdtvaejTZ94a6" target="_blank" rel="noopener" class="mbtn bevel3d">📝 <span data-i18n="team.join.cta">Přihlásit se do týmu</span></a>
       </div>
+
       <p class="panel-note" data-i18n="team.join.note">Máš zájem o některou z volných pozic? Vyplň formulář výš a napiš nám, o kterou stojíš a proč zrovna ty. <b>Podmínkou je minimální věk 16 let.</b></p>
     </div>
   </section>
@@ -235,20 +248,23 @@
       <h2 class="mp-title" data-i18n="support.title">Možnosti podpory</h2>
       <p class="mp-lead" data-i18n="support.lead">Dobrovolné, hraní zůstává zdarma pro všechny.</p>
 
-      <div class="optgrid">
+      <div class="cdx">
+        <div class="cdx-idx">
+          <div class="optgrid">
         <div class="opt is-selected" data-select="tier" data-key="1"><span class="opt-name" data-i18n="tier.1.name">Podporovatel</span><span class="opt-val">99 Kč</span></div>
         <div class="opt" data-select="tier" data-key="2"><span class="opt-name" data-i18n="tier.2.name">Donátor</span><span class="opt-val">249 Kč</span></div>
         <div class="opt" data-select="tier" data-key="3"><span class="opt-name" data-i18n="tier.3.name">Legenda</span><span class="opt-val">499 Kč</span></div>
       </div>
-
-      <div class="detail is-open" data-detail="tier" data-key="1">
+        </div>
+        <div class="cdx-pane">
+          <div class="detail is-open" data-detail="tier" data-key="1">
         <span class="kicker" data-i18n="tier.1.kicker">PODPOROVATEL · 99 KČ</span>
         <ul>
           <li data-i18n="tier.1.li1">Speciální role na Discordu</li>
           <li data-i18n="tier.1.li2">Jméno v seznamu podporovatelů</li>
         </ul>
       </div>
-      <div class="detail" data-detail="tier" data-key="2">
+          <div class="detail" data-detail="tier" data-key="2">
         <span class="kicker" data-i18n="tier.2.kicker">DONÁTOR · 249 KČ</span>
         <ul>
           <li data-i18n="tier.2.li1">Vše z Podporovatele</li>
@@ -256,13 +272,15 @@
           <li data-i18n="tier.2.li3">1000 herní měny + 1 home slot navíc</li>
         </ul>
       </div>
-      <div class="detail" data-detail="tier" data-key="3">
+          <div class="detail" data-detail="tier" data-key="3">
         <span class="kicker" data-i18n="tier.3.kicker">LEGENDA · 499 KČ</span>
         <ul>
           <li data-i18n="tier.3.li1">Vše z Donátora</li>
           <li data-i18n="tier.3.li2">3000 herní měny + 3 home sloty navíc</li>
           <li data-i18n="tier.3.li3">Přednostní podpora od A-teamu</li>
         </ul>
+      </div>
+        </div>
       </div>
 
       <div class="panel-cta">
@@ -306,118 +324,117 @@
   <!-- ===================== PRAVIDLA ===================== -->
   <section class="mc-screen" data-screen="start">
     <div class="mp-panel">
-      <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
+            <button type="button" class="back" data-back data-i18n="menu.back">← Zpět</button>
       <h2 class="mp-title" data-i18n="start.title">Jak začít</h2>
       <p class="mp-lead" data-i18n="start.lead">Prvních pár minut na serveru.</p>
 
-      <div class="srow is-selected" data-select="start" data-key="first">
-        <div class="icn">🚀</div>
-        <div><div class="name" data-i18n="start.first.name">První kroky</div><div class="sub" data-i18n="start.first.sub">Co dělat hned po připojení</div></div>
-      </div>
-      <div class="detail is-open" data-detail="start" data-key="first">
-        <span class="kicker" data-i18n="start.first.kicker">PRVNÍ KROKY</span>
-        <ol>
-          <li data-i18n="start.first.li1">Připoj se a rozhlédni se po spawnu.</li>
-          <li data-i18n="start.first.li2">Jdi kopat, kácet nebo rybařit. Joby máš zapnuté od začátku a platí se ti hned.</li>
-          <li data-i18n="start.first.li3">Nastav si domov přes /sethome, ať se máš kam vracet.</li>
-          <li data-i18n="start.first.li4">V /shop nakoupíš základ, přes /sell a /sellhand prodáš, co nasbíráš.</li>
-          <li data-i18n="start.first.li5">Zaskoč na /city za hráčskými obchody.</li>
-        </ol>
-      </div>
-
-      <div class="srow" data-select="start" data-key="jobs">
-        <div class="icn">💼</div>
-        <div><div class="name" data-i18n="start.jobs.name">Joby</div><div class="sub" data-i18n="start.jobs.sub">Vydělávej tím, co stejně děláš</div></div>
-      </div>
-      <div class="detail" data-detail="start" data-key="jobs">
-        <span class="kicker" data-i18n="start.jobs.kicker">JOBY</span>
-        <ul>
-          <li data-i18n="start.jobs.li1">Nikam se nehlásíš, všechny joby máš od začátku.</li>
-          <li data-i18n="start.jobs.li2">Platí se ti za práci: těžení, kácení, zabíjení mobů, rybaření a další.</li>
-          <li data-i18n="start.jobs.li3">Každá kategorie má vlastní level a každý blok svou cenu.</li>
-          <li data-i18n="start.jobs.li4">Čím víc kategorii děláš, tím vyšší level, a tím víc peněz za stejnou práci.</li>
-          <li data-i18n="start.jobs.li5">/jobs ukáže tvoje levely i žebříček nejlepších hráčů.</li>
-        </ul>
-      </div>
-
-      <div class="srow" data-select="start" data-key="shop">
-        <div class="icn">🏪</div>
-        <div><div class="name" data-i18n="start.shop.name">Shop a prodej</div><div class="sub" data-i18n="start.shop.sub">Nákup od serveru za pevnou cenu</div></div>
-      </div>
-      <div class="detail" data-detail="start" data-key="shop">
-        <span class="kicker" data-i18n="start.shop.kicker">SHOP A PRODEJ</span>
-        <ul>
-          <li data-i18n="start.shop.li1">/shop otevře serverový obchod: bloky, jídlo, nářadí, enchant knížky a další.</li>
-          <li data-i18n="start.shop.li2">Nářadí a zbroj ze shopu má vždycky raritu Common.</li>
-          <li data-i18n="start.shop.li3">Prodávat jde přes /sell a /sellhand, kterým prodáš to, co zrovna držíš.</li>
-        </ul>
-      </div>
-
-      <div class="srow" data-select="start" data-key="auction">
-        <div class="icn">💰</div>
-        <div><div class="name" data-i18n="start.auction.name">Aukce</div><div class="sub" data-i18n="start.auction.sub">Prodej ostatním hráčům, ne serveru</div></div>
-      </div>
-      <div class="detail" data-detail="start" data-key="auction">
-        <span class="kicker" data-i18n="start.auction.kicker">AUKCE</span>
-        <ul>
-          <li data-i18n="start.auction.li1">Hráčský systém: kupuješ a prodáváš mezi hráči.</li>
-          <li data-i18n="start.auction.li2">Hodí se na věci, které shop nevykoupí, třeba legendary netherite krumpáč.</li>
-          <li data-i18n="start.auction.li3">Cenu si určuješ sám.</li>
-        </ul>
-      </div>
-
-      <div class="srow" data-select="start" data-key="pets">
-        <div class="icn">🐺</div>
-        <div><div class="name" data-i18n="start.pets.name">Pets</div><div class="sub" data-i18n="start.pets.sub">Vlastní zvíře se jménem i efekty</div></div>
-      </div>
-      <div class="detail" data-detail="start" data-key="pets">
-        <span class="kicker" data-i18n="start.pets.kicker">PETS</span>
-        <ul>
-          <li data-i18n="start.pets.li1">Rozmnož zvíře a na mládě klikni se shiftem a pravým tlačítkem. Dostaneš jeho vajíčko.</li>
-          <li data-i18n="start.pets.li2">Vajíčko použij a zvíře se ti objeví v /pets.</li>
-          <li data-i18n="start.pets.li3">Venku můžeš mít jedno zvíře. V /pets mu nastavíš jméno, barvu, dospělou nebo mladou verzi i efekty.</li>
-          <li data-i18n="start.pets.li4">Vajíčka, která nepoužiješ, prodáš v aukci nebo přes villager shop.</li>
-        </ul>
-      </div>
-
-      <div class="srow" data-select="start" data-key="home">
-        <div class="icn">🏠</div>
-        <div><div class="name" data-i18n="start.home.name">Domov a teleporty</div><div class="sub" data-i18n="start.home.sub">Ať se máš kam vracet</div></div>
-      </div>
-      <div class="detail" data-detail="start" data-key="home">
-        <span class="kicker" data-i18n="start.home.kicker">DOMOV A TELEPORTY</span>
-        <ul>
-          <li data-i18n="start.home.li1">/sethome nastaví domov, mít jich můžeš dva.</li>
-          <li data-i18n="start.home.li2">/home tě k němu teleportuje.</li>
-          <li data-i18n="start.home.li3">/spawn tě vrátí na spawn.</li>
-          <li data-i18n="start.home.li4">/city tě hodí do bezpečného města s hráčskými obchody.</li>
-          <li data-i18n="start.home.li5">/tpa nick pošle žádost o teleport k jinému hráči.</li>
-        </ul>
-      </div>
-
-      <div class="srow" data-select="start" data-key="money">
-        <div class="icn">🪙</div>
-        <div><div class="name" data-i18n="start.money.name">Peníze</div><div class="sub" data-i18n="start.money.sub">Zůstatek, placení, žebříček</div></div>
-      </div>
-      <div class="detail" data-detail="start" data-key="money">
-        <span class="kicker" data-i18n="start.money.kicker">PENÍZE</span>
-        <ul>
-          <li data-i18n="start.money.li1">/balance ukáže tvůj zůstatek.</li>
-          <li data-i18n="start.money.li2">/pay pošle peníze přímo jinému hráči.</li>
-          <li data-i18n="start.money.li3">/balancetop je žebříček nejbohatších.</li>
-        </ul>
-      </div>
-
-      <div class="srow" data-select="start" data-key="help">
-        <div class="icn">🆘</div>
-        <div><div class="name" data-i18n="start.help.name">Něco se stalo</div><div class="sub" data-i18n="start.help.sub">Griefing, podvádění, rozbitá věc</div></div>
-      </div>
-      <div class="detail" data-detail="start" data-key="help">
-        <span class="kicker" data-i18n="start.help.kicker">NĚCO SE STALO</span>
-        <ul>
-          <li data-i18n="start.help.li1">Napiš /helpop a ozve se ti někdo z týmu.</li>
-          <li data-i18n="start.help.li2">Stejně dobře to funguje přes Discord.</li>
-        </ul>
+      <div class="cdx">
+        <div class="cdx-idx">
+                <div class="srow is-selected" data-select="start" data-key="first">
+            <div class="icn">🚀</div>
+            <div><div class="name" data-i18n="start.first.name">První kroky</div><div class="sub" data-i18n="start.first.sub">Co dělat hned po připojení</div></div>
+          </div>
+                <div class="srow" data-select="start" data-key="jobs">
+            <div class="icn">💼</div>
+            <div><div class="name" data-i18n="start.jobs.name">Joby</div><div class="sub" data-i18n="start.jobs.sub">Vydělávej tím, co stejně děláš</div></div>
+          </div>
+                <div class="srow" data-select="start" data-key="shop">
+            <div class="icn">🏪</div>
+            <div><div class="name" data-i18n="start.shop.name">Shop a prodej</div><div class="sub" data-i18n="start.shop.sub">Nákup od serveru za pevnou cenu</div></div>
+          </div>
+                <div class="srow" data-select="start" data-key="auction">
+            <div class="icn">💰</div>
+            <div><div class="name" data-i18n="start.auction.name">Aukce</div><div class="sub" data-i18n="start.auction.sub">Prodej ostatním hráčům, ne serveru</div></div>
+          </div>
+                <div class="srow" data-select="start" data-key="pets">
+            <div class="icn">🐺</div>
+            <div><div class="name" data-i18n="start.pets.name">Pets</div><div class="sub" data-i18n="start.pets.sub">Vlastní zvíře se jménem i efekty</div></div>
+          </div>
+                <div class="srow" data-select="start" data-key="home">
+            <div class="icn">🏠</div>
+            <div><div class="name" data-i18n="start.home.name">Domov a teleporty</div><div class="sub" data-i18n="start.home.sub">Ať se máš kam vracet</div></div>
+          </div>
+                <div class="srow" data-select="start" data-key="money">
+            <div class="icn">🪙</div>
+            <div><div class="name" data-i18n="start.money.name">Peníze</div><div class="sub" data-i18n="start.money.sub">Zůstatek, placení, žebříček</div></div>
+          </div>
+                <div class="srow" data-select="start" data-key="help">
+            <div class="icn">🆘</div>
+            <div><div class="name" data-i18n="start.help.name">Něco se stalo</div><div class="sub" data-i18n="start.help.sub">Griefing, podvádění, rozbitá věc</div></div>
+          </div>
+        </div>
+        <div class="cdx-pane">
+                <div class="detail is-open" data-detail="start" data-key="first">
+            <span class="kicker" data-i18n="start.first.kicker">PRVNÍ KROKY</span>
+            <ol>
+              <li data-i18n="start.first.li1">Připoj se a rozhlédni se po spawnu.</li>
+              <li data-i18n="start.first.li2">Jdi kopat, kácet nebo rybařit. Joby máš zapnuté od začátku a platí se ti hned.</li>
+              <li data-i18n="start.first.li3">Nastav si domov přes /sethome, ať se máš kam vracet.</li>
+              <li data-i18n="start.first.li4">V /shop nakoupíš základ, přes /sell a /sellhand prodáš, co nasbíráš.</li>
+              <li data-i18n="start.first.li5">Zaskoč na /city za hráčskými obchody.</li>
+            </ol>
+          </div>
+                <div class="detail" data-detail="start" data-key="jobs">
+            <span class="kicker" data-i18n="start.jobs.kicker">JOBY</span>
+            <ul>
+              <li data-i18n="start.jobs.li1">Nikam se nehlásíš, všechny joby máš od začátku.</li>
+              <li data-i18n="start.jobs.li2">Platí se ti za práci: těžení, kácení, zabíjení mobů, rybaření a další.</li>
+              <li data-i18n="start.jobs.li3">Každá kategorie má vlastní level a každý blok svou cenu.</li>
+              <li data-i18n="start.jobs.li4">Čím víc kategorii děláš, tím vyšší level, a tím víc peněz za stejnou práci.</li>
+              <li data-i18n="start.jobs.li5">/jobs ukáže tvoje levely i žebříček nejlepších hráčů.</li>
+            </ul>
+          </div>
+                <div class="detail" data-detail="start" data-key="shop">
+            <span class="kicker" data-i18n="start.shop.kicker">SHOP A PRODEJ</span>
+            <ul>
+              <li data-i18n="start.shop.li1">/shop otevře serverový obchod: bloky, jídlo, nářadí, enchant knížky a další.</li>
+              <li data-i18n="start.shop.li2">Nářadí a zbroj ze shopu má vždycky raritu Common.</li>
+              <li data-i18n="start.shop.li3">Prodávat jde přes /sell a /sellhand, kterým prodáš to, co zrovna držíš.</li>
+            </ul>
+          </div>
+                <div class="detail" data-detail="start" data-key="auction">
+            <span class="kicker" data-i18n="start.auction.kicker">AUKCE</span>
+            <ul>
+              <li data-i18n="start.auction.li1">Hráčský systém: kupuješ a prodáváš mezi hráči.</li>
+              <li data-i18n="start.auction.li2">Hodí se na věci, které shop nevykoupí, třeba legendary netherite krumpáč.</li>
+              <li data-i18n="start.auction.li3">Cenu si určuješ sám.</li>
+            </ul>
+          </div>
+                <div class="detail" data-detail="start" data-key="pets">
+            <span class="kicker" data-i18n="start.pets.kicker">PETS</span>
+            <ul>
+              <li data-i18n="start.pets.li1">Rozmnož zvíře a na mládě klikni se shiftem a pravým tlačítkem. Dostaneš jeho vajíčko.</li>
+              <li data-i18n="start.pets.li2">Vajíčko použij a zvíře se ti objeví v /pets.</li>
+              <li data-i18n="start.pets.li3">Venku můžeš mít jedno zvíře. V /pets mu nastavíš jméno, barvu, dospělou nebo mladou verzi i efekty.</li>
+              <li data-i18n="start.pets.li4">Vajíčka, která nepoužiješ, prodáš v aukci nebo přes villager shop.</li>
+            </ul>
+          </div>
+                <div class="detail" data-detail="start" data-key="home">
+            <span class="kicker" data-i18n="start.home.kicker">DOMOV A TELEPORTY</span>
+            <ul>
+              <li data-i18n="start.home.li1">/sethome nastaví domov, mít jich můžeš dva.</li>
+              <li data-i18n="start.home.li2">/home tě k němu teleportuje.</li>
+              <li data-i18n="start.home.li3">/spawn tě vrátí na spawn.</li>
+              <li data-i18n="start.home.li4">/city tě hodí do bezpečného města s hráčskými obchody.</li>
+              <li data-i18n="start.home.li5">/tpa nick pošle žádost o teleport k jinému hráči.</li>
+            </ul>
+          </div>
+                <div class="detail" data-detail="start" data-key="money">
+            <span class="kicker" data-i18n="start.money.kicker">PENÍZE</span>
+            <ul>
+              <li data-i18n="start.money.li1">/balance ukáže tvůj zůstatek.</li>
+              <li data-i18n="start.money.li2">/pay pošle peníze přímo jinému hráči.</li>
+              <li data-i18n="start.money.li3">/balancetop je žebříček nejbohatších.</li>
+            </ul>
+          </div>
+                <div class="detail" data-detail="start" data-key="help">
+            <span class="kicker" data-i18n="start.help.kicker">NĚCO SE STALO</span>
+            <ul>
+              <li data-i18n="start.help.li1">Napiš /helpop a ozve se ti někdo z týmu.</li>
+              <li data-i18n="start.help.li2">Stejně dobře to funguje přes Discord.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -478,8 +495,10 @@
       <!-- Tiles and panels are built by script.js from data/novinky.json, so
            adding a news item means editing that file on github.com, with no
            HTML or dictionary to touch. -->
-      <div class="tilegrid" id="novTiles"></div>
-      <div id="novDetails"></div>
+      <div class="cdx">
+        <div class="cdx-idx"><div class="tilegrid" id="novTiles"></div></div>
+        <div class="cdx-pane" id="novDetails"></div>
+      </div>
       <p class="panel-note" id="novError" hidden>Novinky se teď nepodařilo načíst. Zkus to prosím za chvíli.</p>
 
     </div>
@@ -492,36 +511,43 @@
       <h2 class="mp-title" data-i18n="features.title">Co u nás najdeš</h2>
       <p class="mp-lead" data-i18n="features.lead">Vlastní systémy, jeden server.</p>
 
-      <div class="plainlist">
-        <div class="srow"><div class="icn">🏠</div><div><div class="name" data-i18n="feat.1.name">Pozemky</div><div class="sub" data-i18n="feat.1.desc">Chráněná parcela u spawnu, stavět v ní může jen ten, kdo ji koupil.</div></div></div>
-        <div class="srow"><div class="icn">🛠️</div><div><div class="name" data-i18n="feat.2.name">Joby</div><div class="sub" data-i18n="feat.2.desc">5 povolání najednou, bez přihlašování a cooldownů.</div></div></div>
-        <div class="srow"><div class="icn">🏪</div><div><div class="name" data-i18n="feat.3.name">Shop</div><div class="sub" data-i18n="feat.3.desc">Nakupuj v přehledném server shopu.</div></div></div>
-        <div class="srow"><div class="icn">💰</div><div><div class="name" data-i18n="feat.4.name">Aukce</div><div class="sub" data-i18n="feat.4.desc">Vystav item a nastav si vlastní cenu.</div></div></div>
-        <div class="srow"><div class="icn">🐺</div><div><div class="name" data-i18n="feat.5.name">Pets</div><div class="sub" data-i18n="feat.5.desc">Vlastní zvíře se jménem, barvou i efekty.</div></div></div>
-        <div class="srow"><div class="icn">💠</div><div><div class="name" data-i18n="feat.6.name">Rarity</div><div class="sub" data-i18n="feat.6.desc">Common až Legendary vybavení i mobové.</div></div></div>
-        <div class="srow"><div class="icn">👥</div><div><div class="name" data-i18n="feat.7.name">Teamy</div><div class="sub" data-i18n="feat.7.desc">Sdílený home i chat s partou, ochrana v PvP.</div></div></div>
-        <div class="srow"><div class="icn">🎙️</div><div><div class="name" data-i18n="feat.8.name">Hlasový chat</div><div class="sub" data-i18n="feat.8.desc">Mluv s hráči v okolí přímo ve hře. Potřebuješ k tomu mod Simple Voice Chat.</div></div></div>
-      </div>
-
-      <h3 class="grouphead" data-i18n="events.title">Události</h3>
-      <p class="groupnote" data-i18n="events.lead">Spouští se samy a bez varování. Sleduj chat, ať ti neutečou.</p>
-
-      <div class="eventlist">
-        <div class="srow is-selected" data-select="event" data-key="doubledrop"><div class="icn">⏳</div><div><div class="name" data-i18n="ev.1.name">Double drop hour</div><div class="sub" data-i18n="ev.1.sub">Hodina, kdy z mobů padá dvakrát víc věcí.</div></div></div>
-        <div class="detail is-open" data-detail="event" data-key="doubledrop"><p data-i18n="ev.1.desc">V náhodný čas se na hodinu zapne double drop. Po celou tu dobu z mobů padá dvakrát víc věcí, takže se vyplatí být zrovna venku a mlátit do všeho, co se hýbe.</p></div>
-        <div class="srow" data-select="event" data-key="bloodmoon"><div class="icn">🌕</div><div><div class="name" data-i18n="ev.2.name">Bloodmoon</div><div class="sub" data-i18n="ev.2.sub">Deset procent šance, že se z noci stane peklo.</div></div></div>
-        <div class="detail" data-detail="event" data-key="bloodmoon"><p data-i18n="ev.2.desc">V náhodných intervalech je 10% šance, že se spustí bloodmoon. Mobové pak dávají 1,5× víc damage a spawnují se jenom high tier, od rare po mythic. Během bloodmoonu se navíc nedá spát, takže ho musíš přečkat.</p></div>
-        <div class="srow" data-select="event" data-key="blackmarket"><div class="icn">💼</div><div><div class="name" data-i18n="ev.3.name">Víkendový blackmarket</div><div class="sub" data-i18n="ev.3.sub">Dostavník s pašeráckým villagerem, jen na víkend.</div></div></div>
-        <div class="detail" data-detail="event" data-key="blackmarket"><p data-i18n="ev.3.desc">Každý pátek se někde ve světě spawne dostavník s blackmarket villagerem. Prodává a vykupuje high tier věci, netherite a podobně. Souřadnice vždycky najdeš v chatu. V pondělí o půlnoci dostavník i s villagerem mizí.</p></div>
-        <div class="srow" data-select="event" data-key="treasure"><div class="icn">🗺️</div><div><div class="name" data-i18n="ev.4.name">Treasure</div><div class="sub" data-i18n="ev.4.sub">Poklad na souřadnicích, kdo dřív přijde, ten bere.</div></div></div>
-        <div class="detail" data-detail="event" data-key="treasure"><p data-i18n="ev.4.desc">Náhodně se ve světě objeví poklad s itemy a penězi. Souřadnice se jednou ukážou v chatu a pak už jde jen o rychlost, protože poklad patří tomu, kdo dorazí první. Na místě vydrží maximálně 15 minut.</p></div>
+      <div class="cdx">
+        <div class="cdx-idx">
+          <div class="srow is-selected" data-select="feat" data-key="f1"><div class="icn">🏠</div><div class="name" data-i18n="feat.1.name">Pozemky</div></div>
+          <div class="srow" data-select="feat" data-key="f2"><div class="icn">🛠️</div><div class="name" data-i18n="feat.2.name">Joby</div></div>
+          <div class="srow" data-select="feat" data-key="f3"><div class="icn">🏪</div><div class="name" data-i18n="feat.3.name">Shop</div></div>
+          <div class="srow" data-select="feat" data-key="f4"><div class="icn">💰</div><div class="name" data-i18n="feat.4.name">Aukce</div></div>
+          <div class="srow" data-select="feat" data-key="f5"><div class="icn">🐺</div><div class="name" data-i18n="feat.5.name">Pets</div></div>
+          <div class="srow" data-select="feat" data-key="f6"><div class="icn">💠</div><div class="name" data-i18n="feat.6.name">Rarity</div></div>
+          <div class="srow" data-select="feat" data-key="f7"><div class="icn">👥</div><div class="name" data-i18n="feat.7.name">Teamy</div></div>
+          <div class="srow" data-select="feat" data-key="f8"><div class="icn">🎙️</div><div class="name" data-i18n="feat.8.name">Hlasový chat</div></div>
+          <div class="cdx-sep" data-i18n="events.title">Události</div>
+          <div class="srow" data-select="feat" data-key="doubledrop"><div class="icn">⏳</div><div class="name" data-i18n="ev.1.name">Double drop hour</div></div>
+          <div class="srow" data-select="feat" data-key="bloodmoon"><div class="icn">🌕</div><div class="name" data-i18n="ev.2.name">Bloodmoon</div></div>
+          <div class="srow" data-select="feat" data-key="blackmarket"><div class="icn">💼</div><div class="name" data-i18n="ev.3.name">Víkendový blackmarket</div></div>
+          <div class="srow" data-select="feat" data-key="treasure"><div class="icn">🗺️</div><div class="name" data-i18n="ev.4.name">Treasure</div></div>
+        </div>
+        <div class="cdx-pane">
+          <div class="detail is-open" data-detail="feat" data-key="f1"><b data-i18n="feat.1.name">Pozemky</b><p data-i18n="feat.1.desc">Chráněná parcela u spawnu, stavět v ní může jen ten, kdo ji koupil.</p></div>
+          <div class="detail" data-detail="feat" data-key="f2"><b data-i18n="feat.2.name">Joby</b><p data-i18n="feat.2.desc">5 povolání najednou, bez přihlašování a cooldownů.</p></div>
+          <div class="detail" data-detail="feat" data-key="f3"><b data-i18n="feat.3.name">Shop</b><p data-i18n="feat.3.desc">Nakupuj v přehledném server shopu.</p></div>
+          <div class="detail" data-detail="feat" data-key="f4"><b data-i18n="feat.4.name">Aukce</b><p data-i18n="feat.4.desc">Vystav item a nastav si vlastní cenu.</p></div>
+          <div class="detail" data-detail="feat" data-key="f5"><b data-i18n="feat.5.name">Pets</b><p data-i18n="feat.5.desc">Vlastní zvíře se jménem, barvou i efekty.</p></div>
+          <div class="detail" data-detail="feat" data-key="f6"><b data-i18n="feat.6.name">Rarity</b><p data-i18n="feat.6.desc">Common až Legendary vybavení i mobové.</p></div>
+          <div class="detail" data-detail="feat" data-key="f7"><b data-i18n="feat.7.name">Teamy</b><p data-i18n="feat.7.desc">Sdílený home i chat s partou, ochrana v PvP.</p></div>
+          <div class="detail" data-detail="feat" data-key="f8"><b data-i18n="feat.8.name">Hlasový chat</b><p data-i18n="feat.8.desc">Mluv s hráči v okolí přímo ve hře. Potřebuješ k tomu mod Simple Voice Chat.</p></div>
+          <div class="detail" data-detail="feat" data-key="doubledrop"><b data-i18n="ev.1.name">Double drop hour</b><p data-i18n="ev.1.desc">V náhodný čas se na hodinu zapne double drop. Po celou tu dobu z mobů padá dvakrát víc věcí, takže se vyplatí být zrovna venku a mlátit do všeho, co se hýbe.</p></div>
+          <div class="detail" data-detail="feat" data-key="bloodmoon"><b data-i18n="ev.2.name">Bloodmoon</b><p data-i18n="ev.2.desc">V náhodných intervalech je 10% šance, že se spustí bloodmoon. Mobové pak dávají 1,5× víc damage a spawnují se jenom high tier, od rare po mythic. Během bloodmoonu se navíc nedá spát, takže ho musíš přečkat.</p></div>
+          <div class="detail" data-detail="feat" data-key="blackmarket"><b data-i18n="ev.3.name">Víkendový blackmarket</b><p data-i18n="ev.3.desc">Každý pátek se někde ve světě spawne dostavník s blackmarket villagerem. Prodává a vykupuje high tier věci, netherite a podobně. Souřadnice vždycky najdeš v chatu. V pondělí o půlnoci dostavník i s villagerem mizí.</p></div>
+          <div class="detail" data-detail="feat" data-key="treasure"><b data-i18n="ev.4.name">Treasure</b><p data-i18n="ev.4.desc">Náhodně se ve světě objeví poklad s itemy a penězi. Souřadnice se jednou ukážou v chatu a pak už jde jen o rychlost, protože poklad patří tomu, kdo dorazí první. Na místě vydrží maximálně 15 minut.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<script src="js/i18n.js?v=20260903e"></script>
-<script src="js/script.js?v=20260903e"></script>
+<script src="js/i18n.js?v=20260903g"></script>
+<script src="js/script.js?v=20260903g"></script>
 </body>
 </html>
