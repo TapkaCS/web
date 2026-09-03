@@ -25,7 +25,7 @@
 <meta name="twitter:image" content="https://tapkacraft.cz/assets/img/og-image-v2.jpg">
 
 <!-- ?v= is bumped on every deploy so browsers can't serve a stale cached copy -->
-<link rel="stylesheet" href="css/style.css?v=20260903j">
+<link rel="stylesheet" href="css/style.css?v=20260903k">
 </head>
 <body data-i18n-title="meta.title.home">
 
@@ -210,31 +210,25 @@
       <h2 class="mp-title" data-i18n="support.title">Možnosti podpory</h2>
       <p class="mp-lead" data-i18n="support.lead">Dobrovolné, hraní zůstává zdarma pro všechny.</p>
 
-<div class="opt is-selected" data-select="tier" data-key="1"><span class="opt-name" data-i18n="tier.1.name">Podporovatel</span><span class="opt-val">99 Kč</span></div>
-      <div class="detail is-open" data-detail="tier" data-key="1">
-        <span class="kicker" data-i18n="tier.1.kicker">PODPOROVATEL · 99 KČ</span>
-        <ul>
-          <li data-i18n="tier.1.li1">Speciální role na Discordu</li>
-          <li data-i18n="tier.1.li2">Jméno v seznamu podporovatelů</li>
-        </ul>
-      </div>
-      <div class="opt" data-select="tier" data-key="2"><span class="opt-name" data-i18n="tier.2.name">Donátor</span><span class="opt-val">249 Kč</span></div>
-      <div class="detail" data-detail="tier" data-key="2">
-        <span class="kicker" data-i18n="tier.2.kicker">DONÁTOR · 249 KČ</span>
-        <ul>
-          <li data-i18n="tier.2.li1">Vše z Podporovatele</li>
-          <li data-i18n="tier.2.li2">Prefix a barevné jméno v chatu</li>
-          <li data-i18n="tier.2.li3">1000 herní měny + 1 home slot navíc</li>
-        </ul>
-      </div>
-      <div class="opt" data-select="tier" data-key="3"><span class="opt-name" data-i18n="tier.3.name">Legenda</span><span class="opt-val">499 Kč</span></div>
-      <div class="detail" data-detail="tier" data-key="3">
-        <span class="kicker" data-i18n="tier.3.kicker">LEGENDA · 499 KČ</span>
-        <ul>
-          <li data-i18n="tier.3.li1">Vše z Donátora</li>
-          <li data-i18n="tier.3.li2">3000 herní měny + 3 home sloty navíc</li>
-          <li data-i18n="tier.3.li3">Přednostní podpora od A-teamu</li>
-        </ul>
+      <div class="scroller">
+        <table class="tiertable">
+          <thead>
+            <tr>
+              <th></th>
+              <th><span class="tt-name" data-i18n="tier.1.name">Podporovatel</span><span class="tt-price">99 Kč</span></th>
+              <th class="hot"><span class="tt-name" data-i18n="tier.2.name">Donátor</span><span class="tt-price">249 Kč</span><span class="tt-badge" data-i18n="tier.popular">Nejčastější</span></th>
+              <th><span class="tt-name" data-i18n="tier.3.name">Legenda</span><span class="tt-price">499 Kč</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" data-i18n="tier.1.li1">Speciální role na Discordu</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><th scope="row" data-i18n="tier.1.li2">Jméno v seznamu podporovatelů</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><th scope="row" data-i18n="tier.2.li2">Prefix a barevné jméno v chatu</th><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><th scope="row" data-i18n="tier.row.money">Herní měna</th><td class="n">·</td><td class="v">1 000</td><td class="v">3 000</td></tr>
+            <tr><th scope="row" data-i18n="tier.row.homes">Home sloty navíc</th><td class="n">·</td><td class="v">+1</td><td class="v">+3</td></tr>
+            <tr><th scope="row" data-i18n="tier.3.li3">Přednostní podpora od A-teamu</th><td class="n">·</td><td class="n">·</td><td class="y">✓</td></tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="panel-cta">
@@ -499,7 +493,7 @@
 
 </main>
 
-<script src="js/i18n.js?v=20260903j"></script>
-<script src="js/script.js?v=20260903j"></script>
+<script src="js/i18n.js?v=20260903k"></script>
+<script src="js/script.js?v=20260903k"></script>
 </body>
 </html>

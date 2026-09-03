@@ -31,12 +31,12 @@
 
   // =========================================================
   // Click-to-select rows that reveal a matching detail panel
-  // (Multiplayer edition, Team member, Support tier, Novinky tile,
+  // (Multiplayer edition, Team member, Novinky tile,
   //  Jak zacit step, server Event)
   // =========================================================
   // features merged its systems and its events into one group, so only one
   // detail can be open in that pane at a time
-  const selection = { mp: 'java', team: 'owner', tier: '1', nov: '1', start: 'first', feat: 'f1' };
+  const selection = { mp: 'java', team: 'owner', nov: '1', start: 'first', feat: 'f1' };
 
   function applySelection(group){
     document.querySelectorAll(`[data-select="${group}"]`).forEach((row) => {

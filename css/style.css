@@ -49,10 +49,10 @@ html{scrollbar-color:#1a1b22 var(--bg);}
    double-tapping a 110px news tile blew the page up 3.5x into clipped text.
    Turn the gesture off on things meant to be tapped. Pinch zoom is untouched,
    so anyone who needs to magnify the page still can. */
-button, a, .srow, .wrow, .tile, .opt, .addr{touch-action:manipulation;}
+button, a, .srow, .wrow, .tile, .addr{touch-action:manipulation;}
 
 a:focus-visible, button:focus-visible,
-.srow:focus-visible, .wrow:focus-visible, .opt:focus-visible, .tile:focus-visible{
+.srow:focus-visible, .wrow:focus-visible, .tile:focus-visible{
   outline:2px solid var(--gold); outline-offset:3px; border-radius:4px;
 }
 
@@ -345,6 +345,33 @@ a:focus-visible, button:focus-visible,
 .tabl .r-designer .tag{color:#5b9dff;}
 
 .tablist .detail{background:rgba(0,0,0,.42);border:2px solid #2b2b2b;}
+
+/* ===== tier comparison table =====
+   Rows are rewards, columns are tiers, so the difference between 99 and 499
+   is one glance rather than three lists held in the head. The table scrolls
+   inside its own box: four columns cannot honestly fit a phone, and shrinking
+   the type until they do is worse than a swipe. */
+.scroller{overflow-x:auto;margin-bottom:18px;}
+.tiertable{border-collapse:collapse;width:100%;min-width:520px;font-size:.86rem;}
+.tiertable th, .tiertable td{padding:11px 12px;text-align:center;border-bottom:1px solid #2c2620;}
+.tiertable tbody th[scope="row"]{
+  text-align:left;font-weight:400;color:#c5bbaa;width:44%;
+}
+.tiertable thead th{
+  border-bottom:2px solid #4a3d2a;padding-bottom:14px;vertical-align:bottom;
+}
+.tiertable thead th.hot{background:rgba(70,48,20,.4);}
+.tt-name{display:block;font-family:var(--font-ui);font-size:.9rem;color:#ffe9a8;}
+.tt-price{display:block;font-family:var(--font-ui);font-size:1.15rem;color:#fff;margin-top:4px;}
+.tt-badge{
+  display:block;font-family:var(--font-ui);font-size:.62rem;letter-spacing:.08em;
+  text-transform:uppercase;color:#c9a25a;margin-top:5px;
+}
+.tiertable tbody tr:hover{background:rgba(255,255,255,.035);}
+.tiertable .y{color:#7fd88f;font-size:1.05rem;}
+.tiertable .n{color:#4a423a;}
+.tiertable .v{color:#ffd9a0;font-family:var(--font-ui);font-size:.9rem;}
+.tiertable tbody tr:last-child th, .tiertable tbody tr:last-child td{border-bottom:none;}
 @media (max-width:640px){
   .tabl-grid{grid-template-columns:1fr;}
   .tabl .tag{font-size:.7rem;}
@@ -360,20 +387,20 @@ a:focus-visible, button:focus-visible,
 }
 
 /* index entries: a flat list, the selected one lit and flagged with a rail */
-.cdx-idx .srow, .cdx-idx .wrow, .cdx-idx .opt, .cdx-idx .tile{
+.cdx-idx .srow, .cdx-idx .wrow, .cdx-idx .tile{
   background:none;border:none;box-shadow:none;border-radius:0;
   border-left:3px solid transparent;
   padding:9px 12px;margin:0;gap:10px;justify-content:flex-start;text-align:left;
   flex-direction:row;align-items:center;aspect-ratio:auto;
 }
-.cdx-idx .srow:hover, .cdx-idx .wrow:hover, .cdx-idx .opt:hover, .cdx-idx .tile:hover{
+.cdx-idx .srow:hover, .cdx-idx .wrow:hover, .cdx-idx .tile:hover{
   background:rgba(58,42,22,.5);color:#ffe9a8;
 }
 .cdx-idx .is-selected{
   background:rgba(70,48,20,.7)!important;border-left-color:#c9a25a!important;
   border-color:transparent;box-shadow:none!important;
 }
-.cdx-idx .name, .cdx-idx .tname, .cdx-idx .opt-name{
+.cdx-idx .name, .cdx-idx .tname{
   font-family:var(--font-ui);font-weight:500;font-size:.92rem;letter-spacing:0;text-transform:none;
 }
 .cdx-idx .is-selected .name, .cdx-idx .is-selected .tname{color:#ffe9a8;}
@@ -384,7 +411,7 @@ a:focus-visible, button:focus-visible,
 }
 .cdx-idx img{width:26px;height:26px;}
 /* the tile and option grids collapse to the same single column in here */
-.cdx-idx .tilegrid, .cdx-idx .optgrid{display:flex;flex-direction:column;gap:4px;}
+.cdx-idx .tilegrid{display:flex;flex-direction:column;gap:4px;}
 
 /* the pane carries the reading text, so it gets a comfortable measure */
 .cdx-pane .detail p, .cdx-pane .detail li{text-align:left;}
@@ -419,7 +446,7 @@ a:focus-visible, button:focus-visible,
   padding:12px 16px; margin-bottom:10px;
 }
 .srow:hover, .wrow:hover{background:rgba(48,36,28,.78);}
-.srow.is-selected, .wrow.is-selected, .opt.is-selected, .tile.is-selected{
+.srow.is-selected, .wrow.is-selected, .tile.is-selected{
   border-color:var(--ember); background:rgba(255,122,36,.14);
   box-shadow:inset -2px -3px rgba(0,0,0,.42), inset 2px 2px rgba(255,255,255,.16),
              0 0 14px rgba(255,122,36,.3);
@@ -482,15 +509,6 @@ a:focus-visible, button:focus-visible,
 .detail p.aside{color:var(--muted-2);font-size:.8rem;}
 .detail b{display:block;font-size:.98rem;color:var(--ink);margin-bottom:6px;}
 .detail-photo{width:100%;height:auto;border-radius:2px;border:1px solid var(--line);margin-bottom:14px;display:block;}
-
-/* ===== options grid (support) ===== */
-.optgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px;}
-.opt{cursor:pointer;background:rgba(28,22,18,.72);border:2px solid #000;border-radius:0;
-  box-shadow:inset -2px -3px rgba(0,0,0,.42), inset 2px 2px rgba(255,255,255,.16);
-  padding:16px 10px;text-align:center;display:flex;flex-direction:column;gap:6px;}
-.opt:hover{background:rgba(48,36,28,.78);}
-.opt-name{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.02em;}
-.opt-val{color:var(--gold);font-weight:800;font-size:.92rem;}
 
 /* ===== tile grid (novinky / pokroky) ===== */
 .tilegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px;}
@@ -624,8 +642,6 @@ a.srow.linkrow:hover .go{color:var(--gold);}
   .sbtn{width:40px;height:40px;font-size:1rem;}
   .mp-panel{margin-top:56px;max-height:calc(100vh - 70px);}
   .mp-title{font-size:1.1rem;}
-  .optgrid{grid-template-columns:1fr;}
-  .opt{flex-direction:row;justify-content:space-between;padding:14px 16px;}
   .tilegrid{grid-template-columns:repeat(3,1fr);gap:6px;}
   .tile{padding:12px 4px;}
   .corner-left, .corner-right{font-size:.6rem;}
