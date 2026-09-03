@@ -228,10 +228,10 @@ a:focus-visible, button:focus-visible,
    detail for whatever is selected on the right. Nothing expands in place, so
    picking a different entry never moves the page under the reader. */
 .mp-panel{
-  position:relative; z-index:2; width:880px; max-width:92vw;
+  position:relative; z-index:2; width:600px; max-width:90vw;
   margin-top:72px; max-height:78vh; overflow-y:auto;
   background:rgba(14,11,9,.9); border:2px solid #4a3d2a;
-  padding:24px 26px 28px; text-align:left;
+  padding:24px 26px 28px;
 }
 .mp-panel::before{
   content:""; position:absolute; inset:-2px; pointer-events:none; --f:#c9a25a;
@@ -255,6 +255,7 @@ a:focus-visible, button:focus-visible,
   border-image:linear-gradient(90deg,#c9a25a,rgba(201,162,90,0)) 1;
 }
 
+.mp-panel.cdx-panel{width:880px;max-width:92vw;text-align:left;}
 .cdx{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:start;}
 .cdx-idx{display:flex;flex-direction:column;gap:4px;
   border-right:2px solid #33291c;padding-right:18px;}
