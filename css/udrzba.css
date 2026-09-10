@@ -1,0 +1,146 @@
+/* =========================================================
+   TapkaCraft: maintenance / countdown page
+   Loaded only by udrzba.html. Everything shared with the rest
+   of the site (panorama, panel fittings, buttons) comes from
+   style.css, so this file only holds what the countdown needs.
+   ========================================================= */
+
+.maint{
+  position:relative; z-index:2;
+  min-height:100svh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:26px; padding:40px 20px 32px; text-align:center;
+}
+
+.maint .hero-logo{ width:min(460px,72vw); margin:0 auto; }
+
+/* The shared panel is built for the in-app screens, which hang from the top
+   of the viewport and scroll inside themselves. Here it is the whole page,
+   so it centres and grows with its content instead. */
+.maint .mp-panel{
+  margin-top:0; max-height:none; overflow:visible;
+  width:640px; padding:30px 30px 32px;
+}
+
+.maint-kicker{
+  font-family:var(--font-ui); font-size:.8rem; font-weight:600;
+  letter-spacing:.34em; text-indent:.34em;
+  color:var(--ember); text-shadow:2px 2px 0 #000;
+  margin-bottom:12px;
+}
+.maint-title{
+  font-family:var(--font-ui); font-weight:600;
+  font-size:clamp(1.5rem,4.6vw,2.1rem); line-height:1.2;
+  color:var(--gold); text-shadow:2px 2px 0 #000;
+  margin-bottom:12px;
+}
+.maint-lead{
+  color:var(--muted); font-size:.95rem; line-height:1.6;
+  max-width:46ch; margin:0 auto;
+}
+
+/* ===== countdown ===== */
+.cd{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+  margin:26px 0 16px;
+}
+.cd-box{
+  position:relative;
+  background:rgba(0,0,0,.5); border:2px solid #4a3d2a;
+  padding:14px 4px 11px;
+}
+/* same brass corner fittings the menu buttons and the panel wear */
+.cd-box::before{
+  content:""; position:absolute; inset:-2px; pointer-events:none; --f:#c9a25a;
+  background:
+    linear-gradient(var(--f),var(--f)) left  top   /10px 3px no-repeat,
+    linear-gradient(var(--f),var(--f)) left  top   /3px 10px no-repeat,
+    linear-gradient(var(--f),var(--f)) right top   /10px 3px no-repeat,
+    linear-gradient(var(--f),var(--f)) right top   /3px 10px no-repeat,
+    linear-gradient(var(--f),var(--f)) left  bottom/10px 3px no-repeat,
+    linear-gradient(var(--f),var(--f)) left  bottom/3px 10px no-repeat,
+    linear-gradient(var(--f),var(--f)) right bottom/10px 3px no-repeat,
+    linear-gradient(var(--f),var(--f)) right bottom/3px 10px no-repeat;
+}
+.cd-num{
+  display:block;
+  font-family:var(--font-ui); font-weight:600;
+  font-size:clamp(1.6rem,6vw,2.5rem); line-height:1;
+  color:var(--ink); text-shadow:2px 2px 0 #000;
+  /* Pixelify Sans has no tabular figures, so a ticking seconds column would
+     shuffle the box width every second. Fixed columns hold it still. */
+  font-variant-numeric:tabular-nums;
+}
+.cd-lab{
+  display:block; margin-top:8px;
+  font-family:var(--font-ui); font-size:.62rem; font-weight:600;
+  letter-spacing:.18em; text-indent:.18em;
+  color:var(--muted-2); text-transform:uppercase;
+}
+/* the seconds box is the only one that moves, so it gets the ember tint */
+.cd-box.sec .cd-num{ color:var(--ember); }
+
+.maint-when{
+  font-family:var(--font-ui); font-size:.82rem; font-weight:600;
+  color:var(--gold); text-shadow:2px 2px 0 #000;
+  margin-bottom:22px;
+}
+
+/* ===== links ===== */
+.maint-links{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.maint-links .mbtn{ flex:1 1 150px; font-size:.88rem; padding:14px 12px; --fit-l:10px; }
+
+.maint-ip{
+  margin-top:20px; padding-top:16px; border-top:2px solid #33291c;
+  font-family:var(--font-ui); font-size:.78rem; color:var(--muted-2);
+}
+.maint-ip b{ color:var(--ink); font-weight:600; }
+
+/* ===== language row ===== */
+.maint-langs{
+  position:relative; z-index:2;
+  display:flex; gap:6px; justify-content:center; flex-wrap:wrap;
+}
+.maint-langs button{
+  font-family:var(--font-ui); font-size:.72rem; font-weight:600;
+  letter-spacing:.08em; cursor:pointer;
+  padding:7px 12px; color:var(--muted-2);
+  background:rgba(14,11,9,.72); border:2px solid #33291c;
+  transition:color .16s ease, border-color .16s ease;
+}
+.maint-langs button:hover{ color:var(--ink); border-color:#4a3d2a; }
+.maint-langs button[aria-current="true"]{ color:var(--gold); border-color:#c9a25a; }
+
+/* ===== states ===== */
+/* Both states ship in the markup so the language pass can translate either
+   one; the countdown script picks which is shown. */
+.maint[data-state="live"] .when-waiting{ display:none; }
+.maint[data-state="waiting"] .when-live{ display:none; }
+
+@media (max-width:520px){
+  .maint{ gap:20px; padding:28px 14px 24px; }
+  .maint .mp-panel{ padding:22px 16px 24px; }
+  .cd{ gap:6px; }
+  .cd-box{ padding:11px 2px 9px; }
+  .cd-lab{ font-size:.54rem; letter-spacing:.1em; text-indent:.1em; }
+  .maint-links .mbtn{ flex:1 1 100%; }
+}
+
+/* ===== title-screen corner notes =====
+   Absolute inside .maint, which already establishes a containing block. The
+   extra bottom padding keeps them clear of the language row. */
+.maint{ padding-bottom:56px; }
+.maint .corner-left, .maint .corner-right{ bottom:16px; }
+
+@media (max-width:520px){
+  /* absolute corners would land on top of the language row once the panel
+     grows past the viewport, so below this width they simply sit in flow */
+  .maint{ padding-bottom:24px; }
+  .maint .corner-left, .maint .corner-right{
+    position:static; display:block; text-align:center; max-width:none; margin-top:2px;
+  }
+  .maint .corner-left{ margin-top:14px; }
+}
+
+/* the reopened state has one action instead of a countdown */
+.maint-cta{ margin:26px 0 22px; }

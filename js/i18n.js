@@ -226,7 +226,26 @@ window.I18N = {
     "ev.3.desc": "Každý pátek se někde ve světě spawne dostavník s blackmarket villagerem. Prodává a vykupuje high tier věci, netherite a podobně. Souřadnice vždycky najdeš v chatu. V pondělí o půlnoci dostavník i s villagerem mizí.",
     "ev.4.name": "Treasure",
     "ev.4.sub": "Poklad na souřadnicích, kdo dřív přijde, ten bere.",
-    "ev.4.desc": "Náhodně se ve světě objeví poklad s itemy a penězi. Souřadnice se jednou ukážou v chatu a pak už jde jen o rychlost, protože poklad patří tomu, kdo dorazí první. Na místě vydrží maximálně 15 minut."
+    "ev.4.desc": "Náhodně se ve světě objeví poklad s itemy a penězi. Souřadnice se jednou ukážou v chatu a pak už jde jen o rychlost, protože poklad patří tomu, kdo dorazí první. Na místě vydrží maximálně 15 minut.",
+
+    // maintenance / countdown page (udrzba.html)
+    "meta.title.maint": "TapkaCraft · Údržba",
+    "maint.kicker": "ÚDRŽBA",
+    "maint.title": "Brány jsou zavřené",
+    "maint.lead": "Server i web procházejí údržbou. Stavíme nový svět, nové itemy a nové začátky. Zůstaň s námi na Discordu, tam se to dozvíš první.",
+    "maint.d": "Dní",
+    "maint.h": "Hodin",
+    "maint.m": "Minut",
+    "maint.s": "Sekund",
+    "maint.when": "Otevíráme 1. ledna 2027",
+    "maint.live.kicker": "OTEVŘENO",
+    "maint.live.title": "Brány jsou otevřené!",
+    "maint.live.lead": "Svět čeká. Připoj se a začni psát vlastní příběh.",
+    "maint.live.cta": "Vstoupit na web",
+    "maint.discord": "Discord",
+    "maint.vote": "Hlasovat",
+    "maint.store": "Podpořit",
+    "maint.ip": "IP serveru"
   },
 
   sk: {
@@ -453,7 +472,26 @@ window.I18N = {
     "ev.3.desc": "Každý piatok sa niekde vo svete spawne dostavník s blackmarket villagerom. Predáva a vykupuje high tier veci, netherite a podobne. Súradnice vždy nájdeš v chate. V pondelok o polnoci dostavník aj s villagerom mizne.",
     "ev.4.name": "Treasure",
     "ev.4.sub": "Poklad na súradniciach, kto prv príde, ten berie.",
-    "ev.4.desc": "Náhodne sa vo svete objaví poklad s itemami a peniazmi. Súradnice sa raz ukážu v chate a potom už ide len o rýchlosť, lebo poklad patrí tomu, kto dorazí prvý. Na mieste vydrží maximálne 15 minút."
+    "ev.4.desc": "Náhodne sa vo svete objaví poklad s itemami a peniazmi. Súradnice sa raz ukážu v chate a potom už ide len o rýchlosť, lebo poklad patrí tomu, kto dorazí prvý. Na mieste vydrží maximálne 15 minút.",
+
+    // maintenance / countdown page (udrzba.html)
+    "meta.title.maint": "TapkaCraft · Údržba",
+    "maint.kicker": "ÚDRŽBA",
+    "maint.title": "Brány sú zatvorené",
+    "maint.lead": "Server aj web prechádzajú údržbou. Staviame nový svet, nové itemy a nové začiatky. Zostaň s nami na Discorde, tam sa to dozvieš prvý.",
+    "maint.d": "Dní",
+    "maint.h": "Hodín",
+    "maint.m": "Minút",
+    "maint.s": "Sekúnd",
+    "maint.when": "Otvárame 1. januára 2027",
+    "maint.live.kicker": "OTVORENÉ",
+    "maint.live.title": "Brány sú otvorené!",
+    "maint.live.lead": "Svet čaká. Pripoj sa a začni písať vlastný príbeh.",
+    "maint.live.cta": "Vstúpiť na web",
+    "maint.discord": "Discord",
+    "maint.vote": "Hlasovať",
+    "maint.store": "Podporiť",
+    "maint.ip": "IP servera"
   },
 
   en: {
@@ -680,7 +718,26 @@ window.I18N = {
     "ev.3.desc": "Every Friday a wagon carrying a black market villager spawns somewhere in the world. It buys and sells high tier gear, netherite and the like. The coordinates always show up in chat, and at midnight on Monday the whole thing is gone.",
     "ev.4.name": "Treasure",
     "ev.4.sub": "Coordinates in chat, first one there keeps it.",
-    "ev.4.desc": "A treasure full of items and money drops somewhere in the world at random. Its coordinates are posted in chat once, and from there it is a race, because it belongs to whoever gets there first. It stays for 15 minutes at most."
+    "ev.4.desc": "A treasure full of items and money drops somewhere in the world at random. Its coordinates are posted in chat once, and from there it is a race, because it belongs to whoever gets there first. It stays for 15 minutes at most.",
+
+    // maintenance / countdown page (udrzba.html)
+    "meta.title.maint": "TapkaCraft · Maintenance",
+    "maint.kicker": "MAINTENANCE",
+    "maint.title": "The gates are closed",
+    "maint.lead": "The server and the site are under maintenance. We are building a new world, new items and new beginnings. Stay with us on Discord, that is where you hear it first.",
+    "maint.d": "Days",
+    "maint.h": "Hours",
+    "maint.m": "Minutes",
+    "maint.s": "Seconds",
+    "maint.when": "We open on 1 January 2027",
+    "maint.live.kicker": "OPEN",
+    "maint.live.title": "The gates are open!",
+    "maint.live.lead": "The world is waiting. Join us and start writing your own story.",
+    "maint.live.cta": "Enter the site",
+    "maint.discord": "Discord",
+    "maint.vote": "Vote",
+    "maint.store": "Support",
+    "maint.ip": "Server IP"
   },
 
   // Easter egg, the way Minecraft ships Pirate Speak in its own language
@@ -912,7 +969,26 @@ window.I18N = {
     "ev.3.desc": "Každý pátek někde ve světě zakotví dostavník s pašeráckým villagerem. Kupuje a prodává ty nejlepší kusy, netherite a tak. Souřadnice vždycky visí v chatu. V pondělí o půlnoci zvedne kotvy a je pryč.",
     "ev.4.name": "Poklad",
     "ev.4.sub": "Souřadnice v chatu, kdo dřív přijde, ten bere.",
-    "ev.4.desc": "Náhodně se ve světě zakope poklad plný itemů a dublonů. Souřadnice se jednou mihnou v chatu a pak už jde jen o rychlost, protože poklad patří tomu, kdo dorazí první. V zemi vydrží maximálně 15 minut."
+    "ev.4.desc": "Náhodně se ve světě zakope poklad plný itemů a dublonů. Souřadnice se jednou mihnou v chatu a pak už jde jen o rychlost, protože poklad patří tomu, kdo dorazí první. V zemi vydrží maximálně 15 minut.",
+
+    // maintenance / countdown page (udrzba.html)
+    "meta.title.maint": "TapkaCraft · V suchém doku",
+    "maint.kicker": "V DOKU",
+    "maint.title": "Loď je v suchém doku",
+    "maint.lead": "Opravujeme trup a šijeme nové plachty. Nové moře, nový poklad, nové začátky. Drž se nás na Discordu, tam se to dozvíš první.",
+    "maint.d": "Dní",
+    "maint.h": "Hodin",
+    "maint.m": "Minut",
+    "maint.s": "Vteřin",
+    "maint.when": "Vyplouváme 1. ledna 2027",
+    "maint.live.kicker": "VYPLOUVÁME",
+    "maint.live.title": "Kotvu nahoru!",
+    "maint.live.lead": "Moře čeká. Naloď se a vyraž za pokladem.",
+    "maint.live.cta": "Na palubu",
+    "maint.discord": "Discord",
+    "maint.vote": "Hlasovat pro loď",
+    "maint.store": "Hodit dublon",
+    "maint.ip": "Kurz na loď"
   }
 };
 
